@@ -2,7 +2,8 @@
   "expanded": [
     "architecture/system-overview.md",
     "getting-started/choosing-a-renderer.md",
-    "getting-started/first-chart-csharp.md"
+    "getting-started/first-chart-csharp.md",
+    "getting-started/first-chart-python.md"
   ],
   "failed": [],
   "skipped": []
