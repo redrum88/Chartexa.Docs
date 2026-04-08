@@ -1,7 +1,7 @@
 ---
 title: "Column Series"
 section: "chart-types/2d"
-last_updated: "2026-04-08 12:10 UTC"
+last_updated: "2026-04-08 13:00 UTC"
 status: placeholder
 ---
 
@@ -114,4 +114,4 @@ pip install chartexa
 
 ---
 
-> **Last updated:** 2026-04-08 12:10 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-04-08 13:00 UTC | **Status:** Placeholder -- awaiting AI expansion

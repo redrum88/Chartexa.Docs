@@ -1,8 +1,8 @@
 ---
 title: "Waterfall Series"
 section: "chart-types/2d"
-last_updated: "2024-06-10 15:35 UTC"
-status: draft
+last_updated: "2026-04-08 13:00 UTC"
+status: placeholder
 ---
 
 # Waterfall Series
@@ -422,4 +422,4 @@ Chartexa's waterfall series leverages GPU acceleration via DirectX 12 for render
 
 ---
 
-> **Last updated:** 2024-06-10 15:35 UTC | **Status:** draft
+> **Last updated:** 2026-04-08 13:00 UTC | **Status:** Placeholder -- awaiting AI expansion
