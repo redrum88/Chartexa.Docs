@@ -70,7 +70,7 @@ The band series fills the area between two Y boundaries sharing the same X value
 ## Related
 
 - [Mountain Series](mountain-series.md) -- fill from line to baseline
-- [Fan Series](../chart-types/2d/error-bar-series.md) -- multiple confidence bands
+- [Fan Series](error-bar-series.md) -- multiple confidence bands
 - [Error Bar Series](error-bar-series.md) -- discrete error indicators
 
 ---

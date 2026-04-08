@@ -15,7 +15,7 @@ Export chart data and configuration as JSON for web rendering or API consumption
 
 ## Related
 
-- [HTML Export](../../../python/image-export.md)
+- [HTML Export](../../python/image-export.md)
 - [Rendering Overview](../overview.md)
 
 ---

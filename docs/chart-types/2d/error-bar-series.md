@@ -69,7 +69,7 @@ The error bar series renders uncertainty indicators around data points. Supports
 ## Related
 
 - [Band Series](band-series.md) -- continuous confidence band
-- [Box Plot](../chart-types/2d/stacked-column.md) -- statistical distribution summary
+- [Box Plot](stacked-column.md) -- statistical distribution summary
 
 ---
 
