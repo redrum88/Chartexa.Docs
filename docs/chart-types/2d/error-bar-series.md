@@ -109,8 +109,10 @@ pip install chartexa
 ---
 
 ## Related
-
-- *None yet*
+- [Fast Line Series](./fast-line-series.md)
+- [Scatter Series](./scatter-series.md)
+- [Axis Ranging](../../axes/axis-ranging.md)
+- [XyDataSeries](../../data/xy-data-series.md)
 
 ---
 
