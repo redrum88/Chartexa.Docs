@@ -3,6 +3,8 @@ title: "Installation"
 section: "getting-started"
 last_updated: "2024-06-11 13:42 UTC"
 status: draft
+last_updated: "2026-04-08 02:18 UTC"
+status: placeholder
 ---
 
 # Installation
@@ -422,3 +424,4 @@ chart = (
 ---
 
 > **Last updated:** 2024-06-11 13:42 UTC | **Status:** draft
+> **Last updated:** 2026-04-08 02:18 UTC | **Status:** Placeholder -- awaiting AI expansion
