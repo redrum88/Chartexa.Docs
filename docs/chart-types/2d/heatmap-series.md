@@ -405,8 +405,8 @@ Chartexa's DirectX 12 renderer efficiently handles large heatmaps (up to 10 mill
 ## Related
 
 - [FastLineRenderableSeries](./line-series.md)
-- [NumericAxis](../axes/numeric-axis.md)
-- [Colormap Palettes](../theming/palettes.md)
+- [NumericAxis](../../axes/numeric-axis.md)
+- [Colormap Palettes](../../theming/palettes.md)
 
 ---
 
