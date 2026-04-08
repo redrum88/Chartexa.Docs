@@ -22,7 +22,8 @@
     "chart-types/2d/waterfall-series.md",
     "axes/axis-ranging.md",
     "axes/axis-styling.md",
-    "axes/category-axis.md"
+    "axes/category-axis.md",
+    "axes/datetime-axis.md"
   ],
   "failed": [],
   "skipped": []
