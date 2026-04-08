@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Label Providers"
 section: "axes"
 last_updated: "2026-06-10 14:00 UTC"
@@ -17,7 +17,7 @@ Label providers control how tick values are formatted as text. By default, numer
 
 === "Python"
 
-    `python
+    ```python
     # Numeric format
     chart.x_axis(label_format="0.00")       # 2 decimal places
     chart.x_axis(label_format="#,##0")       # Thousands separator
@@ -26,14 +26,14 @@ Label providers control how tick values are formatted as text. By default, numer
     # Date format
     chart.x_axis(type="datetime", date_format="yyyy-MM-dd")
     chart.x_axis(type="datetime", date_format="HH:mm:ss")
-    `
+    ```
 
 === "C#"
 
-    `csharp
+    ```csharp
     var axis = new NumericAxis { LabelFormat = "#,##0.00" };
     var dateAxis = new DateTimeAxis { DateFormat = "dd MMM yyyy" };
-    `
+    ```
 
 ---
 

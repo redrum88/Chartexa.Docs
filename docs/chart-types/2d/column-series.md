@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Column Series"
 section: "chart-types/2d"
 last_updated: "2026-06-10 14:00 UTC"
@@ -17,7 +17,7 @@ The column series renders vertical bars. Supports grouped and baseline-offset ba
 
 === "Python"
 
-    `python
+    ```python
     import chartexa as cx
 
     chart = cx.Chart().column(
@@ -26,11 +26,11 @@ The column series renders vertical bars. Supports grouped and baseline-offset ba
         fill="#A6E3A1",
     )
     chart.save("columns.png")
-    `
+    ```
 
 === "C#"
 
-    `csharp
+    ```csharp
     var ds = new XyDataSeries();
     ds.Append(new double[] { 0, 1, 2, 3, 4 },
               new double[] { 50, 80, 45, 90, 65 });
@@ -42,7 +42,7 @@ The column series renders vertical bars. Supports grouped and baseline-offset ba
         BarWidthFraction = 0.7
     };
     surface.RenderableSeries.Add(rs);
-    `
+    ```
 
 ---
 
@@ -64,7 +64,7 @@ The column series renders vertical bars. Supports grouped and baseline-offset ba
 
 ### Grouped Bars
 
-`python
+```python
 import chartexa as cx
 
 categories = [0, 1, 2, 3]
@@ -79,11 +79,11 @@ chart = (
     .legend()
 )
 chart.save("grouped_bars.png")
-`
+```
 
 ### Negative Values
 
-`python
+```python
 chart = cx.Chart().column(
     [0, 1, 2, 3, 4],
     [20, -15, 30, -10, 25],
@@ -91,7 +91,7 @@ chart = cx.Chart().column(
     baseline=0,
 )
 chart.save("negative_bars.png")
-`
+```
 
 ---
 

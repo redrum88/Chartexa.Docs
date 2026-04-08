@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Crosshair / Cursor Modifier"
 section: "interaction"
 last_updated: "2026-06-10 14:00 UTC"
@@ -15,10 +15,10 @@ The crosshair modifier draws horizontal and vertical lines that follow the mouse
 
 ## Quick Start
 
-`python
+```python
 chart = cx.Chart().line(x, y).crosshair()
 chart.save_html("crosshair.html")
-`
+```
 
 ---
 

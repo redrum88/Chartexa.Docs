@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Scatter Series"
 section: "chart-types/2d"
 last_updated: "2026-06-10 14:00 UTC"
@@ -17,7 +17,7 @@ The scatter series renders XY data as individual markers without connecting line
 
 === "Python"
 
-    `python
+    ```python
     import chartexa as cx
 
     chart = cx.Chart().scatter(
@@ -28,11 +28,11 @@ The scatter series renders XY data as individual markers without connecting line
         fill="#89B4FA",
     )
     chart.save("scatter.png")
-    `
+    ```
 
 === "C#"
 
-    `csharp
+    ```csharp
     var ds = new XyDataSeries();
     ds.Append(new double[] { 1, 2, 3, 4, 5 },
               new double[] { 10, 40, 20, 35, 25 });
@@ -50,7 +50,7 @@ The scatter series renders XY data as individual markers without connecting line
         Marker = ms
     };
     surface.RenderableSeries.Add(rs);
-    `
+    ```
 
 ---
 
@@ -71,7 +71,7 @@ The scatter series renders XY data as individual markers without connecting line
 
 ### Marker Shapes
 
-`python
+```python
 import chartexa as cx
 import random
 
@@ -85,7 +85,7 @@ for i, (shape, color) in enumerate(zip(shapes, colors)):
     chart.scatter(x, y, marker=shape, size=12, fill=color, label=shape.title())
 
 chart.legend().save("marker_shapes.png")
-`
+```
 
 ---
 

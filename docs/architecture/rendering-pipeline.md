@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Rendering Pipeline"
 section: "architecture"
 last_updated: "2026-06-10 14:00 UTC"
@@ -15,7 +15,7 @@ The rendering pipeline transforms data series and chart configuration into pixel
 
 ## Pipeline Stages
 
-`mermaid
+```mermaid
 graph LR
     A[Data Series] --> B[Coordinate Transform]
     B --> C[Clipping]
@@ -23,7 +23,7 @@ graph LR
     D --> E[Annotation Overlay]
     E --> F[Legend / Title]
     F --> G[Output Encoding]
-`
+```
 
 1. **Coordinate Transform** -- maps data values to pixel positions using axis ranges
 2. **Clipping** -- removes data outside the visible viewport

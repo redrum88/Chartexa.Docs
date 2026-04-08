@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Rubber Band Zoom"
 section: "interaction"
 last_updated: "2026-06-10 14:00 UTC"
@@ -15,10 +15,10 @@ The rubber band zoom modifier enables click-drag rectangle selection to zoom int
 
 ## Quick Start
 
-`python
+```python
 chart = cx.Chart().line(x, y).rubber_band_zoom()
 chart.save_html("rubber_band.html")
-`
+```
 
 ---
 

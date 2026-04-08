@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Layout Overview"
 section: "layout"
 last_updated: "2026-06-10 14:00 UTC"
@@ -15,7 +15,7 @@ Chartexa supports multi-chart layouts through the `Figure`, `Dashboard`, and `su
 
 ## Subplots (Quick Grid)
 
-`python
+```python
 import chartexa as cx
 from chartexa import subplots
 
@@ -27,13 +27,13 @@ fig[1, 0].column([0, 1, 2], [50, 80, 65])
 fig[1, 1].mountain([1, 2, 3], [5, 15, 10])
 
 fig.save("subplots.png")
-`
+```
 
 ---
 
 ## Figure
 
-`python
+```python
 from chartexa import Figure
 
 fig = Figure(width=1600, height=800)
@@ -45,13 +45,13 @@ fig.add(chart1, row=0, col=0)
 fig.add(chart2, row=0, col=1)
 
 fig.save("figure.png")
-`
+```
 
 ---
 
 ## Dashboard
 
-`python
+```python
 from chartexa import Dashboard
 
 dash = Dashboard(width=1920, height=1080)
@@ -60,7 +60,7 @@ dash.add(chart2, x=960, y=0, width=960, height=540)
 dash.add(chart3, x=0, y=540, width=1920, height=540)
 
 dash.save("dashboard.png")
-`
+```
 
 ---
 

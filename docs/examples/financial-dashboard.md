@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Financial Dashboard"
 section: "examples"
 last_updated: "2026-06-10 14:00 UTC"
@@ -15,7 +15,7 @@ A multi-panel financial dashboard with candlestick chart, volume bars, and Bolli
 
 ## Python
 
-`python
+```python
 import chartexa as cx
 from chartexa import subplots, bollinger_bands, moving_average
 import random
@@ -64,7 +64,7 @@ fig[1, 0].column(
 ).title("Volume").y_axis(title="Volume")
 
 fig.save("financial_dashboard.png")
-`
+```
 
 ---
 

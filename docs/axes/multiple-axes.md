@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Multiple Axes"
 section: "axes"
 last_updated: "2026-06-10 14:00 UTC"
@@ -15,7 +15,7 @@ Charts can have multiple X and Y axes. Each series binds to a specific axis pair
 
 ## Dual Y-Axis
 
-`python
+```python
 import chartexa as cx
 
 x = list(range(50))
@@ -31,19 +31,19 @@ chart = (
     .legend()
 )
 chart.save("dual_y.png")
-`
+```
 
 ---
 
 ## Secondary X-Axis
 
-`python
+```python
 chart = (
     cx.Chart()
     .line(x_metric, y, x_axis_id="MetricAxis")
     .secondary_x_axis(title="Imperial", id="ImperialAxis")
 )
-`
+```
 
 The `secondary_x_axis()` and `secondary_y_axis()` convenience methods default to top/right alignment.
 

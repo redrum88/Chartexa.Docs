@@ -1,4 +1,4 @@
-﻿---
+---
 title: "DateTime Axis"
 section: "axes"
 last_updated: "2026-06-10 14:00 UTC"
@@ -17,7 +17,7 @@ The DateTime axis formats tick labels as dates and times. Accepts Unix timestamp
 
 === "Python"
 
-    `python
+    ```python
     import chartexa as cx
     from datetime import datetime, timedelta
 
@@ -32,17 +32,17 @@ The DateTime axis formats tick labels as dates and times. Accepts Unix timestamp
         .y_axis(title="Temperature (C)")
     )
     chart.save("datetime_axis.png")
-    `
+    ```
 
 === "C#"
 
-    `csharp
+    ```csharp
     var xAxis = new DateTimeAxis
     {
         AxisTitle = "Date",
         DateFormat = "MMM dd"
     };
-    `
+    ```
 
 ---
 

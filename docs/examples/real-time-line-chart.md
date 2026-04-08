@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Real-Time Line Chart"
 section: "examples"
 last_updated: "2026-06-10 14:00 UTC"
@@ -15,7 +15,7 @@ A streaming line chart that appends data in real time using a FIFO buffer. Suita
 
 ## Python
 
-`python
+```python
 import chartexa as cx
 from chartexa import FifoBuffer, BatchUpdate
 import math
@@ -40,13 +40,13 @@ chart = (
 )
 
 chart.save("realtime_line.png")
-`
+```
 
 ---
 
 ## Streaming with Live Updates
 
-`python
+```python
 from chartexa import NotebookLiveChart
 
 live = NotebookLiveChart(width=1200, height=500, max_points=5000)
@@ -57,7 +57,7 @@ for i in range(10000):
     t = i * 0.01
     live.append(t, math.sin(t * 2) + 0.3 * math.cos(t * 13.7))
     time.sleep(0.01)
-`
+```
 
 ---
 

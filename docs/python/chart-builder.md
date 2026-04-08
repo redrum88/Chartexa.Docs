@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Chart Builder API"
 section: "python"
 last_updated: "2026-06-10 14:00 UTC"
@@ -15,9 +15,9 @@ The `Chart` class is the primary entry point for creating charts in Python. It u
 
 ## Constructor
 
-`python
+```python
 cx.Chart(width: int = 800, height: int = 600)
-`
+```
 
 | Parameter | Type | Default | Description |
 |---|---|---|---|
@@ -329,22 +329,22 @@ Save as a self-contained HTML file.
 
 `Chart` supports the context manager protocol for resource cleanup:
 
-`python
+```python
 with cx.Chart() as chart:
     chart.line(x, y).save("out.png")
 # .NET resources released here
-`
+```
 
 ---
 
 ## Batch Updates
 
-`python
+```python
 with chart.begin_update():
     chart.line(x1, y1)
     chart.line(x2, y2)
     # Single render at exit
-`
+```
 
 ---
 

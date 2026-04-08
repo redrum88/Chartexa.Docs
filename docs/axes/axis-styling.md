@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Axis Styling"
 section: "axes"
 last_updated: "2026-06-10 14:00 UTC"
@@ -15,14 +15,14 @@ Customise axis appearance including grid lines, label rotation, and colours.
 
 ## Grid Lines
 
-`python
+```python
 chart = (
     cx.Chart()
     .line(x, y)
     .x_axis(grid_visible=True, grid_color="#333333", grid_thickness=0.5, grid_dash="dot")
     .y_axis(grid_visible=False)
 )
-`
+```
 
 | Property | Type | Default | Description |
 |---|---|---|---|
@@ -35,9 +35,9 @@ chart = (
 
 ## Label Rotation
 
-`python
+```python
 chart.x_axis(type="category", labels=["Long Label A", "Long Label B", ...], label_rotation=45)
-`
+```
 
 ---
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Error Bar Series"
 section: "chart-types/2d"
 last_updated: "2026-06-10 14:00 UTC"
@@ -17,7 +17,7 @@ The error bar series renders uncertainty indicators around data points. Supports
 
 === "Python"
 
-    `python
+    ```python
     import chartexa as cx
 
     chart = cx.Chart().error_bar(
@@ -29,18 +29,18 @@ The error bar series renders uncertainty indicators around data points. Supports
         cap_width=8,
     )
     chart.save("error_bars.png")
-    `
+    ```
 
 === "C#"
 
-    `csharp
+    ```csharp
     var s = new ErrorBarSeries(x, y)
     {
         ErrorY = errorValues,
         Stroke = new ChartColor(249, 226, 175),
         CapWidth = 8
     };
-    `
+    ```
 
 ---
 

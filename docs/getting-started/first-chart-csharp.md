@@ -1,4 +1,4 @@
-﻿---
+---
 title: "First Chart in C#"
 section: "getting-started"
 last_updated: "2026-06-10 14:00 UTC"
@@ -15,7 +15,7 @@ Create your first Chartexa chart in C# using the core API. Build a chart surface
 
 ## Quick Start
 
-`csharp
+```csharp
 using Chartexa.Core;
 using Chartexa.Core.Axes;
 using Chartexa.Core.Series;
@@ -44,7 +44,7 @@ surface.RenderableSeries.Add(lineSeries);
 
 // 5. Export
 surface.RenderToFile("first_chart.png");
-`
+```
 
 ---
 
@@ -65,7 +65,7 @@ Data and rendering are separated: a `DataSeries` can be shared across multiple r
 
 ## Multiple Series
 
-`csharp
+```csharp
 var sin = new XyDataSeries();
 var cos = new XyDataSeries();
 
@@ -89,18 +89,18 @@ surface.RenderableSeries.Add(new FastLineRenderableSeries
     Stroke = new ChartColor(137, 180, 250),
     StrokeThickness = 2
 });
-`
+```
 
 ---
 
 ## Theming
 
-`csharp
+```csharp
 using Chartexa.Core.Theming;
 
 var theme = ThemeManager.GetTheme("catppuccin_mocha");
 surface.ApplyTheme(theme);
-`
+```
 
 Available presets: `dark`, `light`, `catppuccin_mocha`, `catppuccin_latte`, `catppuccin_frappe`, `catppuccin_macchiato`, `github_dark`, `github_light`, `dracula`, `nord`, `solarized_dark`, `solarized_light`, `minimal`, `scientific`.
 
@@ -110,17 +110,17 @@ Available presets: `dark`, `light`, `catppuccin_mocha`, `catppuccin_latte`, `cat
 
 For desktop applications, use the WPF control:
 
-`xml
+```xml
 <Window xmlns:cx="clr-namespace:Chartexa.WPF;assembly=Chartexa.WPF">
     <cx:ChartexaChart x:Name="chartControl" />
 </Window>
-`
+```
 
-`csharp
+```csharp
 chartControl.Surface.XAxes.Add(new NumericAxis());
 chartControl.Surface.YAxes.Add(new NumericAxis());
 // Add series as above
-`
+```
 
 ---
 

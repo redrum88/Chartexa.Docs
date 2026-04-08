@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Image Export"
 section: "python"
 last_updated: "2026-06-10 14:00 UTC"
@@ -15,7 +15,7 @@ Chartexa charts can be exported to PNG, JPEG, and interactive HTML. The Python w
 
 ## PNG Export
 
-`python
+```python
 import chartexa as cx
 
 chart = cx.Chart().line([1, 2, 3, 4], [10, 20, 15, 30])
@@ -25,7 +25,7 @@ chart.save("chart.png")
 
 # Get raw bytes (for web APIs, email attachments, etc.)
 png_bytes = chart.to_bytes()
-`
+```
 
 PNG is the default format. It produces lossless images with transparency support.
 
@@ -33,7 +33,7 @@ PNG is the default format. It produces lossless images with transparency support
 
 ## JPEG Export
 
-`python
+```python
 # Save with default quality (90)
 chart.save_jpeg("chart.jpg")
 
@@ -42,7 +42,7 @@ chart.save_jpeg("chart_small.jpg", quality=60)
 
 # Get JPEG bytes
 jpeg_bytes = chart.to_bytes(fmt="jpeg", quality=85)
-`
+```
 
 ---
 
@@ -50,7 +50,7 @@ jpeg_bytes = chart.to_bytes(fmt="jpeg", quality=85)
 
 ### Self-Contained HTML Page
 
-`python
+```python
 # Save as a complete HTML file
 chart.save_html("chart.html")
 
@@ -63,17 +63,17 @@ chart = (
     .tooltips()
 )
 chart.save_html("interactive.html", title="My Dashboard")
-`
+```
 
 ### HTML String
 
-`python
+```python
 # Get HTML as a string (for web frameworks)
 html = chart.to_html(title="My Chart", interactive=True)
 
 # Embeddable div snippet (no <html>/<head>/<body> wrapper)
 div_html = chart.to_html_div()
-`
+```
 
 ### HTML Options
 
@@ -91,7 +91,7 @@ div_html = chart.to_html_div()
 
 ### Flask
 
-`python
+```python
 from flask import Flask, Response
 import chartexa as cx
 
@@ -106,11 +106,11 @@ def chart_png():
 def chart_html():
     chart = cx.Chart().line([1, 2, 3], [10, 20, 15]).zoom_pan()
     return chart.to_html()
-`
+```
 
 ### FastAPI
 
-`python
+```python
 from fastapi import FastAPI
 from fastapi.responses import Response
 import chartexa as cx
@@ -121,13 +121,13 @@ app = FastAPI()
 async def chart_png():
     chart = cx.Chart().line([1, 2, 3], [10, 20, 15])
     return Response(content=chart.to_bytes(), media_type="image/png")
-`
+```
 
 ---
 
 ## Resolution and Size
 
-`python
+```python
 # Set dimensions at construction
 chart = cx.Chart(width=1920, height=1080)
 
@@ -135,7 +135,7 @@ chart = cx.Chart(width=1920, height=1080)
 chart.width = 2560
 chart.height = 1440
 chart.save("highres.png")
-`
+```
 
 ---
 

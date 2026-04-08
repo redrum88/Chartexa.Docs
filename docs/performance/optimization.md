@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Performance Optimization"
 section: "performance"
 last_updated: "2026-06-10 14:00 UTC"
@@ -19,7 +19,7 @@ Chartexa is designed for high-performance charting. The .NET engine handles rend
 
 Reduce the number of rendered points while preserving visual shape:
 
-`python
+```python
 from chartexa import lttb_downsample, minmax_downsample, auto_downsample
 
 # LTTB (Largest Triangle Three Buckets) -- best for line charts
@@ -30,50 +30,50 @@ x_ds, y_ds = minmax_downsample(x, y, target_points=5000)
 
 # Auto -- selects the best algorithm based on chart type
 x_ds, y_ds = auto_downsample(x, y)
-`
+```
 
 ### 2. Batch Updates
 
 Defer rendering until all series are added:
 
-`python
+```python
 with chart.begin_update():
     for i in range(100):
         chart.line(x[i], y[i])
     # Single render at exit
-`
+```
 
 ### 3. Fast Append
 
 Use `fast_append_xy()` for efficient data transfer to .NET arrays:
 
-`python
+```python
 from chartexa import fast_append_xy
 
 fast_append_xy(data_series, x_numpy_array, y_numpy_array)
-`
+```
 
 ### 4. FIFO Buffer
 
 For real-time scrolling charts with fixed-size windows:
 
-`python
+```python
 from chartexa import FifoBuffer
 
 buffer = FifoBuffer(capacity=10000)
 buffer.append(x_value, y_value)
-`
+```
 
 ### 5. NumPy Interop
 
 Use numpy arrays for zero-copy data transfer:
 
-`python
+```python
 from chartexa import numpy_to_net_array, net_array_to_numpy
 
 net_arr = numpy_to_net_array(numpy_array)
 numpy_arr = net_array_to_numpy(net_array)
-`
+```
 
 ---
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Tick Providers"
 section: "axes"
 last_updated: "2026-06-10 14:00 UTC"
@@ -28,14 +28,14 @@ The default `AutoTickProvider` selects intervals that produce readable label val
 
 === "C#"
 
-    `csharp
+    ```csharp
     var axis = new NumericAxis
     {
         MajorDelta = 10,    // Major tick every 10 units
         MinorDelta = 2,     // Minor tick every 2 units
         AutoTicks = false   // Disable auto-selection
     };
-    `
+    ```
 
 ---
 

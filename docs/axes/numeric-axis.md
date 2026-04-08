@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Numeric Axis"
 section: "axes"
 last_updated: "2026-06-10 14:00 UTC"
@@ -17,7 +17,7 @@ The numeric axis is the default axis type. It maps continuous numeric values to 
 
 === "Python"
 
-    `python
+    ```python
     import chartexa as cx
 
     chart = (
@@ -27,11 +27,11 @@ The numeric axis is the default axis type. It maps continuous numeric values to 
         .y_axis(type="numeric", title="Value", range=(0, 40), grow_by=0.1)
     )
     chart.save("numeric_axis.png")
-    `
+    ```
 
 === "C#"
 
-    `csharp
+    ```csharp
     var xAxis = new NumericAxis
     {
         AxisTitle = "Index",
@@ -44,7 +44,7 @@ The numeric axis is the default axis type. It maps continuous numeric values to 
         VisibleRange = new DoubleRange(0, 40),
         GrowBy = 0.1
     };
-    `
+    ```
 
 ---
 

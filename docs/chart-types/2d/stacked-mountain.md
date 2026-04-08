@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Stacked Mountain"
 section: "chart-types/2d"
 last_updated: "2026-06-10 14:00 UTC"
@@ -17,7 +17,7 @@ The stacked mountain series renders multiple area layers stacked vertically. Eac
 
 === "Python"
 
-    `python
+    ```python
     import chartexa as cx
 
     x = list(range(10))
@@ -33,7 +33,7 @@ The stacked mountain series renders multiple area layers stacked vertically. Eac
         labels=["CPU", "Memory", "Disk"],
     )
     chart.save("stacked_mountain.png")
-    `
+    ```
 
 ---
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: "XY Data Series"
 section: "data/data-series"
 last_updated: "2026-06-10 14:00 UTC"
@@ -17,20 +17,20 @@ status: published
 
 === "Python"
 
-    `python
+    ```python
     # In the Python wrapper, data series are created automatically:
     import chartexa as cx
 
     chart = cx.Chart().line([1, 2, 3], [10, 20, 15])
     # The .line() method creates an XyDataSeries internally
-    `
+    ```
 
 === "C#"
 
-    `csharp
+    ```csharp
     var ds = new XyDataSeries();
     ds.Append(new double[] { 1, 2, 3 }, new double[] { 10, 20, 15 });
-    `
+    ```
 
 ---
 

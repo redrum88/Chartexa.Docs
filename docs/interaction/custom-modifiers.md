@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Custom Modifiers"
 section: "interaction"
 last_updated: "2026-06-10 14:00 UTC"
@@ -15,7 +15,7 @@ Build custom interaction behaviours by creating modifier instances and adding th
 
 ## Using Modifier Classes Directly
 
-`python
+```python
 from chartexa import (
     ZoomPanModifier,
     RubberBandZoomModifier,
@@ -46,7 +46,7 @@ chart = (
     .modifier(zoom)
     .modifier(select)
 )
-`
+```
 
 ---
 

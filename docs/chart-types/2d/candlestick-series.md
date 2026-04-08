@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Candlestick Series"
 section: "chart-types/2d"
 last_updated: "2026-06-10 14:00 UTC"
@@ -17,7 +17,7 @@ The candlestick series renders OHLC (Open, High, Low, Close) financial data as t
 
 === "Python"
 
-    `python
+    ```python
     import chartexa as cx
 
     chart = cx.Chart(width=1200, height=600).candlestick(
@@ -30,11 +30,11 @@ The candlestick series renders OHLC (Open, High, Low, Close) financial data as t
         bearish_fill="#F38BA8",
     )
     chart.save("candlestick.png")
-    `
+    ```
 
 === "C#"
 
-    `csharp
+    ```csharp
     var ds = DataSeriesFactory.CreateOhlcSeries(x, open, high, low, close);
 
     var rs = new FastCandlestickRenderableSeries
@@ -43,7 +43,7 @@ The candlestick series renders OHLC (Open, High, Low, Close) financial data as t
         BullishFill = new ChartColor(166, 227, 161),
         BearishFill = new ChartColor(243, 139, 168)
     };
-    `
+    ```
 
 ---
 

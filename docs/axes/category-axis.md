@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Category Axis"
 section: "axes"
 last_updated: "2026-06-10 14:00 UTC"
@@ -17,7 +17,7 @@ The category axis maps discrete labels to evenly spaced positions. Data points a
 
 === "Python"
 
-    `python
+    ```python
     import chartexa as cx
 
     chart = (
@@ -27,16 +27,16 @@ The category axis maps discrete labels to evenly spaced positions. Data points a
         .y_axis(title="Revenue (k)")
     )
     chart.save("category_axis.png")
-    `
+    ```
 
 === "C#"
 
-    `csharp
+    ```csharp
     var xAxis = new CategoryAxis(new[] { "Q1", "Q2", "Q3", "Q4" })
     {
         AxisTitle = "Quarter"
     };
-    `
+    ```
 
 ---
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: "IoT Sensor Dashboard"
 section: "examples"
 last_updated: "2026-06-10 14:00 UTC"
@@ -15,7 +15,7 @@ A multi-sensor monitoring dashboard with real-time line charts, each connected t
 
 ## Python
 
-`python
+```python
 import chartexa as cx
 import math
 
@@ -46,7 +46,7 @@ chart.save("iot_dashboard.png")
 
 # Also export as interactive HTML
 chart.save_html("iot_dashboard.html")
-`
+```
 
 !!! tip "Multi-Axis Binding"
     Use `y_axis_id` to bind each series to its own Y axis. This keeps scales independent. Only add as many visible Y axes as the chart can fit without clutter (typically 2 -- 3).

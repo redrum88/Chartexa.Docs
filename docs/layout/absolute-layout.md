@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Absolute Layout"
 section: "layout"
 last_updated: "2026-06-10 14:00 UTC"
@@ -15,7 +15,7 @@ Absolute layout positions charts at specific pixel coordinates using the `Dashbo
 
 ## Quick Start
 
-`python
+```python
 from chartexa import Dashboard, Chart
 
 dash = Dashboard(width=1920, height=1080)
@@ -33,7 +33,7 @@ sidebar2 = Chart(width=640, height=540).column([0, 1, 2], [40, 60, 50])
 dash.add(sidebar2, x=1280, y=540, width=640, height=540)
 
 dash.save("dashboard.png")
-`
+```
 
 ---
 

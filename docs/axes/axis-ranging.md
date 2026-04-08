@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Axis Ranging"
 section: "axes"
 last_updated: "2026-06-10 14:00 UTC"
@@ -17,34 +17,34 @@ Axis ranging controls which portion of the data is visible. Chartexa supports au
 
 By default, axes auto-range to fit all attached series data with a 5% padding (`grow_by=0.05`):
 
-`python
+```python
 # Auto-ranges to fit data with default 5% padding
 chart = cx.Chart().line(x, y)
-`
+```
 
 ---
 
 ## Fixed Range
 
-`python
+```python
 chart = (
     cx.Chart()
     .line(x, y)
     .y_axis(range=(0, 100))   # Fix Y axis from 0 to 100
 )
-`
+```
 
 ---
 
 ## Grow By (Padding)
 
-`python
+```python
 chart = (
     cx.Chart()
     .line(x, y)
     .y_axis(grow_by=0.1)   # 10% padding on each side
 )
-`
+```
 
 ---
 

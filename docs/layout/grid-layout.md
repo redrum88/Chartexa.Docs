@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Grid Layout"
 section: "layout"
 last_updated: "2026-06-10 14:00 UTC"
@@ -15,7 +15,7 @@ Grid layout arranges charts in a rows-by-columns grid with automatic sizing. Use
 
 ## Quick Start
 
-`python
+```python
 from chartexa import subplots
 
 fig = subplots(rows=2, cols=3, width=1800, height=1200)
@@ -28,7 +28,7 @@ fig[1, 1].candlestick([0, 1, 2], [100, 105, 102], [110, 108, 107], [98, 101, 99]
 fig[1, 2].pie([35, 25, 20, 15, 5])
 
 fig.save("grid.png")
-`
+```
 
 ---
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Axes Overview"
 section: "axes"
 last_updated: "2026-06-10 14:00 UTC"
@@ -28,7 +28,7 @@ Axes define the coordinate space for chart series. Chartexa provides four axis t
 
 === "Python"
 
-    `python
+    ```python
     import chartexa as cx
 
     chart = (
@@ -38,11 +38,11 @@ Axes define the coordinate space for chart series. Chartexa provides four axis t
         .y_axis(type="numeric", title="Value", range=(0, 40))
     )
     chart.save("axes_example.png")
-    `
+    ```
 
 === "C#"
 
-    `csharp
+    ```csharp
     surface.XAxes.Add(new NumericAxis
     {
         AxisTitle = "Sample Index"
@@ -52,7 +52,7 @@ Axes define the coordinate space for chart series. Chartexa provides four axis t
         AxisTitle = "Value",
         VisibleRange = new DoubleRange(0, 40)
     });
-    `
+    ```
 
 ---
 
@@ -79,7 +79,7 @@ All axis types share these configuration options:
 
 Bind series to specific axes using `x_axis_id` and `y_axis_id`:
 
-`python
+```python
 chart = (
     cx.Chart(width=1200, height=600)
     .line(x, temp, stroke="#F38BA8", y_axis_id="TempAxis", label="Temperature")
@@ -88,7 +88,7 @@ chart = (
     .y_axis(id="HumAxis", title="Humidity (%)", alignment="right")
     .legend()
 )
-`
+```
 
 ---
 

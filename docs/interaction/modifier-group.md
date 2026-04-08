@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Modifier Group"
 section: "interaction"
 last_updated: "2026-06-10 14:00 UTC"
@@ -15,7 +15,7 @@ Multiple modifiers can be combined on a single chart. They process events in ord
 
 ## Combining Modifiers
 
-`python
+```python
 chart = (
     cx.Chart()
     .line(x, y, label="Data")
@@ -23,27 +23,27 @@ chart = (
     .crosshair(snap_to_data=True)
     .tooltips(mode="multi")
 )
-`
+```
 
 ---
 
 ## Adding Custom Modifiers
 
-`python
+```python
 from chartexa import ZoomPanModifier, TooltipModifier
 
 mod = ZoomPanModifier(x_axis_only=True, zoom_in_factor=0.9)
 chart.modifier(mod)
-`
+```
 
 ---
 
 ## Inspecting Modifiers
 
-`python
+```python
 for mod in chart.modifiers:
     print(type(mod).__name__, mod.enabled)
-`
+```
 
 ---
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Heatmap Series"
 section: "chart-types/2d"
 last_updated: "2026-06-10 14:00 UTC"
@@ -17,7 +17,7 @@ The heatmap series renders a 2D grid of values as coloured cells. Supports multi
 
 === "Python"
 
-    `python
+    ```python
     import chartexa as cx
     import math
 
@@ -31,11 +31,11 @@ The heatmap series renders a 2D grid of values as coloured cells. Supports multi
         max_value=1.0,
     )
     chart.save("heatmap.png")
-    `
+    ```
 
 === "C#"
 
-    `csharp
+    ```csharp
     var cfg = new HeatmapConfig
     {
         Data = data2D,
@@ -47,7 +47,7 @@ The heatmap series renders a 2D grid of values as coloured cells. Supports multi
 
     var rs = new HeatmapSeries { Config = cfg };
     surface.RenderableSeries.Add(rs);
-    `
+    ```
 
 ---
 

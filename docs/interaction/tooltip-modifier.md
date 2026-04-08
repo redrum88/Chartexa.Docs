@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Tooltip Modifier"
 section: "interaction"
 last_updated: "2026-06-10 14:00 UTC"
@@ -15,7 +15,7 @@ The tooltip modifier displays data values in a floating popup when hovering near
 
 ## Quick Start
 
-`python
+```python
 chart = (
     cx.Chart()
     .line([1, 2, 3, 4], [10, 20, 15, 30], label="Series A")
@@ -23,7 +23,7 @@ chart = (
     .tooltips()
 )
 chart.save_html("tooltips.html")
-`
+```
 
 ---
 

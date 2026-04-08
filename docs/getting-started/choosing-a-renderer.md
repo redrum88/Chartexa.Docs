@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Choosing a Renderer"
 section: "getting-started"
 last_updated: "2026-06-10 14:00 UTC"
@@ -30,21 +30,21 @@ The DirectX 12 renderer is the highest-performance option. It uses GPU compute s
 
 === "C#"
 
-    `csharp
+    ```csharp
     using Chartexa.Rendering.DirectX12;
 
     var renderer = new Dx12ChartRenderer();
     surface.Renderer = renderer;
-    `
+    ```
 
 === "Python"
 
-    `python
+    ```python
     # The Python wrapper auto-selects the best available renderer.
     # DirectX 12 is used on Windows when a compatible GPU is detected.
     import chartexa as cx
     chart = cx.Chart()  # Auto-selects DX12 on Windows
-    `
+    ```
 
 !!! warning "Windows Only"
     DirectX 12 requires Windows 10 version 1903 or later and a DirectX 12 capable GPU.
@@ -57,20 +57,20 @@ Skia is a cross-platform 2D graphics library. It runs on Windows, Linux, and mac
 
 === "C#"
 
-    `csharp
+    ```csharp
     using Chartexa.Rendering.Skia;
 
     var renderer = new SkiaChartRenderer();
     surface.Renderer = renderer;
-    `
+    ```
 
 === "Python"
 
-    `python
+    ```python
     # Skia is used automatically on Linux/macOS or when no GPU is available.
     import chartexa as cx
     chart = cx.Chart()  # Falls back to Skia on Linux
-    `
+    ```
 
 ---
 
@@ -78,12 +78,12 @@ Skia is a cross-platform 2D graphics library. It runs on Windows, Linux, and mac
 
 The WPF renderer integrates with XAML data binding, styles, and the WPF visual tree. Use it for desktop applications built with Windows Presentation Foundation.
 
-`csharp
+```csharp
 using Chartexa.WPF;
 
 // In XAML: <cx:ChartexaChart x:Name="chart" />
 // The WPF control handles rendering internally.
-`
+```
 
 ---
 
@@ -91,7 +91,7 @@ using Chartexa.WPF;
 
 The web renderer exports charts as self-contained HTML files with Canvas-based rendering and optional interactivity (zoom, pan, crosshair, tooltips).
 
-`python
+```python
 import chartexa as cx
 
 chart = (
@@ -103,13 +103,13 @@ chart = (
 )
 
 chart.save_html("interactive.html")
-`
+```
 
 ---
 
 ## Decision Guide
 
-`mermaid
+```mermaid
 graph TD
     A[What platform?] -->|Windows desktop| B{Need real-time?}
     A -->|Linux / macOS| C[Skia]
@@ -118,7 +118,7 @@ graph TD
     B -->|No, static charts| F{WPF app?}
     F -->|Yes| G[WPF]
     F -->|No| C
-`
+```
 
 ---
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Angular Gauge"
 section: "chart-types/gauges-and-widgets"
 last_updated: "2026-06-10 14:00 UTC"
@@ -17,14 +17,14 @@ The angular gauge renders a circular dial with a needle indicator. Suitable for 
 
 === "Python"
 
-    `python
+    ```python
     from chartexa import Chart, AngularGaugeSeries
     # Angular gauge configuration via the series class API
-    `
+    ```
 
 === "C#"
 
-    `csharp
+    ```csharp
     var gauge = new AngularGaugeSeries
     {
         Value = 72,
@@ -32,7 +32,7 @@ The angular gauge renders a circular dial with a needle indicator. Suitable for 
         MaxValue = 100
     };
     surface.RenderableSeries.Add(gauge);
-    `
+    ```
 
 ---
 

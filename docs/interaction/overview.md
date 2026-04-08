@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Interaction Overview"
 section: "interaction"
 last_updated: "2026-06-10 14:00 UTC"
@@ -28,7 +28,7 @@ Chartexa provides interactive chart modifiers for zoom, pan, crosshair, tooltips
 
 ## Quick Start
 
-`python
+```python
 import chartexa as cx
 
 chart = (
@@ -39,7 +39,7 @@ chart = (
     .tooltips()
     .save_html("interactive.html")
 )
-`
+```
 
 ---
 
@@ -47,7 +47,7 @@ chart = (
 
 Modifiers can be combined freely:
 
-`python
+```python
 chart = (
     cx.Chart()
     .line(x, y, label="Data")
@@ -56,7 +56,7 @@ chart = (
     .tooltips(mode="single", show_series_name=True)
     .selection(mode="data_point")
 )
-`
+```
 
 ---
 

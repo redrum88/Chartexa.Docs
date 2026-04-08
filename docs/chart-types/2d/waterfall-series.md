@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Waterfall Series"
 section: "chart-types/2d"
 last_updated: "2026-06-10 14:00 UTC"
@@ -17,7 +17,7 @@ The waterfall series shows how an initial value is affected by a series of posit
 
 === "Python"
 
-    `python
+    ```python
     import chartexa as cx
 
     chart = cx.Chart().column(
@@ -27,7 +27,7 @@ The waterfall series shows how an initial value is affected by a series of posit
         label="P&L Waterfall",
     )
     chart.save("waterfall.png")
-    `
+    ```
 
 ---
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Band Series"
 section: "chart-types/2d"
 last_updated: "2026-06-10 14:00 UTC"
@@ -17,7 +17,7 @@ The band series fills the area between two Y boundaries sharing the same X value
 
 === "Python"
 
-    `python
+    ```python
     import chartexa as cx
 
     x = [0, 1, 2, 3, 4, 5]
@@ -26,11 +26,11 @@ The band series fills the area between two Y boundaries sharing the same X value
 
     chart = cx.Chart().band(x, upper, lower, stroke="#A6E3A1", fill="#A6E3A1")
     chart.save("band.png")
-    `
+    ```
 
 === "C#"
 
-    `csharp
+    ```csharp
     var upperDs = new XyDataSeries();
     upperDs.Append(x, upper);
 
@@ -44,7 +44,7 @@ The band series fills the area between two Y boundaries sharing the same X value
         Stroke = new ChartColor(166, 227, 161),
         Fill = new ChartColor(80, 166, 227, 161)
     };
-    `
+    ```
 
 ---
 

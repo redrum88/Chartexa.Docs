@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Pie & Donut Series"
 section: "chart-types/2d"
 last_updated: "2026-06-10 14:00 UTC"
@@ -17,7 +17,7 @@ The pie and donut series render proportional data as circular segments. The donu
 
 === "Python"
 
-    `python
+    ```python
     import chartexa as cx
 
     # Pie chart
@@ -35,7 +35,7 @@ The pie and donut series render proportional data as circular segments. The donu
         hole_radius=0.6,
     )
     chart.save("donut.png")
-    `
+    ```
 
 ---
 

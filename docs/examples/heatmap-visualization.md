@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Heatmap Visualization"
 section: "examples"
 last_updated: "2026-06-10 14:00 UTC"
@@ -15,7 +15,7 @@ A 2D heatmap with configurable colour palettes, suitable for correlation matrice
 
 ## Python
 
-`python
+```python
 import chartexa as cx
 import math
 
@@ -39,7 +39,7 @@ chart = (
 )
 
 chart.save("heatmap.png")
-`
+```
 
 ---
 

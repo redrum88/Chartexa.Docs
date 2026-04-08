@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Theming Overview"
 section: "theming"
 last_updated: "2026-06-10 14:00 UTC"
@@ -15,12 +15,12 @@ Chartexa includes 15 built-in theme presets and supports fully custom themes. Th
 
 ## Quick Start
 
-`python
+```python
 import chartexa as cx
 
 chart = cx.Chart().line([1, 2, 3], [10, 20, 15]).theme("catppuccin_mocha")
 chart.save("themed.png")
-`
+```
 
 ---
 
@@ -49,7 +49,7 @@ chart.save("themed.png")
 
 === "Python"
 
-    `python
+    ```python
     # By name
     chart.theme("dracula")
 
@@ -62,14 +62,14 @@ chart.save("themed.png")
         grid="#45475A",
     )
     chart.theme(theme)
-    `
+    ```
 
 === "C#"
 
-    `csharp
+    ```csharp
     var theme = ThemeManager.GetTheme("dracula");
     surface.ApplyTheme(theme);
-    `
+    ```
 
 ---
 

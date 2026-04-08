@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Theme Engine"
 section: "theming"
 last_updated: "2026-06-10 14:00 UTC"
@@ -23,13 +23,13 @@ The theme engine resolves theme names to `ChartTheme` objects and applies theme 
 
 ## Preset Registry
 
-`python
+```python
 from chartexa import THEME_PRESETS
 
 # List all available presets
 for name in THEME_PRESETS:
     print(name)
-`
+```
 
 ---
 

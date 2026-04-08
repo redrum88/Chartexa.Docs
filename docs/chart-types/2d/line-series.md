@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Line Series"
 section: "chart-types/2d"
 last_updated: "2026-06-10 14:00 UTC"
@@ -17,7 +17,7 @@ The line series renders XY data as a connected line. It supports solid, dashed, 
 
 === "Python"
 
-    `python
+    ```python
     import chartexa as cx
 
     chart = cx.Chart().line(
@@ -27,11 +27,11 @@ The line series renders XY data as a connected line. It supports solid, dashed, 
         thickness=2,
     )
     chart.save("line.png")
-    `
+    ```
 
 === "C#"
 
-    `csharp
+    ```csharp
     var ds = new XyDataSeries();
     ds.Append(new double[] { 0, 1, 2, 3, 4 },
               new double[] { 10, 25, 18, 30, 22 });
@@ -43,7 +43,7 @@ The line series renders XY data as a connected line. It supports solid, dashed, 
         StrokeThickness = 2
     };
     surface.RenderableSeries.Add(rs);
-    `
+    ```
 
 ---
 
@@ -65,7 +65,7 @@ The line series renders XY data as a connected line. It supports solid, dashed, 
 
 ### Dashed Lines
 
-`python
+```python
 import chartexa as cx
 
 chart = (
@@ -76,11 +76,11 @@ chart = (
     .legend()
 )
 chart.save("dash_styles.png")
-`
+```
 
 ### Spline Interpolation
 
-`python
+```python
 chart = cx.Chart().line(
     [0, 1, 2, 3, 4, 5],
     [10, 35, 20, 40, 15, 30],
@@ -90,11 +90,11 @@ chart = cx.Chart().line(
     spline_segments=32,
 )
 chart.save("spline.png")
-`
+```
 
 ### Multi-Axis Line Chart
 
-`python
+```python
 import math
 
 x = list(range(100))
@@ -110,7 +110,7 @@ chart = (
     .legend()
 )
 chart.save("multi_axis.png")
-`
+```
 
 ---
 
@@ -120,12 +120,12 @@ The line series uses `FastLineRenderableSeries` in the .NET engine, which batche
 
 For datasets exceeding 10 million points, combine with LTTB downsampling:
 
-`python
+```python
 from chartexa import lttb_downsample
 
 x_ds, y_ds = lttb_downsample(x, y, target_points=5000)
 chart = cx.Chart().line(x_ds, y_ds)
-`
+```
 
 ---
 

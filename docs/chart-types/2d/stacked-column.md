@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Stacked Column"
 section: "chart-types/2d"
 last_updated: "2026-06-10 14:00 UTC"
@@ -17,7 +17,7 @@ The stacked column series renders multiple data layers stacked vertically at eac
 
 === "Python"
 
-    `python
+    ```python
     import chartexa as cx
 
     x = [0, 1, 2, 3]
@@ -33,17 +33,17 @@ The stacked column series renders multiple data layers stacked vertically at eac
         labels=["Product A", "Product B", "Product C"],
     )
     chart.save("stacked.png")
-    `
+    ```
 
 === "C#"
 
-    `csharp
+    ```csharp
     var s = new StackedColumnSeries(x, layers)
     {
         Colors = new[] { ChartColor.FromHex("#F38BA8"), ... },
         Labels = new[] { "Product A", "Product B", "Product C" }
     };
-    `
+    ```
 
 ---
 
@@ -62,13 +62,13 @@ The stacked column series renders multiple data layers stacked vertically at eac
 
 ## Stacked Bar Variant
 
-`python
+```python
 chart = cx.Chart().stacked_bar(
     x, layers,
     colors=["#F38BA8", "#89B4FA", "#A6E3A1"],
     stacked_100=True,
 )
-`
+```
 
 ---
 

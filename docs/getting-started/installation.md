@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Installation"
 section: "getting-started"
 last_updated: "2026-06-10 14:00 UTC"
@@ -27,11 +27,11 @@ Chartexa is available as a NuGet package for .NET and a PyPI package for Python.
 
 === "Package Manager"
 
-    `powershell
+    ```powershell
     Install-Package Chartexa.Core
     Install-Package Chartexa.Rendering.DirectX12   # GPU renderer
     Install-Package Chartexa.Rendering.Skia         # Cross-platform renderer
-    `
+    ```
 
 === ".NET CLI"
 
@@ -39,14 +39,14 @@ Chartexa is available as a NuGet package for .NET and a PyPI package for Python.
     dotnet add package Chartexa.Core
     dotnet add package Chartexa.Rendering.DirectX12
     dotnet add package Chartexa.Rendering.Skia
-    `
+    ```
 
 === "PackageReference"
 
-    `xml
+    ```xml
     <PackageReference Include="Chartexa.Core" Version="*" />
     <PackageReference Include="Chartexa.Rendering.DirectX12" Version="*" />
-    `
+    ```
 
 ### Available NuGet Packages
 
@@ -65,7 +65,7 @@ Chartexa is available as a NuGet package for .NET and a PyPI package for Python.
 
 `ash
 pip install chartexa
-`
+```
 
 This installs the `chartexa` package along with its dependencies:
 
@@ -77,14 +77,14 @@ This installs the `chartexa` package along with its dependencies:
 
 ### Verify the Installation
 
-`python
+```python
 import chartexa as cx
 
 print(cx.__version__)  # 0.2.5
 
 # Quick smoke test
 cx.line([10, 20, 15, 30, 25]).save("test.png")
-`
+```
 
 If the import succeeds and `test.png` appears in your working directory, the installation is complete.
 
@@ -102,7 +102,7 @@ If the import succeeds and `test.png` appears in your working directory, the ins
     source .venv/bin/activate      # Linux / macOS
     .venv\Scripts\activate         # Windows
     pip install chartexa
-    `
+    ```
 
 === "conda"
 
@@ -110,7 +110,7 @@ If the import succeeds and `test.png` appears in your working directory, the ins
     conda create -n chartexa python=3.12
     conda activate chartexa
     pip install chartexa
-    `
+    ```
 
 ---
 
@@ -118,12 +118,12 @@ If the import succeeds and `test.png` appears in your working directory, the ins
 
 Chartexa auto-detects notebook environments and registers MIME renderers on import. No extra configuration is needed:
 
-`python
+```python
 import chartexa as cx
 
 # This cell renders the chart inline automatically
 cx.Chart().line([1, 2, 3, 4], [10, 20, 15, 30])
-`
+```
 
 For Google Colab, call `cx.setup_colab()` once at the top of the notebook.
 

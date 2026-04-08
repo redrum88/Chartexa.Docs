@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Mountain Series"
 section: "chart-types/2d"
 last_updated: "2026-06-10 14:00 UTC"
@@ -17,7 +17,7 @@ The mountain (area) series renders a filled area between a line and a baseline. 
 
 === "Python"
 
-    `python
+    ```python
     import chartexa as cx
 
     chart = cx.Chart().mountain(
@@ -27,11 +27,11 @@ The mountain (area) series renders a filled area between a line and a baseline. 
         fill="#89B4FA",
     )
     chart.save("mountain.png")
-    `
+    ```
 
 === "C#"
 
-    `csharp
+    ```csharp
     var ds = new XyDataSeries();
     ds.Append(new double[] { 0, 1, 2, 3, 4, 5 },
               new double[] { 10, 25, 18, 30, 22, 28 });
@@ -44,7 +44,7 @@ The mountain (area) series renders a filled area between a line and a baseline. 
         StrokeThickness = 1.5
     };
     surface.RenderableSeries.Add(rs);
-    `
+    ```
 
 ---
 

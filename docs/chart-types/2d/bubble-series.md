@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Bubble Series"
 section: "chart-types/2d"
 last_updated: "2026-06-10 14:00 UTC"
@@ -17,7 +17,7 @@ The bubble series extends scatter plots with a third dimension encoded as marker
 
 === "Python"
 
-    `python
+    ```python
     import chartexa as cx
 
     chart = cx.Chart().bubble(
@@ -29,11 +29,11 @@ The bubble series extends scatter plots with a third dimension encoded as marker
         max_size=50,
     )
     chart.save("bubble.png")
-    `
+    ```
 
 === "C#"
 
-    `csharp
+    ```csharp
     var ds = new XyDataSeries();
     ds.Append(x, y);
 
@@ -45,7 +45,7 @@ The bubble series extends scatter plots with a third dimension encoded as marker
         MaxBubbleSize = 50,
         Fill = new ChartColor(128, 203, 166, 247)
     };
-    `
+    ```
 
 ---
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Custom Themes"
 section: "theming"
 last_updated: "2026-06-10 14:00 UTC"
@@ -15,7 +15,7 @@ Create custom themes using the `ChartTheme` class. Themes define colours for eve
 
 ## Quick Start
 
-`python
+```python
 from chartexa import Chart, ChartTheme
 
 theme = ChartTheme(
@@ -28,7 +28,7 @@ theme = ChartTheme(
 
 chart = Chart().line([1, 2, 3], [10, 20, 15]).theme(theme)
 chart.save("custom_theme.png")
-`
+```
 
 ---
 
@@ -48,7 +48,7 @@ chart.save("custom_theme.png")
 
 ## Colour Utilities
 
-`python
+```python
 from chartexa import Color, gradient, ColorCycle
 
 # Named colours
@@ -61,7 +61,7 @@ colors = gradient("#FF0000", "#0000FF", steps=10)
 # Auto-cycling colour palette
 cycle = ColorCycle(["#F38BA8", "#89B4FA", "#A6E3A1"])
 print(cycle[0], cycle[1], cycle[5])  # Wraps around
-`
+```
 
 ---
 

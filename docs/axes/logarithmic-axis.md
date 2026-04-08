@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Logarithmic Axis"
 section: "axes"
 last_updated: "2026-06-10 14:00 UTC"
@@ -17,7 +17,7 @@ The logarithmic axis maps values on a logarithmic scale. Ideal for data spanning
 
 === "Python"
 
-    `python
+    ```python
     import chartexa as cx
 
     x = [1, 10, 100, 1000, 10000]
@@ -30,17 +30,17 @@ The logarithmic axis maps values on a logarithmic scale. Ideal for data spanning
         .y_axis(title="Gain (dB)")
     )
     chart.save("log_axis.png")
-    `
+    ```
 
 === "C#"
 
-    `csharp
+    ```csharp
     var xAxis = new LogarithmicAxis
     {
         AxisTitle = "Frequency (Hz)",
         LogBase = 10
     };
-    `
+    ```
 
 ---
 

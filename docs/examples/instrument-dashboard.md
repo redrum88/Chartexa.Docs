@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Instrument Dashboard"
 section: "examples"
 last_updated: "2026-06-10 14:00 UTC"
@@ -15,7 +15,7 @@ A dashboard combining gauges, meters, and status indicators for industrial monit
 
 ## Python
 
-`python
+```python
 import chartexa as cx
 from chartexa import Dashboard
 
@@ -63,7 +63,7 @@ vol_chart = (
 dash.add(vol_chart, x=0, y=540, width=1920, height=540)
 
 dash.save("instrument_dashboard.png")
-`
+```
 
 ---
 

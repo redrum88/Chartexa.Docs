@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Python Getting Started"
 section: "python"
 last_updated: "2026-06-10 14:00 UTC"
@@ -17,7 +17,7 @@ The Chartexa Python wrapper provides a fluent, Pythonic API for creating publica
 
 `ash
 pip install chartexa
-`
+```
 
 Requires Python 3.9+ and .NET 10 runtime. See [Installation](../getting-started/installation.md) for details.
 
@@ -25,12 +25,12 @@ Requires Python 3.9+ and .NET 10 runtime. See [Installation](../getting-started/
 
 ## Quick Start
 
-`python
+```python
 import chartexa as cx
 
 # Convenience function -- creates and returns a Chart
 cx.line([10, 20, 15, 30, 25]).save("quick.png")
-`
+```
 
 ---
 
@@ -38,7 +38,7 @@ cx.line([10, 20, 15, 30, 25]).save("quick.png")
 
 `Chart` is the primary entry point. Every method returns `self` for fluent chaining:
 
-`python
+```python
 import chartexa as cx
 import math
 
@@ -56,7 +56,7 @@ chart = (
 )
 
 chart.save("damped.png")
-`
+```
 
 ---
 
@@ -88,14 +88,14 @@ chart.save("damped.png")
 
 ## Axes
 
-`python
+```python
 chart = (
     cx.Chart()
     .line(x, y)
     .x_axis(type="numeric", title="X", range=(0, 100))
     .y_axis(type="log", title="Y (log scale)", log_base=10)
 )
-`
+```
 
 Axis types: `"numeric"` (default), `"datetime"`, `"category"`, `"log"`.
 
@@ -103,11 +103,11 @@ Axis types: `"numeric"` (default), `"datetime"`, `"category"`, `"log"`.
 
 ## Themes
 
-`python
+```python
 chart.theme("catppuccin_mocha")   # or any preset name
 chart.theme("dark")
 chart.theme("github_dark")
-`
+```
 
 Available presets: `dark`, `light`, `catppuccin_mocha`, `catppuccin_latte`, `catppuccin_frappe`, `catppuccin_macchiato`, `github_dark`, `github_light`, `dracula`, `nord`, `solarized_dark`, `solarized_light`, `minimal`, `scientific`.
 
@@ -115,7 +115,7 @@ Available presets: `dark`, `light`, `catppuccin_mocha`, `catppuccin_latte`, `cat
 
 ## Interactivity
 
-`python
+```python
 chart = (
     cx.Chart()
     .line(x, y)
@@ -124,7 +124,7 @@ chart = (
     .tooltips()           # Show values on hover
     .save_html("interactive.html")
 )
-`
+```
 
 Interactivity is available in HTML exports and Jupyter notebooks.
 

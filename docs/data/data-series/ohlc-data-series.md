@@ -1,4 +1,4 @@
-﻿---
+---
 title: "OHLC Data Series"
 section: "data/data-series"
 last_updated: "2026-06-10 14:00 UTC"
@@ -17,7 +17,7 @@ status: published
 
 === "Python"
 
-    `python
+    ```python
     import chartexa as cx
 
     chart = cx.Chart().candlestick(
@@ -28,13 +28,13 @@ status: published
         close=[105, 102, 106],
     )
     # OhlcDataSeries is created internally via DataSeriesFactory
-    `
+    ```
 
 === "C#"
 
-    `csharp
+    ```csharp
     var ds = DataSeriesFactory.CreateOhlcSeries(x, open, high, low, close);
-    `
+    ```
 
 ---
 

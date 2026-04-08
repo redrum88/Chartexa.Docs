@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Zoom & Pan Modifier"
 section: "interaction"
 last_updated: "2026-06-10 14:00 UTC"
@@ -15,10 +15,10 @@ The zoom & pan modifier enables scroll-to-zoom and drag-to-pan interaction. Uses
 
 ## Quick Start
 
-`python
+```python
 chart = cx.Chart().line(x, y).zoom_pan()
 chart.save_html("zoomable.html")
-`
+```
 
 ---
 

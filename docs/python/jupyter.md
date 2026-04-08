@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Jupyter Integration"
 section: "python"
 last_updated: "2026-06-10 14:00 UTC"
@@ -15,12 +15,12 @@ Chartexa integrates with Jupyter Notebook, JupyterLab, VS Code notebooks, and Go
 
 ## Quick Start
 
-`python
+```python
 import chartexa as cx
 
 # Return a Chart from the last expression -- it renders inline
 cx.Chart().line([1, 2, 3, 4, 5], [10, 30, 20, 40, 25])
-`
+```
 
 No `.show()` call needed. Chartexa registers `_repr_html_` and `_repr_png_` methods that IPython uses automatically.
 
@@ -40,7 +40,7 @@ The detection is transparent -- no manual configuration needed.
 
 ## Environment Detection
 
-`python
+```python
 from chartexa import detect_environment, is_notebook, is_ipython
 
 env = detect_environment()
@@ -48,18 +48,18 @@ env = detect_environment()
 
 if is_notebook():
     print("Running in a notebook")
-`
+```
 
 ---
 
 ## Explicit Display
 
-`python
+```python
 from chartexa import display_chart
 
 chart = cx.Chart().line([1, 2, 3], [10, 20, 15])
 display_chart(chart)  # Force display mid-cell
-`
+```
 
 ---
 
@@ -67,7 +67,7 @@ display_chart(chart)  # Force display mid-cell
 
 Add interactivity modifiers for zoom, pan, and tooltips in the inline HTML:
 
-`python
+```python
 chart = (
     cx.Chart(width=900, height=400)
     .line([1, 2, 3, 4, 5], [10, 30, 20, 40, 25], label="Sensor A")
@@ -79,7 +79,7 @@ chart = (
 )
 
 chart  # Interactive HTML renders inline
-`
+```
 
 ---
 
@@ -87,23 +87,23 @@ chart  # Interactive HTML renders inline
 
 Colab requires a one-time setup call:
 
-`python
+```python
 import chartexa as cx
 
 cx.setup_colab()  # Installs .NET runtime, configures paths
 
 chart = cx.Chart().line([1, 2, 3], [10, 20, 15])
 chart
-`
+```
 
 ### Colab Runtime Info
 
-`python
+```python
 from chartexa import detect_colab_runtime, colab_runtime_info
 
 runtime = detect_colab_runtime()  # ColabRuntime.STANDARD | TPU | GPU
 info = colab_runtime_info()       # dict with hardware details
-`
+```
 
 ---
 
@@ -111,7 +111,7 @@ info = colab_runtime_info()       # dict with hardware details
 
 For real-time updating charts in notebooks:
 
-`python
+```python
 from chartexa import ChartWidget
 
 widget = ChartWidget(width=800, height=400)
@@ -122,7 +122,7 @@ import time
 for i in range(100):
     widget.update_line([i], [math.sin(i * 0.1)])
     time.sleep(0.05)
-`
+```
 
 ---
 
@@ -130,7 +130,7 @@ for i in range(100):
 
 For streaming data sources:
 
-`python
+```python
 from chartexa import NotebookLiveChart
 
 live = NotebookLiveChart(
@@ -142,7 +142,7 @@ live.start()
 
 # Push data from another thread or callback
 live.append(x_value, y_value)
-`
+```
 
 ---
 

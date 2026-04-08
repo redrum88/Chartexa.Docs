@@ -1,4 +1,4 @@
-﻿---
+---
 title: "First Chart in Python"
 section: "getting-started"
 last_updated: "2026-06-10 14:00 UTC"
@@ -15,12 +15,12 @@ Create your first Chartexa chart in Python with just a few lines of code. The fl
 
 ## Quick Start
 
-`python
+```python
 import chartexa as cx
 
 # One-liner: plot y-values with auto-generated x-values
 cx.line([10, 20, 15, 30, 25]).save("quick.png")
-`
+```
 
 That single line creates an 800x600 PNG with a line series, auto-ranged axes, and the default dark theme.
 
@@ -30,7 +30,7 @@ That single line creates an 800x600 PNG with a line series, auto-ranged axes, an
 
 For more control, use the `Chart` class directly:
 
-`python
+```python
 import chartexa as cx
 
 chart = (
@@ -50,7 +50,7 @@ chart = (
 )
 
 chart.save("temperature.png")
-`
+```
 
 Every method returns the chart, so calls chain naturally. The chart renders only when you call `.save()`, `.show()`, or `.to_bytes()`.
 
@@ -60,7 +60,7 @@ Every method returns the chart, so calls chain naturally. The chart renders only
 
 Chartexa provides top-level functions for the most common chart types. Each returns a `Chart` that you can further customise:
 
-`python
+```python
 import chartexa as cx
 
 # Scatter plot
@@ -80,7 +80,7 @@ cx.candlestick(
     low=[98, 101, 99, 105],
     close=[105, 102, 106, 110],
 ).save("candles.png")
-`
+```
 
 Available convenience functions: `line`, `scatter`, `bar`, `column`, `mountain`, `candlestick`, `band`, `heatmap`, `bubble`, `pie`, `donut`.
 
@@ -90,7 +90,7 @@ Available convenience functions: `line`, `scatter`, `bar`, `column`, `mountain`,
 
 Add as many series as you need by chaining calls:
 
-`python
+```python
 import chartexa as cx
 import math
 
@@ -107,13 +107,13 @@ chart = (
 )
 
 chart.save("trig.png")
-`
+```
 
 ---
 
 ## Output Formats
 
-`python
+```python
 # PNG (default)
 chart.save("chart.png")
 
@@ -132,7 +132,7 @@ html_snippet = chart.to_html_div()
 
 # Display in Jupyter notebook
 chart.show()
-`
+```
 
 ---
 
@@ -140,12 +140,12 @@ chart.show()
 
 In Jupyter or VS Code notebooks, charts render inline automatically:
 
-`python
+```python
 import chartexa as cx
 
 # Just return the chart from the last expression in a cell
 cx.Chart().line([1, 2, 3], [10, 20, 15])
-`
+```
 
 No `.show()` call needed -- Chartexa registers `_repr_html_` and `_repr_png_` methods that IPython picks up automatically.
 

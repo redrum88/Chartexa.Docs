@@ -1,4 +1,4 @@
-﻿---
+---
 title: "System Overview"
 section: "architecture"
 last_updated: "2026-06-10 14:00 UTC"
@@ -15,7 +15,7 @@ Chartexa is a high-performance charting engine built in C# with multiple renderi
 
 ## Architecture Diagram
 
-`mermaid
+```mermaid
 graph TB
     subgraph Python
         A[chartexa Python package] --> B[pythonnet bridge]
@@ -35,7 +35,7 @@ graph TB
         I --> K[WPF Window]
         A --> L[HTML / Canvas]
     end
-`
+```
 
 ---
 
