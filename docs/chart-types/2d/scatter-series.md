@@ -472,9 +472,9 @@ Scatter series are optimized for large datasets using Chartexa's DirectX 12 rend
 ## Related
 
 - [Fast Line Series](fast-line-series.md)
-- [Numeric Axis](../axes/numeric-axis.md)
-- [Legend and Tooltips](../interaction/legend-tooltip.md)
-- [Theme Engine](../theming/theme-engine.md)
+- [Numeric Axis](../../axes/numeric-axis.md)
+- [Legend and Tooltips](../../interaction/legend-tooltip.md)
+- [Theme Engine](../../theming/theme-engine.md)
 
 ---
 
