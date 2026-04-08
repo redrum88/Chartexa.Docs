@@ -20,7 +20,8 @@
     "chart-types/2d/stacked-column.md",
     "chart-types/2d/stacked-mountain.md",
     "chart-types/2d/waterfall-series.md",
-    "axes/axis-ranging.md"
+    "axes/axis-ranging.md",
+    "axes/axis-styling.md"
   ],
   "failed": [],
   "skipped": []
