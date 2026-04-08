@@ -23,7 +23,9 @@
     "axes/axis-ranging.md",
     "axes/axis-styling.md",
     "axes/category-axis.md",
-    "axes/datetime-axis.md"
+    "axes/datetime-axis.md",
+    "axes/label-providers.md",
+    "axes/logarithmic-axis.md"
   ],
   "failed": [],
   "skipped": []
