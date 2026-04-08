@@ -8,7 +8,8 @@
     "chart-types/2d/band-series.md",
     "chart-types/2d/bubble-series.md",
     "chart-types/2d/candlestick-series.md",
-    "chart-types/2d/column-series.md"
+    "chart-types/2d/column-series.md",
+    "chart-types/2d/digital-signal.md"
   ],
   "failed": [],
   "skipped": []
