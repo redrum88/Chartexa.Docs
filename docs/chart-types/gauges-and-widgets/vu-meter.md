@@ -1,7 +1,7 @@
 ---
 title: "VU Meter"
 section: "chart-types/gauges-and-widgets"
-last_updated: "2026-04-08 10:35 UTC"
+last_updated: "2026-04-08 11:13 UTC"
 status: placeholder
 ---
 
@@ -114,4 +114,4 @@ pip install chartexa
 
 ---
 
-> **Last updated:** 2026-04-08 10:35 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-04-08 11:13 UTC | **Status:** Placeholder -- awaiting AI expansion
