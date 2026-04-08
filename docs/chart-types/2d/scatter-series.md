@@ -1,8 +1,8 @@
 ---
 title: "Scatter Series"
 section: "chart-types/2d"
-last_updated: "2024-06-10 14:42 UTC"
-status: draft
+last_updated: "2026-04-08 10:35 UTC"
+status: placeholder
 ---
 
 # Scatter Series
@@ -478,4 +478,4 @@ Scatter series are optimized for large datasets using Chartexa's DirectX 12 rend
 
 ---
 
-> **Last updated:** 2024-06-10 14:42 UTC | **Status:** draft
+> **Last updated:** 2026-04-08 10:35 UTC | **Status:** Placeholder -- awaiting AI expansion
