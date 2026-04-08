@@ -1,0 +1,113 @@
+name: AI Docs Expansion (Claude)
+
+# Same pattern as Copilot but uses Anthropic Claude API.
+# Writes to claude/docs-expansion branch for comparison.
+# Requires ANTHROPIC_API_KEY secret to be set.
+# DISABLED by default -- remove the `if: false` to enable.
+
+on:
+  schedule:
+    - cron: "30 * * * *"       # Every hour at :30 (offset from Copilot at :00)
+  workflow_dispatch:
+    inputs:
+      file:
+        description: "Specific file to expand (relative to docs/)"
+        required: false
+        type: string
+
+concurrency:
+  group: ai-expand-claude
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  expand:
+    name: Expand One Doc (Claude)
+    if: false                   # <-- REMOVE THIS LINE TO ENABLE
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Setup branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          if git ls-remote --heads origin claude/docs-expansion | grep -q claude/docs-expansion; then
+            git fetch origin claude/docs-expansion
+            git checkout claude/docs-expansion
+            git merge origin/main --no-edit --strategy-option theirs || true
+          else
+            git checkout -b claude/docs-expansion
+          fi
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check for remaining placeholders
+        id: check
+        run: |
+          COUNT=$(grep -rl "^status: placeholder" docs/ --include="*.md" | wc -l)
+          echo "remaining=$COUNT" >> "$GITHUB_OUTPUT"
+
+      - name: Expand one doc
+        if: steps.check.outputs.remaining != '0'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          FILE_ARG=""
+          if [ -n "${{ inputs.file }}" ]; then
+            FILE_ARG="--file ${{ inputs.file }}"
+          fi
+          python scripts/expand_one_doc_claude.py $FILE_ARG
+
+      - name: Commit and push
+        if: steps.check.outputs.remaining != '0'
+        run: |
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          EXPANDED=$(python -c "
+          import json
+          s = json.load(open('.ai-expansion-state-claude.json'))
+          if s.get('expanded'):
+              print(s['expanded'][-1])
+          " 2>/dev/null || echo "unknown")
+
+          git commit -m "docs(ai): expand ${EXPANDED} [claude]" \
+                     -m "Auto-expanded by Claude. Status: draft -- needs human review."
+          git push origin claude/docs-expansion
+
+      - name: Create or update PR
+        if: steps.check.outputs.remaining != '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          EXISTING=$(gh pr list --head claude/docs-expansion --state open --json number -q '.[0].number' 2>/dev/null || echo "")
+
+          if [ -z "$EXISTING" ]; then
+            gh pr create \
+              --title "docs: AI-expanded documentation (Claude)" \
+              --body "## AI Documentation Expansion (Claude Branch)
+
+          Same placeholder docs expanded by Claude for comparison with the Copilot branch.
+
+          Compare with: copilot/docs-expansion PR" \
+              --head claude/docs-expansion \
+              --base main \
+              --label "documentation,ai-generated"
+          fi

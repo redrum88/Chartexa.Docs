@@ -1,0 +1,263 @@
+site_name: Chartexa Documentation
+site_url: https://redrum88.github.io/Chartexa.Docs/
+site_description: "High-performance charting engine for .NET and Python — DirectX 12, Skia, WPF renderers"
+site_author: Kedevo
+repo_url: https://github.com/redrum88/Chartexa.Docs
+repo_name: Chartexa.Docs
+
+copyright: "Copyright &copy; 2024–2026 Kedevo"
+
+theme:
+  name: material
+  custom_dir: overrides
+  language: en
+  palette:
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep purple
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep purple
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+  font:
+    text: Inter
+    code: JetBrains Mono
+  icon:
+    repo: fontawesome/brands/github
+    logo: material/chart-line
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - toc.follow
+    - header.autohide
+
+plugins:
+  - search
+  - tags
+  - minify:
+      minify_html: true
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/redrum88/Chartexa
+    - icon: fontawesome/brands/python
+      link: https://pypi.org/project/chartexa/
+  # version:
+  #   provider: mike      # Enable when versioning is needed
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Home: index.md
+
+  - Getting Started:
+    - getting-started/installation.md
+    - getting-started/first-chart-csharp.md
+    - getting-started/first-chart-python.md
+    - getting-started/choosing-a-renderer.md
+
+  - Chart Types:
+    - 2D Charts:
+      - chart-types/2d/line-series.md
+      - chart-types/2d/scatter-series.md
+      - chart-types/2d/column-series.md
+      - chart-types/2d/mountain-series.md
+      - chart-types/2d/band-series.md
+      - chart-types/2d/bubble-series.md
+      - chart-types/2d/candlestick-series.md
+      - chart-types/2d/heatmap-series.md
+      - chart-types/2d/error-bar-series.md
+      - chart-types/2d/stacked-column.md
+      - chart-types/2d/stacked-mountain.md
+      - chart-types/2d/donut-series.md
+      - chart-types/2d/waterfall-series.md
+      - chart-types/2d/digital-signal.md
+    - 3D Charts:
+      - chart-types/3d/surface-mesh.md
+    - Gauges & Widgets:
+      - chart-types/gauges-and-widgets/angular-gauge.md
+      - chart-types/gauges-and-widgets/linear-gauge.md
+      - chart-types/gauges-and-widgets/radial-gauge.md
+      - chart-types/gauges-and-widgets/thermometer.md
+      - chart-types/gauges-and-widgets/vu-meter.md
+      - chart-types/gauges-and-widgets/battery-indicator.md
+      - chart-types/gauges-and-widgets/status-lamp.md
+      - chart-types/gauges-and-widgets/power-meter.md
+      - chart-types/gauges-and-widgets/numeric-readout.md
+      - chart-types/gauges-and-widgets/trend-indicator.md
+      - chart-types/gauges-and-widgets/alarm-widget.md
+    - Scientific Instruments:
+      - chart-types/instruments/spectrum-analyzer.md
+      - chart-types/instruments/oscilloscope.md
+      - chart-types/instruments/bode-plot.md
+      - chart-types/instruments/nyquist-plot.md
+      - chart-types/instruments/constellation-diagram.md
+      - chart-types/instruments/eye-diagram.md
+      - chart-types/instruments/radar-sweep.md
+      - chart-types/instruments/compass.md
+      - chart-types/instruments/gps-track.md
+
+  - Axes:
+    - axes/overview.md
+    - axes/numeric-axis.md
+    - axes/datetime-axis.md
+    - axes/category-axis.md
+    - axes/logarithmic-axis.md
+    - axes/tick-providers.md
+    - axes/label-providers.md
+    - axes/axis-ranging.md
+    - axes/axis-styling.md
+    - axes/multiple-axes.md
+
+  - Data:
+    - Data Series:
+      - data/data-series/xy-data-series.md
+      - data/data-series/ohlc-data-series.md
+    - Data Sources:
+      - data/data-sources/overview.md
+      - Financial:
+        - data/data-sources/financial/market-data.md
+        - data/data-sources/financial/technical-indicators.md
+      - Network:
+        - data/data-sources/network/mqtt.md
+        - data/data-sources/network/opc-ua.md
+        - data/data-sources/network/modbus.md
+        - data/data-sources/network/websocket.md
+        - data/data-sources/network/grpc-streaming.md
+        - data/data-sources/network/rest-polling.md
+        - data/data-sources/network/timeseries-db.md
+      - Hardware:
+        - data/data-sources/hardware/serial.md
+        - data/data-sources/hardware/gpio.md
+        - data/data-sources/hardware/scpi.md
+      - Audio:
+        - data/data-sources/audio/audio-capture.md
+        - data/data-sources/audio/fft-processor.md
+      - Automotive:
+        - data/data-sources/automotive/can-bus.md
+        - data/data-sources/automotive/obd2.md
+
+  - Interaction:
+    - interaction/overview.md
+    - interaction/zoom-pan-modifier.md
+    - interaction/rubber-band-zoom.md
+    - interaction/cursor-modifier.md
+    - interaction/tooltip-modifier.md
+    - interaction/modifier-group.md
+    - interaction/hit-testing.md
+    - interaction/custom-modifiers.md
+
+  - Rendering:
+    - rendering/overview.md
+    - rendering/render-commands.md
+    - DirectX 12:
+      - rendering/directx12/setup.md
+      - rendering/directx12/gpu-acceleration.md
+      - rendering/directx12/sdf-text.md
+      - rendering/directx12/profiling.md
+    - Skia:
+      - rendering/skia/setup.md
+    - WPF:
+      - rendering/wpf/setup.md
+      - rendering/wpf/data-binding.md
+      - rendering/wpf/controls.md
+    - Web:
+      - rendering/web/json-export.md
+
+  - Theming:
+    - theming/overview.md
+    - theming/custom-themes.md
+    - theming/theme-engine.md
+
+  - Layout:
+    - layout/overview.md
+    - layout/grid-layout.md
+    - layout/absolute-layout.md
+
+  - Python:
+    - python/getting-started.md
+    - python/chart-builder.md
+    - python/image-export.md
+    - python/jupyter.md
+
+  - Performance:
+    - performance/optimization.md
+    - performance/gpu-acceleration.md
+    - performance/large-datasets.md
+    - performance/benchmarks.md
+
+  - Examples:
+    - examples/index.md
+    - examples/real-time-line-chart.md
+    - examples/financial-dashboard.md
+    - examples/heatmap-visualization.md
+    - examples/instrument-dashboard.md
+    - examples/iot-sensor-dashboard.md
+
+  - API Reference:
+    - api-reference/index.md
+
+  - Architecture:
+    - architecture/system-overview.md
+    - architecture/rendering-pipeline.md
+    - architecture/coordinate-system.md

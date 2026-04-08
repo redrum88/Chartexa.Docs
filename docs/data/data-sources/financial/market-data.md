@@ -1,7 +1,7 @@
 ---
 title: "Market Data Source"
 section: "data/data-sources/financial"
-last_updated: "2026-04-08 01:45 UTC"
+last_updated: "2026-04-08 02:19 UTC"
 status: placeholder
 ---
 
@@ -114,4 +114,4 @@ pip install chartexa
 
 ---
 
-> **Last updated:** 2026-04-08 01:45 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-04-08 02:19 UTC | **Status:** Placeholder -- awaiting AI expansion

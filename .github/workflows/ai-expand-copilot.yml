@@ -1,0 +1,139 @@
+name: AI Docs Expansion (Copilot)
+
+# Runs every hour, expands ONE placeholder doc per run to conserve credits.
+# Writes to copilot/docs-expansion branch -- never directly to main.
+# User manually reviews and merges via PR.
+
+on:
+  schedule:
+    - cron: "0 * * * *"       # Every hour, on the hour
+  workflow_dispatch:           # Manual trigger
+    inputs:
+      file:
+        description: "Specific file to expand (relative to docs/, e.g. getting-started/installation.md). Leave empty for auto-pick."
+        required: false
+        type: string
+      model:
+        description: "Model to use"
+        required: false
+        type: string
+        default: "openai/gpt-4.1"
+
+concurrency:
+  group: ai-expand-copilot
+  cancel-in-progress: false    # Don't cancel in-progress expansions
+
+permissions:
+  contents: write
+  pull-requests: write
+  models: read
+
+jobs:
+  expand:
+    name: Expand One Doc
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Setup branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Create or switch to the copilot branch
+          if git ls-remote --heads origin copilot/docs-expansion | grep -q copilot/docs-expansion; then
+            git fetch origin copilot/docs-expansion
+            git checkout copilot/docs-expansion
+            git merge origin/main --no-edit --strategy-option theirs || true
+          else
+            git checkout -b copilot/docs-expansion
+          fi
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check for remaining placeholders
+        id: check
+        run: |
+          COUNT=$(grep -rl "^status: placeholder" docs/ --include="*.md" | wc -l)
+          echo "remaining=$COUNT" >> "$GITHUB_OUTPUT"
+          if [ "$COUNT" -eq "0" ]; then
+            echo "No placeholder files remaining. Done."
+          else
+            echo "$COUNT placeholder files remaining."
+          fi
+
+      - name: Expand one doc
+        if: steps.check.outputs.remaining != '0'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MODEL_ID: ${{ inputs.model || 'openai/gpt-4.1' }}
+        run: |
+          FILE_ARG=""
+          if [ -n "${{ inputs.file }}" ]; then
+            FILE_ARG="--file ${{ inputs.file }}"
+          fi
+          python scripts/expand_one_doc.py $FILE_ARG
+
+      - name: Commit and push
+        if: steps.check.outputs.remaining != '0'
+        run: |
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          # Get the file that was expanded from the state
+          EXPANDED=$(python -c "
+          import json
+          s = json.load(open('.ai-expansion-state.json'))
+          if s.get('expanded'):
+              print(s['expanded'][-1])
+          " 2>/dev/null || echo "unknown")
+
+          git commit -m "docs(ai): expand ${EXPANDED}" \
+                     -m "Auto-expanded by Copilot model. Status: draft — needs human review."
+          git push origin copilot/docs-expansion
+
+      - name: Create or update PR
+        if: steps.check.outputs.remaining != '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Check if PR already exists
+          EXISTING=$(gh pr list --head copilot/docs-expansion --state open --json number -q '.[0].number' 2>/dev/null || echo "")
+
+          if [ -z "$EXISTING" ]; then
+            gh pr create \
+              --title "docs: AI-expanded documentation (Copilot)" \
+              --body "## AI Documentation Expansion (Copilot Branch)
+
+          This PR contains documentation pages expanded by GitHub Copilot.
+
+          **How it works:**
+          - One placeholder doc is expanded per hour
+          - Each page is marked \`status: draft\` in frontmatter
+          - Review each file before merging
+
+          **Review checklist:**
+          - [ ] Code examples are accurate and copy-pasteable
+          - [ ] C# and Python examples are both present
+          - [ ] No internal implementation details exposed
+          - [ ] Consistent tone and style
+
+          > This PR is updated automatically. You can merge individual commits or the whole branch." \
+              --head copilot/docs-expansion \
+              --base main \
+              --label "documentation,ai-generated"
+          else
+            echo "PR #${EXISTING} already exists, push updated it."
+          fi
