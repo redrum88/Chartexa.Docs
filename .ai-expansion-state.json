@@ -21,7 +21,8 @@
     "chart-types/2d/stacked-mountain.md",
     "chart-types/2d/waterfall-series.md",
     "axes/axis-ranging.md",
-    "axes/axis-styling.md"
+    "axes/axis-styling.md",
+    "axes/category-axis.md"
   ],
   "failed": [],
   "skipped": []
