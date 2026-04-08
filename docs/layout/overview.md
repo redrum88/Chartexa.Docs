@@ -1,7 +1,7 @@
 ---
 title: "Dashboard Layout Overview"
 section: "layout"
-last_updated: "2026-04-08 09:33 UTC"
+last_updated: "2026-04-08 09:53 UTC"
 status: placeholder
 ---
 
@@ -114,4 +114,4 @@ pip install chartexa
 
 ---
 
-> **Last updated:** 2026-04-08 09:33 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-04-08 09:53 UTC | **Status:** Placeholder -- awaiting AI expansion
