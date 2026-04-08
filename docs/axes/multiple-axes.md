@@ -1,8 +1,8 @@
 ---
 title: "Multiple Axes"
 section: "axes"
-last_updated: "2024-06-12 15:40 UTC"
-status: draft
+last_updated: "2026-04-08 16:27 UTC"
+status: placeholder
 ---
 
 # Multiple Axes
@@ -489,4 +489,4 @@ Multiple axes add minimal overhead to rendering, as Chartexa efficiently manages
 
 ---
 
-> **Last updated:** 2024-06-12 15:40 UTC | **Status:** draft
+> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion

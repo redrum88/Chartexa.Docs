@@ -1,8 +1,8 @@
 ---
 title: "Numeric Axis"
 section: "axes"
-last_updated: "2024-06-13 15:45 UTC"
-status: draft
+last_updated: "2026-04-08 16:27 UTC"
+status: placeholder
 ---
 
 # Numeric Axis
@@ -463,4 +463,4 @@ The `NumericAxis` is optimized for real-time rendering and large datasets. Axis 
 
 ---
 
-> **Last updated:** 2024-06-13 15:45 UTC | **Status:** draft
+> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
