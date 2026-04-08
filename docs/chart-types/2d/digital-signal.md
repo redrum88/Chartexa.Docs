@@ -1,7 +1,7 @@
 ---
 title: "Digital Signal Series"
 section: "chart-types/2d"
-last_updated: "2026-04-08 08:08 UTC"
+last_updated: "2026-04-08 08:56 UTC"
 status: placeholder
 ---
 
@@ -372,4 +372,4 @@ The Digital Signal Series is optimized for rendering large datasets with rapid s
 
 ---
 
-> **Last updated:** 2026-04-08 08:08 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-04-08 08:56 UTC | **Status:** Placeholder -- awaiting AI expansion

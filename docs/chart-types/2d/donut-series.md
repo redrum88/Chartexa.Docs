@@ -3,6 +3,8 @@ title: "Donut / Pie Series"
 section: "chart-types/2d"
 last_updated: "2024-06-13 14:35 UTC"
 status: draft
+last_updated: "2026-04-08 08:56 UTC"
+status: placeholder
 ---
 
 # Donut / Pie Series
@@ -423,3 +425,4 @@ Chartexa's DirectX 12 renderer efficiently handles donut and pie charts with hun
 ---
 
 > **Last updated:** 2024-06-13 14:35 UTC | **Status:** draft
+> **Last updated:** 2026-04-08 08:56 UTC | **Status:** Placeholder -- awaiting AI expansion
