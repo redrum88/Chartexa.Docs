@@ -10,7 +10,8 @@
     "chart-types/2d/candlestick-series.md",
     "chart-types/2d/column-series.md",
     "chart-types/2d/digital-signal.md",
-    "chart-types/2d/donut-series.md"
+    "chart-types/2d/donut-series.md",
+    "chart-types/2d/error-bar-series.md"
   ],
   "failed": [],
   "skipped": []
