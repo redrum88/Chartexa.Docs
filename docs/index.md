@@ -687,4 +687,4 @@ The Chartexa engine is proprietary â€” see the main repository for licensin
 
 ---
 
-> **Last synced from source:** 2026-04-08 09:53 UTC
+> **Last synced from source:** 2026-04-08 10:35 UTC
