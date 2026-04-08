@@ -26,7 +26,8 @@
     "axes/datetime-axis.md",
     "axes/label-providers.md",
     "axes/logarithmic-axis.md",
-    "axes/multiple-axes.md"
+    "axes/multiple-axes.md",
+    "axes/numeric-axis.md"
   ],
   "failed": [],
   "skipped": []
