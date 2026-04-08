@@ -13,7 +13,8 @@
     "chart-types/2d/donut-series.md",
     "chart-types/2d/error-bar-series.md",
     "chart-types/2d/heatmap-series.md",
-    "chart-types/2d/fast-line-series.md"
+    "chart-types/2d/fast-line-series.md",
+    "chart-types/2d/line-series.md"
   ],
   "failed": [],
   "skipped": []
