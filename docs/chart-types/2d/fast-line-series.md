@@ -400,10 +400,6 @@ FastLineRenderableSeries is optimized for GPU rendering and can handle millions 
 
 ## Related
 
-- [Numeric Axis](../../axes/numeric-axis.md)
-- [XyDataSeries](../../data-series/xy-data-series.md)
-- [DirectX 12 Renderer](../../rendering/directx12.md)
-- [Chart Layout](../../layout/chart-layout.md)
 
 ---
 
