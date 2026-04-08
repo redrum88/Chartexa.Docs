@@ -1,7 +1,7 @@
 ---
 title: "SCPI Instruments"
 section: "data/data-sources/hardware"
-last_updated: "2026-04-08 12:52 UTC"
+last_updated: "2026-04-08 12:57 UTC"
 status: placeholder
 ---
 
@@ -114,4 +114,4 @@ pip install chartexa
 
 ---
 
-> **Last updated:** 2026-04-08 12:52 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-04-08 12:57 UTC | **Status:** Placeholder -- awaiting AI expansion
