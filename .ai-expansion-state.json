@@ -5,7 +5,8 @@
     "getting-started/first-chart-csharp.md",
     "getting-started/first-chart-python.md",
     "getting-started/installation.md",
-    "chart-types/2d/band-series.md"
+    "chart-types/2d/band-series.md",
+    "chart-types/2d/bubble-series.md"
   ],
   "failed": [],
   "skipped": []
