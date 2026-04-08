@@ -1,7 +1,7 @@
 ---
 title: "Radar Sweep"
 section: "chart-types/instruments"
-last_updated: "2026-04-08 12:10 UTC"
+last_updated: "2026-04-08 12:52 UTC"
 status: placeholder
 ---
 
@@ -114,4 +114,4 @@ pip install chartexa
 
 ---
 
-> **Last updated:** 2026-04-08 12:10 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-04-08 12:52 UTC | **Status:** Placeholder -- awaiting AI expansion
