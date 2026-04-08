@@ -17,7 +17,8 @@
     "chart-types/2d/line-series.md",
     "chart-types/2d/mountain-series.md",
     "chart-types/2d/scatter-series.md",
-    "chart-types/2d/stacked-column.md"
+    "chart-types/2d/stacked-column.md",
+    "chart-types/2d/stacked-mountain.md"
   ],
   "failed": [],
   "skipped": []
