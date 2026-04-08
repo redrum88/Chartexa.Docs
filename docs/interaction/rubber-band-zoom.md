@@ -1,7 +1,7 @@
 ---
 title: "Rubber Band Zoom"
 section: "interaction"
-last_updated: "2026-04-08 13:00 UTC"
+last_updated: "2026-04-08 16:16 UTC"
 status: placeholder
 ---
 
@@ -114,4 +114,4 @@ pip install chartexa
 
 ---
 
-> **Last updated:** 2026-04-08 13:00 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-04-08 16:16 UTC | **Status:** Placeholder -- awaiting AI expansion
