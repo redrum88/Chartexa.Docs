@@ -1,7 +1,7 @@
 ---
 title: "Your First Chart in C#"
 section: "getting-started"
-last_updated: "2026-04-08 08:56 UTC"
+last_updated: "2026-04-08 09:08 UTC"
 status: placeholder
 ---
 
@@ -114,4 +114,4 @@ pip install chartexa
 
 ---
 
-> **Last updated:** 2026-04-08 08:56 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-04-08 09:08 UTC | **Status:** Placeholder -- awaiting AI expansion

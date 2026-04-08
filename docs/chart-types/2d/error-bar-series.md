@@ -1,8 +1,8 @@
 ---
 title: "Error Bar Series"
 section: "chart-types/2d"
-last_updated: "2024-06-13 17:21 UTC"
-status: draft
+last_updated: "2026-04-08 09:08 UTC"
+status: placeholder
 ---
 
 # Error Bar Series
