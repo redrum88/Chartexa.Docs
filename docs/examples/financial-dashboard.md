@@ -1,117 +1,78 @@
----
+﻿---
 title: "Financial Dashboard"
 section: "examples"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
 # Financial Dashboard
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-Multi-pane financial dashboard with candlestick, volume, and technical indicators.
+A multi-panel financial dashboard with candlestick chart, volume bars, and Bollinger Bands overlay.
 
 ---
 
-## Installation
+## Python
 
-### .NET (NuGet)
+`python
+import chartexa as cx
+from chartexa import subplots, bollinger_bands, moving_average
+import random
 
-```bash
-dotnet add package Chartexa.Core
-```
+# Generate synthetic OHLC data
+random.seed(42)
+n = 100
+price = 100.0
+x, opens, highs, lows, closes, volumes = [], [], [], [], [], []
 
-### Python (PyPI)
+for i in range(n):
+    o = price
+    c = o + random.gauss(0, 2)
+    h = max(o, c) + abs(random.gauss(0, 1))
+    l = min(o, c) - abs(random.gauss(0, 1))
+    x.append(i)
+    opens.append(o)
+    highs.append(h)
+    lows.append(l)
+    closes.append(c)
+    volumes.append(random.randint(10000, 50000))
+    price = c
 
-```bash
-pip install chartexa
-```
+# Calculate indicators
+ma = moving_average(closes, window=20)
+upper, middle, lower = bollinger_bands(closes, window=20, std_dev=2)
 
----
+# Create dashboard
+fig = subplots(rows=2, cols=1, width=1400, height=900)
 
-## Quick Start
+# Top panel: Candlestick + Bollinger Bands
+fig[0, 0].candlestick(
+    x, opens, highs, lows, closes,
+    bullish_fill="#A6E3A1", bearish_fill="#F38BA8",
+).line(
+    x[19:], upper, stroke="#F9E2AF", thickness=1, dash="dot", label="Upper BB"
+).line(
+    x[19:], lower, stroke="#F9E2AF", thickness=1, dash="dot", label="Lower BB"
+).line(
+    x[19:], ma, stroke="#89B4FA", thickness=1.5, label="MA(20)"
+).title("Price Action").legend()
 
-### C#
+# Bottom panel: Volume bars
+fig[1, 0].column(
+    x, volumes, fill="#94E2D5"
+).title("Volume").y_axis(title="Volume")
 
-```csharp
-// TODO: Add C# example
-```
-
-### Python
-
-```python
-# TODO: Add Python example
-```
-
----
-
-## Concepts
-
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
-
----
-
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
-
----
-
-## Configuration
-
-<!-- AI: Describe available options, properties, and settings -->
-
----
-
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
-
----
-
-## When to Use
-
-<!-- AI: Describe scenarios where this feature is the right choice -->
+fig.save("financial_dashboard.png")
+`
 
 ---
 
 ## Related
 
-- *None yet*
+- [Candlestick Series](../chart-types/2d/candlestick-series.md)
+- [Data Transforms](../data/data-sources/financial/technical-indicators.md)
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

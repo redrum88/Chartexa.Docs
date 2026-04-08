@@ -1,117 +1,74 @@
----
-title: "Dashboard Layout Overview"
+﻿---
+title: "Layout Overview"
 section: "layout"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
-# Dashboard Layout Overview
+# Layout Overview
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-Chartexa's dashboard layout engine -- DashboardLayoutDocument, LayoutContainer, grid and absolute positioning.
+Chartexa supports multi-chart layouts through the `Figure`, `Dashboard`, and `subplots()` APIs. Arrange multiple charts in grid or absolute-positioned layouts.
 
 ---
 
-## Installation
+## Subplots (Quick Grid)
 
-### .NET (NuGet)
+`python
+import chartexa as cx
+from chartexa import subplots
 
-```bash
-dotnet add package Chartexa.Core
-```
+fig = subplots(rows=2, cols=2, width=1600, height=1200)
 
-### Python (PyPI)
+fig[0, 0].line([1, 2, 3], [10, 20, 15])
+fig[0, 1].scatter([1, 2, 3], [30, 10, 25])
+fig[1, 0].column([0, 1, 2], [50, 80, 65])
+fig[1, 1].mountain([1, 2, 3], [5, 15, 10])
 
-```bash
-pip install chartexa
-```
-
----
-
-## Quick Start
-
-### C#
-
-```csharp
-// TODO: Add C# example
-```
-
-### Python
-
-```python
-# TODO: Add Python example
-```
+fig.save("subplots.png")
+`
 
 ---
 
-## Concepts
+## Figure
 
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
+`python
+from chartexa import Figure
 
----
+fig = Figure(width=1600, height=800)
 
-## Basic Usage
+chart1 = cx.Chart(width=800, height=800).line(x, y1)
+chart2 = cx.Chart(width=800, height=800).scatter(x, y2)
 
-### C#
+fig.add(chart1, row=0, col=0)
+fig.add(chart2, row=0, col=1)
 
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
+fig.save("figure.png")
+`
 
 ---
 
-## Configuration
+## Dashboard
 
-<!-- AI: Describe available options, properties, and settings -->
+`python
+from chartexa import Dashboard
 
----
+dash = Dashboard(width=1920, height=1080)
+dash.add(chart1, x=0, y=0, width=960, height=540)
+dash.add(chart2, x=960, y=0, width=960, height=540)
+dash.add(chart3, x=0, y=540, width=1920, height=540)
 
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
-
----
-
-## When to Use
-
-<!-- AI: Describe scenarios where this feature is the right choice -->
+dash.save("dashboard.png")
+`
 
 ---
 
 ## Related
 
-- *None yet*
+- [Grid Layout](grid-layout.md)
+- [Absolute Layout](absolute-layout.md)
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

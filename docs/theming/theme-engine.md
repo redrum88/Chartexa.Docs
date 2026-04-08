@@ -1,117 +1,43 @@
----
+﻿---
 title: "Theme Engine"
 section: "theming"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
 # Theme Engine
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-ThemeEngine -- token resolution, theme application, and per-widget override system.
+The theme engine resolves theme names to `ChartTheme` objects and applies theme properties to all chart elements. Themes are resolved via `resolve_theme()` which accepts either a string preset name or a `ChartTheme` instance.
 
 ---
 
-## Installation
+## Resolution Order
 
-### .NET (NuGet)
-
-```bash
-dotnet add package Chartexa.Core
-```
-
-### Python (PyPI)
-
-```bash
-pip install chartexa
-```
+1. If `theme` is a `ChartTheme` instance, use it directly
+2. If `theme` is a string, look it up in `THEME_PRESETS`
+3. If not found, return `None` (no theme applied)
 
 ---
 
-## Quick Start
+## Preset Registry
 
-### C#
+`python
+from chartexa import THEME_PRESETS
 
-```csharp
-// TODO: Add C# example
-```
-
-### Python
-
-```python
-# TODO: Add Python example
-```
-
----
-
-## Concepts
-
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
-
----
-
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
-
----
-
-## Configuration
-
-<!-- AI: Describe available options, properties, and settings -->
-
----
-
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
-
----
-
-## When to Use
-
-<!-- AI: Describe scenarios where this feature is the right choice -->
+# List all available presets
+for name in THEME_PRESETS:
+    print(name)
+`
 
 ---
 
 ## Related
 
-- *None yet*
+- [Theming Overview](overview.md)
+- [Custom Themes](custom-themes.md)
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

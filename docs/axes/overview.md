@@ -1,117 +1,105 @@
----
-title: "Axis System Overview"
+﻿---
+title: "Axes Overview"
 section: "axes"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
-# Axis System Overview
+# Axes Overview
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-Chartexa's axis system -- AxisCore base class, auto-ranging, tick generation, label formatting, and multi-axis layouts.
+Axes define the coordinate space for chart series. Chartexa provides four axis types, each optimised for different data domains. Axes are added via the `x_axis()` and `y_axis()` methods on the `Chart` builder, or by constructing axis classes directly in C#.
 
 ---
 
-## Installation
+## Axis Types
 
-### .NET (NuGet)
-
-```bash
-dotnet add package Chartexa.Core
-```
-
-### Python (PyPI)
-
-```bash
-pip install chartexa
-```
+| Type | Class | Use Case |
+|---|---|---|
+| **Numeric** | `NumericAxis` | General-purpose continuous data (default) |
+| **DateTime** | `DateTimeAxis` | Time-based data with date formatting |
+| **Category** | `CategoryAxis` | Discrete labels (product names, regions) |
+| **Logarithmic** | `LogarithmicAxis` | Data spanning orders of magnitude |
 
 ---
 
 ## Quick Start
 
-### C#
+=== "Python"
 
-```csharp
-// TODO: Add C# example
-```
+    `python
+    import chartexa as cx
 
-### Python
+    chart = (
+        cx.Chart()
+        .line([0, 1, 2, 3], [10, 20, 15, 30])
+        .x_axis(type="numeric", title="Sample Index")
+        .y_axis(type="numeric", title="Value", range=(0, 40))
+    )
+    chart.save("axes_example.png")
+    `
 
-```python
-# TODO: Add Python example
-```
+=== "C#"
 
----
-
-## Concepts
-
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
-
----
-
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
+    `csharp
+    surface.XAxes.Add(new NumericAxis
+    {
+        AxisTitle = "Sample Index"
+    });
+    surface.YAxes.Add(new NumericAxis
+    {
+        AxisTitle = "Value",
+        VisibleRange = new DoubleRange(0, 40)
+    });
+    `
 
 ---
 
-## Configuration
+## Common Properties
 
-<!-- AI: Describe available options, properties, and settings -->
+All axis types share these configuration options:
 
----
-
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
+| Property | Type | Default | Description |
+|---|---|---|---|
+| `type` | str | `"numeric"` | Axis type |
+| `id` | str | `"DefaultXAxis"` / `"DefaultYAxis"` | Identifier for multi-axis binding |
+| `alignment` | str | `"bottom"` / `"left"` | `"top"`, `"bottom"`, `"left"`, `"right"` |
+| `title` | str | `None` | Axis label text |
+| `range` | tuple | `None` | Fixed visible range `(min, max)` |
+| `grow_by` | float | `0.05` | Extra padding as fraction of range |
+| `grid_visible` | bool | `True` | Show grid lines |
+| `grid_color` | str / tuple | `None` | Grid line colour |
+| `grid_thickness` | float | `1.0` | Grid line width |
+| `grid_dash` | str | `None` | Grid dash style |
 
 ---
 
-## Performance Notes
+## Multi-Axis Charts
 
-<!-- AI: Document performance characteristics specific to this feature -->
+Bind series to specific axes using `x_axis_id` and `y_axis_id`:
 
----
-
-## When to Use
-
-<!-- AI: Describe scenarios where this feature is the right choice -->
+`python
+chart = (
+    cx.Chart(width=1200, height=600)
+    .line(x, temp, stroke="#F38BA8", y_axis_id="TempAxis", label="Temperature")
+    .line(x, humidity, stroke="#89B4FA", y_axis_id="HumAxis", label="Humidity")
+    .y_axis(id="TempAxis", title="Temp (C)", alignment="left")
+    .y_axis(id="HumAxis", title="Humidity (%)", alignment="right")
+    .legend()
+)
+`
 
 ---
 
 ## Related
 
-- *None yet*
+- [Numeric Axis](numeric-axis.md)
+- [DateTime Axis](datetime-axis.md)
+- [Category Axis](category-axis.md)
+- [Logarithmic Axis](logarithmic-axis.md)
+- [Multiple Axes](multiple-axes.md)
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

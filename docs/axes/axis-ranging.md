@@ -1,117 +1,58 @@
----
+﻿---
 title: "Axis Ranging"
 section: "axes"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
 # Axis Ranging
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-AutoRange, VisibleRange, and ZoomToFit -- controlling what portion of data the axis displays.
+Axis ranging controls which portion of the data is visible. Chartexa supports auto-ranging (fit all data), fixed ranges, and padded ranges.
 
 ---
 
-## Installation
+## Auto-Range (Default)
 
-### .NET (NuGet)
+By default, axes auto-range to fit all attached series data with a 5% padding (`grow_by=0.05`):
 
-```bash
-dotnet add package Chartexa.Core
-```
-
-### Python (PyPI)
-
-```bash
-pip install chartexa
-```
+`python
+# Auto-ranges to fit data with default 5% padding
+chart = cx.Chart().line(x, y)
+`
 
 ---
 
-## Quick Start
+## Fixed Range
 
-### C#
-
-```csharp
-// TODO: Add C# example
-```
-
-### Python
-
-```python
-# TODO: Add Python example
-```
+`python
+chart = (
+    cx.Chart()
+    .line(x, y)
+    .y_axis(range=(0, 100))   # Fix Y axis from 0 to 100
+)
+`
 
 ---
 
-## Concepts
+## Grow By (Padding)
 
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
-
----
-
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
-
----
-
-## Configuration
-
-<!-- AI: Describe available options, properties, and settings -->
-
----
-
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
-
----
-
-## When to Use
-
-<!-- AI: Describe scenarios where this feature is the right choice -->
+`python
+chart = (
+    cx.Chart()
+    .line(x, y)
+    .y_axis(grow_by=0.1)   # 10% padding on each side
+)
+`
 
 ---
 
 ## Related
 
-- *None yet*
+- [Axes Overview](overview.md)
+- [Zoom Pan Modifier](../interaction/zoom-pan-modifier.md) -- interactive range changes
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

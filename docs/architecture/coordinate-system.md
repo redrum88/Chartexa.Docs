@@ -1,117 +1,49 @@
----
+﻿---
 title: "Coordinate System"
 section: "architecture"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
 # Coordinate System
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-Data-to-screen coordinate mapping with CoordinateCalculator.
+Chartexa uses a standard Cartesian coordinate system where the X axis increases to the right and the Y axis increases upward. All data values are transformed from data space to pixel space by the axis system.
 
 ---
 
-## Installation
+## Coordinate Spaces
 
-### .NET (NuGet)
-
-```bash
-dotnet add package Chartexa.Core
-```
-
-### Python (PyPI)
-
-```bash
-pip install chartexa
-```
+| Space | Origin | Units | Description |
+|---|---|---|---|
+| **Data space** | Defined by data range | Data units (e.g. seconds, volts) | Where your data lives |
+| **Pixel space** | Top-left of chart area | Pixels | Screen coordinates |
+| **Normalised space** | (0, 0) to (1, 1) | Fraction | Used internally for layout |
 
 ---
 
-## Quick Start
+## Transformation
 
-### C#
+The axis system transforms between spaces:
 
-```csharp
-// TODO: Add C# example
-```
 
-### Python
+x_{pixel} = \frac{x_{data} - x_{min}}{x_{max} - x_{min}} \times width_{chart}
 
-```python
-# TODO: Add Python example
-```
 
----
 
-## Concepts
+y_{pixel} = height_{chart} - \frac{y_{data} - y_{min}}{y_{max} - y_{min}} \times height_{chart}
 
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
 
----
-
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
-
----
-
-## Configuration
-
-<!-- AI: Describe available options, properties, and settings -->
-
----
-
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
-
----
-
-## When to Use
-
-<!-- AI: Describe scenarios where this feature is the right choice -->
+The Y axis is flipped because pixel coordinates increase downward.
 
 ---
 
 ## Related
 
-- *None yet*
+- [Axes Overview](../axes/overview.md)
+- [Axis Ranging](../axes/axis-ranging.md)
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

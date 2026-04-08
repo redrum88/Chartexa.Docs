@@ -1,117 +1,38 @@
----
-title: "Rendering Pipeline Overview"
+﻿---
+title: "Rendering Overview"
 section: "rendering"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
-# Rendering Pipeline Overview
+# Rendering Overview
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-How Chartexa's render command pipeline works -- from IRenderableSeries through RenderCommand[] to a backend renderer.
+Chartexa supports four rendering backends: DirectX 12, Skia, WPF, and Web (HTML/Canvas). The renderer transforms chart data into visual output.
 
 ---
 
-## Installation
+## Backend Comparison
 
-### .NET (NuGet)
+| Backend | Platform | GPU | Best For |
+|---|---|---|---|
+| DirectX 12 | Windows 10+ | Yes | Maximum performance, real-time |
+| Skia | Cross-platform | No | Server-side, CI/CD, CLI tools |
+| WPF | Windows | Partial | Desktop XAML applications |
+| Web | Any browser | No | Interactive HTML, Jupyter |
 
-```bash
-dotnet add package Chartexa.Core
-```
-
-### Python (PyPI)
-
-```bash
-pip install chartexa
-```
-
----
-
-## Quick Start
-
-### C#
-
-```csharp
-// TODO: Add C# example
-```
-
-### Python
-
-```python
-# TODO: Add Python example
-```
-
----
-
-## Concepts
-
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
-
----
-
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
-
----
-
-## Configuration
-
-<!-- AI: Describe available options, properties, and settings -->
-
----
-
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
-
----
-
-## When to Use
-
-<!-- AI: Describe scenarios where this feature is the right choice -->
+See [Choosing a Renderer](../getting-started/choosing-a-renderer.md) for detailed guidance.
 
 ---
 
 ## Related
 
-- *None yet*
+- [DirectX 12 Setup](directx12/setup.md)
+- [Skia Setup](skia/setup.md)
+- [WPF Setup](wpf/setup.md)
+- [Web JSON Export](web/json-export.md)
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

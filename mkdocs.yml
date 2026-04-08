@@ -119,7 +119,6 @@ nav:
   - Chart Types:
     - 2D Charts:
       - chart-types/2d/line-series.md
-      - chart-types/2d/fast-line-series.md
       - chart-types/2d/scatter-series.md
       - chart-types/2d/column-series.md
       - chart-types/2d/mountain-series.md

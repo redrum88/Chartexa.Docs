@@ -1,117 +1,44 @@
----
+﻿---
 title: "XY Data Series"
 section: "data/data-series"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
 # XY Data Series
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-XyDataSeries -- standard XY point data with dynamic capacity expansion and range caching.
+`XyDataSeries` is the primary data container for 2D charts. It stores paired X and Y values as .NET arrays for high-performance access by the rendering engine.
 
 ---
 
-## Installation
+## Usage
 
-### .NET (NuGet)
+=== "Python"
 
-```bash
-dotnet add package Chartexa.Core
-```
+    `python
+    # In the Python wrapper, data series are created automatically:
+    import chartexa as cx
 
-### Python (PyPI)
+    chart = cx.Chart().line([1, 2, 3], [10, 20, 15])
+    # The .line() method creates an XyDataSeries internally
+    `
 
-```bash
-pip install chartexa
-```
+=== "C#"
 
----
-
-## Quick Start
-
-### C#
-
-```csharp
-// TODO: Add C# example
-```
-
-### Python
-
-```python
-# TODO: Add Python example
-```
-
----
-
-## Concepts
-
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
-
----
-
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
-
----
-
-## Configuration
-
-<!-- AI: Describe available options, properties, and settings -->
-
----
-
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
-
----
-
-## When to Use
-
-<!-- AI: Describe scenarios where this feature is the right choice -->
+    `csharp
+    var ds = new XyDataSeries();
+    ds.Append(new double[] { 1, 2, 3 }, new double[] { 10, 20, 15 });
+    `
 
 ---
 
 ## Related
 
-- *None yet*
+- [OHLC Data Series](ohlc-data-series.md)
+- [Chart Builder API](../../python/chart-builder.md)
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

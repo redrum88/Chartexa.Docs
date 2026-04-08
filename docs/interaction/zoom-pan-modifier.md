@@ -1,117 +1,44 @@
----
-title: "Zoom and Pan Modifier"
+﻿---
+title: "Zoom & Pan Modifier"
 section: "interaction"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
-# Zoom and Pan Modifier
+# Zoom & Pan Modifier
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-ZoomPanModifier -- click-drag to pan, mouse wheel to zoom to cursor position.
-
----
-
-## Installation
-
-### .NET (NuGet)
-
-```bash
-dotnet add package Chartexa.Core
-```
-
-### Python (PyPI)
-
-```bash
-pip install chartexa
-```
+The zoom & pan modifier enables scroll-to-zoom and drag-to-pan interaction. Uses `ZoomPanModifier` in the .NET engine.
 
 ---
 
 ## Quick Start
 
-### C#
-
-```csharp
-// TODO: Add C# example
-```
-
-### Python
-
-```python
-# TODO: Add Python example
-```
-
----
-
-## Concepts
-
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
-
----
-
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
+`python
+chart = cx.Chart().line(x, y).zoom_pan()
+chart.save_html("zoomable.html")
+`
 
 ---
 
 ## Configuration
 
-<!-- AI: Describe available options, properties, and settings -->
-
----
-
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
-
----
-
-## When to Use
-
-<!-- AI: Describe scenarios where this feature is the right choice -->
+| Property | Type | Default | Description |
+|---|---|---|---|
+| `zoom_in_factor` | float | `0.8` | Scale factor per scroll tick (< 1 = zoom in) |
+| `zoom_out_factor` | float | `1.25` | Scale factor per scroll tick (> 1 = zoom out) |
+| `x_axis_only` | bool | `False` | Restrict zoom to X axis |
+| `y_axis_only` | bool | `False` | Restrict zoom to Y axis |
+| `enabled` | bool | `True` | Enable/disable |
 
 ---
 
 ## Related
 
-- *None yet*
+- [Rubber Band Zoom](rubber-band-zoom.md)
+- [Interaction Overview](overview.md)
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

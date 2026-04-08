@@ -1,117 +1,80 @@
----
+﻿---
 title: "Bubble Series"
 section: "chart-types/2d"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
 # Bubble Series
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-BubbleRenderableSeries -- bubble chart with variable radius for XY + Z data.
-
----
-
-## Installation
-
-### .NET (NuGet)
-
-```bash
-dotnet add package Chartexa.Core
-```
-
-### Python (PyPI)
-
-```bash
-pip install chartexa
-```
+The bubble series extends scatter plots with a third dimension encoded as marker size. Each data point has X, Y, and a size value. Uses `BubbleRenderableSeries` in the .NET engine.
 
 ---
 
 ## Quick Start
 
-### C#
+=== "Python"
 
-```csharp
-// TODO: Add C# example
-```
+    `python
+    import chartexa as cx
 
-### Python
+    chart = cx.Chart().bubble(
+        x=[1, 2, 3, 4, 5],
+        y=[10, 30, 20, 40, 25],
+        sizes=[100, 250, 150, 400, 200],
+        fill="#CBA6F7",
+        min_size=6,
+        max_size=50,
+    )
+    chart.save("bubble.png")
+    `
 
-```python
-# TODO: Add Python example
-```
+=== "C#"
 
----
+    `csharp
+    var ds = new XyDataSeries();
+    ds.Append(x, y);
 
-## Concepts
-
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
-
----
-
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
+    var rs = new BubbleRenderableSeries
+    {
+        DataSeries = ds,
+        Sizes = Array[Double](sizes),
+        MinBubbleSize = 6,
+        MaxBubbleSize = 50,
+        Fill = new ChartColor(128, 203, 166, 247)
+    };
+    `
 
 ---
 
 ## Configuration
 
-<!-- AI: Describe available options, properties, and settings -->
-
----
-
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
+| Property | Type | Default | Description |
+|---|---|---|---|
+| `sizes` | sequence | *required* | Size values per bubble |
+| `fill` | str / tuple | auto | Bubble fill colour |
+| `stroke` | str / tuple | `None` | Bubble outline |
+| `min_size` | float | `4.0` | Minimum radius (px) |
+| `max_size` | float | `40.0` | Maximum radius (px) |
+| `opacity` | float | `1.0` | 0.0 -- 1.0 |
 
 ---
 
 ## When to Use
 
-<!-- AI: Describe scenarios where this feature is the right choice -->
+- Three-variable correlation (GDP vs life expectancy vs population)
+- Geographic scatter with magnitude
+- Weighted scatter plots
 
 ---
 
 ## Related
 
-- *None yet*
+- [Scatter Series](scatter-series.md) -- fixed-size markers
+- [Heatmap Series](heatmap-series.md) -- grid-based intensity
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

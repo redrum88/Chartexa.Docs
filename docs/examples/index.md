@@ -1,117 +1,28 @@
----
-title: "Examples Overview"
+﻿---
+title: "Examples"
 section: "examples"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
-# Examples Overview
+# Examples
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-Production-ready Chartexa examples in C# and Python.
+Complete, copy-pasteable examples demonstrating common Chartexa use cases. Each example shows the full code required to produce a working chart.
 
 ---
 
-## Installation
+## Gallery
 
-### .NET (NuGet)
-
-```bash
-dotnet add package Chartexa.Core
-```
-
-### Python (PyPI)
-
-```bash
-pip install chartexa
-```
+| Example | Description |
+|---|---|
+| [Real-Time Line Chart](real-time-line-chart.md) | Streaming data with FIFO buffer |
+| [Financial Dashboard](financial-dashboard.md) | Candlestick + volume + indicators |
+| [Heatmap Visualization](heatmap-visualization.md) | 2D grid data with colour mapping |
+| [Instrument Dashboard](instrument-dashboard.md) | Gauges, meters, and status indicators |
+| [IoT Sensor Dashboard](iot-sensor-dashboard.md) | Multi-sensor real-time monitoring |
 
 ---
 
-## Quick Start
-
-### C#
-
-```csharp
-// TODO: Add C# example
-```
-
-### Python
-
-```python
-# TODO: Add Python example
-```
-
----
-
-## Concepts
-
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
-
----
-
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
-
----
-
-## Configuration
-
-<!-- AI: Describe available options, properties, and settings -->
-
----
-
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
-
----
-
-## When to Use
-
-<!-- AI: Describe scenarios where this feature is the right choice -->
-
----
-
-## Related
-
-- *None yet*
-
----
-
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

@@ -1,117 +1,69 @@
----
+﻿---
 title: "Numeric Axis"
 section: "axes"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
 # Numeric Axis
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-NumericAxis -- linear numeric axis for double-precision data.
-
----
-
-## Installation
-
-### .NET (NuGet)
-
-```bash
-dotnet add package Chartexa.Core
-```
-
-### Python (PyPI)
-
-```bash
-pip install chartexa
-```
+The numeric axis is the default axis type. It maps continuous numeric values to pixel positions. Auto-ranges to fit data unless a fixed range is specified.
 
 ---
 
 ## Quick Start
 
-### C#
+=== "Python"
 
-```csharp
-// TODO: Add C# example
-```
+    `python
+    import chartexa as cx
 
-### Python
+    chart = (
+        cx.Chart()
+        .line([0, 1, 2, 3], [10, 20, 15, 30])
+        .x_axis(type="numeric", title="Index", label_format="0.0")
+        .y_axis(type="numeric", title="Value", range=(0, 40), grow_by=0.1)
+    )
+    chart.save("numeric_axis.png")
+    `
 
-```python
-# TODO: Add Python example
-```
+=== "C#"
 
----
+    `csharp
+    var xAxis = new NumericAxis
+    {
+        AxisTitle = "Index",
+        LabelFormat = "0.0"
+    };
 
-## Concepts
-
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
-
----
-
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
+    var yAxis = new NumericAxis
+    {
+        AxisTitle = "Value",
+        VisibleRange = new DoubleRange(0, 40),
+        GrowBy = 0.1
+    };
+    `
 
 ---
 
 ## Configuration
 
-<!-- AI: Describe available options, properties, and settings -->
-
----
-
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
-
----
-
-## When to Use
-
-<!-- AI: Describe scenarios where this feature is the right choice -->
+| Property | Type | Default | Description |
+|---|---|---|---|
+| `label_format` | str | `None` | .NET numeric format string (e.g. `"0.00"`, `"#,##0"`) |
+| `range` | tuple | `None` | Fixed `(min, max)` visible range |
+| `grow_by` | float | `0.05` | Padding fraction applied to auto-range |
 
 ---
 
 ## Related
 
-- *None yet*
+- [Axes Overview](overview.md)
+- [Axis Ranging](axis-ranging.md)
+- [Label Providers](label-providers.md)
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

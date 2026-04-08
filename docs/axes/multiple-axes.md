@@ -1,117 +1,59 @@
----
+﻿---
 title: "Multiple Axes"
 section: "axes"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
 # Multiple Axes
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-Secondary axes, vertical charts, and multi-axis layouts.
+Charts can have multiple X and Y axes. Each series binds to a specific axis pair via `x_axis_id` and `y_axis_id`. This enables dual-Y, secondary-X, and multi-scale charts.
 
 ---
 
-## Installation
+## Dual Y-Axis
 
-### .NET (NuGet)
+`python
+import chartexa as cx
 
-```bash
-dotnet add package Chartexa.Core
-```
+x = list(range(50))
+temp = [20 + i * 0.1 for i in x]
+pressure = [1013 + i * 0.5 for i in x]
 
-### Python (PyPI)
-
-```bash
-pip install chartexa
-```
-
----
-
-## Quick Start
-
-### C#
-
-```csharp
-// TODO: Add C# example
-```
-
-### Python
-
-```python
-# TODO: Add Python example
-```
+chart = (
+    cx.Chart(width=1200, height=600)
+    .line(x, temp, stroke="#F38BA8", label="Temperature", y_axis_id="TempAxis")
+    .line(x, pressure, stroke="#89B4FA", label="Pressure", y_axis_id="PressAxis")
+    .y_axis(id="TempAxis", title="Temperature (C)", alignment="left")
+    .y_axis(id="PressAxis", title="Pressure (hPa)", alignment="right")
+    .legend()
+)
+chart.save("dual_y.png")
+`
 
 ---
 
-## Concepts
+## Secondary X-Axis
 
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
+`python
+chart = (
+    cx.Chart()
+    .line(x_metric, y, x_axis_id="MetricAxis")
+    .secondary_x_axis(title="Imperial", id="ImperialAxis")
+)
+`
 
----
-
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
-
----
-
-## Configuration
-
-<!-- AI: Describe available options, properties, and settings -->
-
----
-
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
-
----
-
-## When to Use
-
-<!-- AI: Describe scenarios where this feature is the right choice -->
+The `secondary_x_axis()` and `secondary_y_axis()` convenience methods default to top/right alignment.
 
 ---
 
 ## Related
 
-- *None yet*
+- [Axes Overview](overview.md)
+- [Chart Builder API](../python/chart-builder.md)
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

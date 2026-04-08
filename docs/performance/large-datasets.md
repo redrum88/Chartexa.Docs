@@ -1,117 +1,76 @@
----
-title: "Large Dataset Handling"
+﻿---
+title: "Large Datasets"
 section: "performance"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
-# Large Dataset Handling
+# Large Datasets
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-Resampling, downsampling, and streaming strategies for million-point datasets.
+Chartexa can render millions of data points per series. This page covers strategies for working with large datasets efficiently in Python.
 
 ---
 
-## Installation
+## Downsampling Algorithms
 
-### .NET (NuGet)
+### LTTB (Largest Triangle Three Buckets)
 
-```bash
-dotnet add package Chartexa.Core
-```
+The gold standard for visual downsampling. Preserves the visual shape of the data while reducing point count:
 
-### Python (PyPI)
+`python
+from chartexa import lttb_downsample
 
-```bash
-pip install chartexa
-```
+# Reduce 1 million points to 5000
+x_ds, y_ds = lttb_downsample(x, y, target_points=5000)
+chart = cx.Chart().line(x_ds, y_ds)
+`
 
----
+### MinMax
 
-## Quick Start
+Preserves exact peaks and valleys. Each bucket outputs the min and max values:
 
-### C#
+`python
+from chartexa import minmax_downsample
 
-```csharp
-// TODO: Add C# example
-```
+x_ds, y_ds = minmax_downsample(x, y, target_points=5000)
+`
 
-### Python
+### Auto Downsample
 
-```python
-# TODO: Add Python example
-```
+Automatically selects the best algorithm:
 
----
+`python
+from chartexa import auto_downsample
 
-## Concepts
-
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
+x_ds, y_ds = auto_downsample(x, y)
+`
 
 ---
 
-## Basic Usage
+## FIFO Buffer for Streaming Data
 
-### C#
+For real-time charts with a sliding window:
 
-```csharp
-// TODO: Detailed usage example
-```
+`python
+from chartexa import FifoBuffer
 
-### Python
+buffer = FifoBuffer(capacity=50000)
 
-```python
-# TODO: Detailed usage example
-```
-
----
-
-## Configuration
-
-<!-- AI: Describe available options, properties, and settings -->
-
----
-
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
-
----
-
-## When to Use
-
-<!-- AI: Describe scenarios where this feature is the right choice -->
+# In a data callback
+def on_data(x, y):
+    buffer.append(x, y)
+    # Oldest points are automatically dropped when capacity is exceeded
+`
 
 ---
 
 ## Related
 
-- *None yet*
+- [Performance Optimization](optimization.md)
+- [GPU Acceleration](gpu-acceleration.md)
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

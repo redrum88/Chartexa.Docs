@@ -1,117 +1,59 @@
----
+﻿---
 title: "Category Axis"
 section: "axes"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
 # Category Axis
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-CategoryAxis -- categorical / string-label axis.
-
----
-
-## Installation
-
-### .NET (NuGet)
-
-```bash
-dotnet add package Chartexa.Core
-```
-
-### Python (PyPI)
-
-```bash
-pip install chartexa
-```
+The category axis maps discrete labels to evenly spaced positions. Data points are indexed (0, 1, 2, ...) and displayed with string labels.
 
 ---
 
 ## Quick Start
 
-### C#
+=== "Python"
 
-```csharp
-// TODO: Add C# example
-```
+    `python
+    import chartexa as cx
 
-### Python
+    chart = (
+        cx.Chart()
+        .column([0, 1, 2, 3], [50, 80, 45, 90], fill="#A6E3A1")
+        .x_axis(type="category", labels=["Q1", "Q2", "Q3", "Q4"])
+        .y_axis(title="Revenue (k)")
+    )
+    chart.save("category_axis.png")
+    `
 
-```python
-# TODO: Add Python example
-```
+=== "C#"
 
----
-
-## Concepts
-
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
-
----
-
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
+    `csharp
+    var xAxis = new CategoryAxis(new[] { "Q1", "Q2", "Q3", "Q4" })
+    {
+        AxisTitle = "Quarter"
+    };
+    `
 
 ---
 
 ## Configuration
 
-<!-- AI: Describe available options, properties, and settings -->
-
----
-
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
-
----
-
-## When to Use
-
-<!-- AI: Describe scenarios where this feature is the right choice -->
+| Property | Type | Default | Description |
+|---|---|---|---|
+| `labels` | seq of str | *required* | Category labels |
+| `label_rotation` | float | `0.0` | Label rotation in degrees |
 
 ---
 
 ## Related
 
-- *None yet*
+- [Axes Overview](overview.md)
+- [Column Series](../chart-types/2d/column-series.md)
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

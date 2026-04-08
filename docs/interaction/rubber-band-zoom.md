@@ -1,117 +1,41 @@
----
+﻿---
 title: "Rubber Band Zoom"
 section: "interaction"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
 # Rubber Band Zoom
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-RubberBandZoomModifier -- drag a rectangle to zoom into a specific region.
-
----
-
-## Installation
-
-### .NET (NuGet)
-
-```bash
-dotnet add package Chartexa.Core
-```
-
-### Python (PyPI)
-
-```bash
-pip install chartexa
-```
+The rubber band zoom modifier enables click-drag rectangle selection to zoom into a specific region. Uses `RubberBandZoomModifier` in the .NET engine.
 
 ---
 
 ## Quick Start
 
-### C#
-
-```csharp
-// TODO: Add C# example
-```
-
-### Python
-
-```python
-# TODO: Add Python example
-```
-
----
-
-## Concepts
-
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
-
----
-
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
+`python
+chart = cx.Chart().line(x, y).rubber_band_zoom()
+chart.save_html("rubber_band.html")
+`
 
 ---
 
 ## Configuration
 
-<!-- AI: Describe available options, properties, and settings -->
-
----
-
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
-
----
-
-## When to Use
-
-<!-- AI: Describe scenarios where this feature is the right choice -->
+| Property | Type | Default | Description |
+|---|---|---|---|
+| `min_drag_px` | int | `5` | Minimum drag distance to trigger zoom |
+| `enabled` | bool | `True` | Enable/disable |
 
 ---
 
 ## Related
 
-- *None yet*
+- [Zoom & Pan](zoom-pan-modifier.md)
+- [Interaction Overview](overview.md)
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

@@ -1,117 +1,67 @@
----
+﻿---
 title: "Rendering Pipeline"
 section: "architecture"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
 # Rendering Pipeline
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-How render commands flow from series through the pipeline to a backend renderer.
+The rendering pipeline transforms data series and chart configuration into pixels. The pipeline runs in the .NET engine with GPU acceleration (DirectX 12) or CPU rendering (Skia).
 
 ---
 
-## Installation
+## Pipeline Stages
 
-### .NET (NuGet)
+`mermaid
+graph LR
+    A[Data Series] --> B[Coordinate Transform]
+    B --> C[Clipping]
+    C --> D[Series Rendering]
+    D --> E[Annotation Overlay]
+    E --> F[Legend / Title]
+    F --> G[Output Encoding]
+`
 
-```bash
-dotnet add package Chartexa.Core
-```
-
-### Python (PyPI)
-
-```bash
-pip install chartexa
-```
-
----
-
-## Quick Start
-
-### C#
-
-```csharp
-// TODO: Add C# example
-```
-
-### Python
-
-```python
-# TODO: Add Python example
-```
+1. **Coordinate Transform** -- maps data values to pixel positions using axis ranges
+2. **Clipping** -- removes data outside the visible viewport
+3. **Series Rendering** -- draws lines, bars, points using the selected renderer
+4. **Annotation Overlay** -- renders annotations on top of series
+5. **Legend / Title** -- adds text elements
+6. **Output Encoding** -- encodes to PNG, JPEG, or buffered for display
 
 ---
 
-## Concepts
+## DirectX 12 Pipeline
 
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
+The DirectX 12 renderer uses:
 
----
-
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
+- **Compute shaders** for data-to-pixel transformation (parallel processing)
+- **SDF text rendering** for resolution-independent text
+- **GPU-side vertex buffers** for line and point geometry
+- **Double buffering** for tear-free real-time updates
 
 ---
 
-## Configuration
+## Skia Pipeline
 
-<!-- AI: Describe available options, properties, and settings -->
+The Skia renderer uses:
 
----
-
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
-
----
-
-## When to Use
-
-<!-- AI: Describe scenarios where this feature is the right choice -->
+- **SkCanvas** for 2D drawing operations
+- **Anti-aliased rendering** for smooth lines and text
+- **CPU-based** -- no GPU requirement
+- **Cross-platform** -- works identically on Windows, Linux, macOS
 
 ---
 
 ## Related
 
-- *None yet*
+- [System Overview](system-overview.md)
+- [DirectX 12 Setup](../rendering/directx12/setup.md)
+- [GPU Acceleration](../performance/gpu-acceleration.md)
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

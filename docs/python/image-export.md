@@ -1,117 +1,150 @@
----
+﻿---
 title: "Image Export"
 section: "python"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
 # Image Export
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-.save(), .save_jpeg(), .to_bytes() -- export charts to PNG, JPEG, or raw bytes.
+Chartexa charts can be exported to PNG, JPEG, and interactive HTML. The Python wrapper renders charts server-side using the .NET engine, so no display server or browser is needed for image export.
 
 ---
 
-## Installation
+## PNG Export
 
-### .NET (NuGet)
+`python
+import chartexa as cx
 
-```bash
-dotnet add package Chartexa.Core
-```
+chart = cx.Chart().line([1, 2, 3, 4], [10, 20, 15, 30])
 
-### Python (PyPI)
+# Save to file
+chart.save("chart.png")
 
-```bash
-pip install chartexa
-```
+# Get raw bytes (for web APIs, email attachments, etc.)
+png_bytes = chart.to_bytes()
+`
 
----
-
-## Quick Start
-
-### C#
-
-```csharp
-// TODO: Add C# example
-```
-
-### Python
-
-```python
-# TODO: Add Python example
-```
+PNG is the default format. It produces lossless images with transparency support.
 
 ---
 
-## Concepts
+## JPEG Export
 
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
+`python
+# Save with default quality (90)
+chart.save_jpeg("chart.jpg")
 
----
+# Lower quality for smaller file size
+chart.save_jpeg("chart_small.jpg", quality=60)
 
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
+# Get JPEG bytes
+jpeg_bytes = chart.to_bytes(fmt="jpeg", quality=85)
+`
 
 ---
 
-## Configuration
+## HTML Export
 
-<!-- AI: Describe available options, properties, and settings -->
+### Self-Contained HTML Page
+
+`python
+# Save as a complete HTML file
+chart.save_html("chart.html")
+
+# With interactivity
+chart = (
+    cx.Chart()
+    .line([1, 2, 3, 4], [10, 20, 15, 30])
+    .zoom_pan()
+    .crosshair()
+    .tooltips()
+)
+chart.save_html("interactive.html", title="My Dashboard")
+`
+
+### HTML String
+
+`python
+# Get HTML as a string (for web frameworks)
+html = chart.to_html(title="My Chart", interactive=True)
+
+# Embeddable div snippet (no <html>/<head>/<body> wrapper)
+div_html = chart.to_html_div()
+`
+
+### HTML Options
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `title` | str | `"Chartexa Chart"` | HTML page title |
+| `interactive` | bool | `True` | Enable zoom/pan/touch |
+| `crosshair` | bool | `None` | Show crosshair (auto-detected from modifiers) |
+| `container_width` | str | `None` | CSS width (e.g. `"100%"`, `"600px"`) |
+| `container_height` | str | `None` | CSS height |
 
 ---
 
-## Examples
+## Web Framework Integration
 
-<!-- AI: Add 2-3 real-world examples per scenario below -->
+### Flask
 
-### Example 1
+`python
+from flask import Flask, Response
+import chartexa as cx
 
-```csharp
-// TODO
-```
+app = Flask(__name__)
 
-### Example 2
+@app.route("/chart.png")
+def chart_png():
+    chart = cx.Chart().line([1, 2, 3], [10, 20, 15])
+    return Response(chart.to_bytes(), mimetype="image/png")
 
-```python
-# TODO
-```
+@app.route("/chart")
+def chart_html():
+    chart = cx.Chart().line([1, 2, 3], [10, 20, 15]).zoom_pan()
+    return chart.to_html()
+`
+
+### FastAPI
+
+`python
+from fastapi import FastAPI
+from fastapi.responses import Response
+import chartexa as cx
+
+app = FastAPI()
+
+@app.get("/chart.png")
+async def chart_png():
+    chart = cx.Chart().line([1, 2, 3], [10, 20, 15])
+    return Response(content=chart.to_bytes(), media_type="image/png")
+`
 
 ---
 
-## Performance Notes
+## Resolution and Size
 
-<!-- AI: Document performance characteristics specific to this feature -->
+`python
+# Set dimensions at construction
+chart = cx.Chart(width=1920, height=1080)
 
----
-
-## When to Use
-
-<!-- AI: Describe scenarios where this feature is the right choice -->
+# Or modify after creation
+chart.width = 2560
+chart.height = 1440
+chart.save("highres.png")
+`
 
 ---
 
 ## Related
 
-- *None yet*
+- [Chart Builder API](chart-builder.md) -- full `Chart` class reference
+- [Jupyter Integration](jupyter.md) -- inline notebook rendering
+- [Web JSON Export](../rendering/web/json-export.md) -- JSON data export
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

@@ -1,117 +1,71 @@
----
+﻿---
 title: "Logarithmic Axis"
 section: "axes"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
 # Logarithmic Axis
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-LogarithmicAxis -- logarithmic (log10) scaling axis.
-
----
-
-## Installation
-
-### .NET (NuGet)
-
-```bash
-dotnet add package Chartexa.Core
-```
-
-### Python (PyPI)
-
-```bash
-pip install chartexa
-```
+The logarithmic axis maps values on a logarithmic scale. Ideal for data spanning several orders of magnitude (frequency response, decibel scales, exponential growth).
 
 ---
 
 ## Quick Start
 
-### C#
+=== "Python"
 
-```csharp
-// TODO: Add C# example
-```
+    `python
+    import chartexa as cx
 
-### Python
+    x = [1, 10, 100, 1000, 10000]
+    y = [0, -3, -6, -12, -20]
 
-```python
-# TODO: Add Python example
-```
+    chart = (
+        cx.Chart()
+        .line(x, y, stroke="#CBA6F7")
+        .x_axis(type="log", title="Frequency (Hz)", log_base=10)
+        .y_axis(title="Gain (dB)")
+    )
+    chart.save("log_axis.png")
+    `
 
----
+=== "C#"
 
-## Concepts
-
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
-
----
-
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
+    `csharp
+    var xAxis = new LogarithmicAxis
+    {
+        AxisTitle = "Frequency (Hz)",
+        LogBase = 10
+    };
+    `
 
 ---
 
 ## Configuration
 
-<!-- AI: Describe available options, properties, and settings -->
-
----
-
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
+| Property | Type | Default | Description |
+|---|---|---|---|
+| `log_base` | float | `10.0` | Logarithm base (e.g. 10, 2, `e`) |
 
 ---
 
 ## When to Use
 
-<!-- AI: Describe scenarios where this feature is the right choice -->
+- Frequency response (Bode plots)
+- Decibel scales
+- Exponential growth or decay
+- Power spectra
 
 ---
 
 ## Related
 
-- *None yet*
+- [Axes Overview](overview.md)
+- [Bode Plot](../chart-types/instruments/bode-plot.md)
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

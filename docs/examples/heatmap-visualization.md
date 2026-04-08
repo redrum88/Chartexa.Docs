@@ -1,117 +1,65 @@
----
+﻿---
 title: "Heatmap Visualization"
 section: "examples"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
 # Heatmap Visualization
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-Render a 2D heatmap with colormap palette and real-time updates.
+A 2D heatmap with configurable colour palettes, suitable for correlation matrices, sensor grids, and scientific data.
 
 ---
 
-## Installation
+## Python
 
-### .NET (NuGet)
+`python
+import chartexa as cx
+import math
 
-```bash
-dotnet add package Chartexa.Core
-```
+# Generate interference pattern
+size = 50
+data = []
+for y in range(size):
+    row = []
+    for x in range(size):
+        dx = x - size / 2
+        dy = y - size / 2
+        r = math.sqrt(dx * dx + dy * dy)
+        row.append(math.sin(r * 0.5) * math.cos(r * 0.3))
+    data.append(row)
 
-### Python (PyPI)
+chart = (
+    cx.Chart(width=800, height=800)
+    .heatmap(data, palette="viridis", min_value=-1.0, max_value=1.0)
+    .title("Interference Pattern")
+    .theme("dark")
+)
 
-```bash
-pip install chartexa
-```
-
----
-
-## Quick Start
-
-### C#
-
-```csharp
-// TODO: Add C# example
-```
-
-### Python
-
-```python
-# TODO: Add Python example
-```
+chart.save("heatmap.png")
+`
 
 ---
 
-## Concepts
+## Available Palettes
 
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
-
----
-
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
-
----
-
-## Configuration
-
-<!-- AI: Describe available options, properties, and settings -->
-
----
-
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
-
----
-
-## When to Use
-
-<!-- AI: Describe scenarios where this feature is the right choice -->
+| Palette | Description |
+|---|---|
+| `"thermal"` | Black-red-yellow-white (default) |
+| `"rainbow"` | Full spectrum |
+| `"viridis"` | Perceptually uniform blue-green-yellow |
+| `"inferno"` | Black-purple-red-yellow |
+| `"diverging"` | Blue-white-red (for +/- values) |
 
 ---
 
 ## Related
 
-- *None yet*
+- [Heatmap Series](../chart-types/2d/heatmap-series.md)
+- [3D Surface Mesh](../chart-types/3d/surface-mesh.md)
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

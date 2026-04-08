@@ -1,117 +1,51 @@
----
+﻿---
 title: "Axis Styling"
 section: "axes"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
 # Axis Styling
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-Gridlines, axis bands, titles, and visual customization.
+Customise axis appearance including grid lines, label rotation, and colours.
 
 ---
 
-## Installation
+## Grid Lines
 
-### .NET (NuGet)
+`python
+chart = (
+    cx.Chart()
+    .line(x, y)
+    .x_axis(grid_visible=True, grid_color="#333333", grid_thickness=0.5, grid_dash="dot")
+    .y_axis(grid_visible=False)
+)
+`
 
-```bash
-dotnet add package Chartexa.Core
-```
-
-### Python (PyPI)
-
-```bash
-pip install chartexa
-```
-
----
-
-## Quick Start
-
-### C#
-
-```csharp
-// TODO: Add C# example
-```
-
-### Python
-
-```python
-# TODO: Add Python example
-```
+| Property | Type | Default | Description |
+|---|---|---|---|
+| `grid_visible` | bool | `True` | Show/hide grid lines |
+| `grid_color` | str / tuple | `None` | Grid line colour |
+| `grid_thickness` | float | `1.0` | Grid line width |
+| `grid_dash` | str | `None` | `"solid"`, `"dash"`, `"dot"` |
 
 ---
 
-## Concepts
+## Label Rotation
 
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
-
----
-
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
-
----
-
-## Configuration
-
-<!-- AI: Describe available options, properties, and settings -->
-
----
-
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
-
----
-
-## When to Use
-
-<!-- AI: Describe scenarios where this feature is the right choice -->
+`python
+chart.x_axis(type="category", labels=["Long Label A", "Long Label B", ...], label_rotation=45)
+`
 
 ---
 
 ## Related
 
-- *None yet*
+- [Axes Overview](overview.md)
+- [Theming](../theming/overview.md) -- theme-level axis styling
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

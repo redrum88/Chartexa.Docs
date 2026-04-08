@@ -1,117 +1,71 @@
----
+﻿---
 title: "Real-Time Line Chart"
 section: "examples"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
 # Real-Time Line Chart
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-Stream live data to a line chart with zoom/pan interaction.
+A streaming line chart that appends data in real time using a FIFO buffer. Suitable for sensor telemetry, live monitoring, and signal processing.
 
 ---
 
-## Installation
+## Python
 
-### .NET (NuGet)
+`python
+import chartexa as cx
+from chartexa import FifoBuffer, BatchUpdate
+import math
+import time
 
-```bash
-dotnet add package Chartexa.Core
-```
+# Create a FIFO buffer with a 5000-point sliding window
+buffer = FifoBuffer(capacity=5000)
 
-### Python (PyPI)
+# Pre-fill with initial data
+for i in range(5000):
+    t = i * 0.01
+    buffer.append(t, math.sin(t * 2) + 0.5 * math.sin(t * 7.3))
 
-```bash
-pip install chartexa
-```
+# Create a themed chart
+chart = (
+    cx.Chart(width=1200, height=500)
+    .line(buffer.x, buffer.y, stroke="#89B4FA", thickness=1.5, label="Signal")
+    .x_axis(title="Time (s)")
+    .y_axis(title="Amplitude", range=(-2, 2))
+    .title("Real-Time Signal Monitor")
+    .theme("catppuccin_mocha")
+)
 
----
-
-## Quick Start
-
-### C#
-
-```csharp
-// TODO: Add C# example
-```
-
-### Python
-
-```python
-# TODO: Add Python example
-```
-
----
-
-## Concepts
-
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
+chart.save("realtime_line.png")
+`
 
 ---
 
-## Basic Usage
+## Streaming with Live Updates
 
-### C#
+`python
+from chartexa import NotebookLiveChart
 
-```csharp
-// TODO: Detailed usage example
-```
+live = NotebookLiveChart(width=1200, height=500, max_points=5000)
+live.start()
 
-### Python
-
-```python
-# TODO: Detailed usage example
-```
-
----
-
-## Configuration
-
-<!-- AI: Describe available options, properties, and settings -->
-
----
-
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
-
----
-
-## When to Use
-
-<!-- AI: Describe scenarios where this feature is the right choice -->
+# Simulate streaming data
+for i in range(10000):
+    t = i * 0.01
+    live.append(t, math.sin(t * 2) + 0.3 * math.cos(t * 13.7))
+    time.sleep(0.01)
+`
 
 ---
 
 ## Related
 
-- *None yet*
+- [FifoBuffer](../performance/optimization.md) -- sliding-window buffer
+- [Line Series](../chart-types/2d/line-series.md) -- line configuration
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

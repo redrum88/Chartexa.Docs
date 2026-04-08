@@ -1,117 +1,56 @@
----
+﻿---
 title: "Data Sources Overview"
 section: "data/data-sources"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
 # Data Sources Overview
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-IDataSource, DataSourceBase, and DataSourceManager -- the abstraction layer for connecting Chartexa to live and historical data.
+Chartexa provides 40+ data source classes for connecting to real-time data feeds. Data sources abstract the connection, parsing, and buffering of incoming data, feeding it directly into chart series.
 
 ---
 
-## Installation
+## Data Source Categories
 
-### .NET (NuGet)
-
-```bash
-dotnet add package Chartexa.Core
-```
-
-### Python (PyPI)
-
-```bash
-pip install chartexa
-```
-
----
-
-## Quick Start
-
-### C#
-
-```csharp
-// TODO: Add C# example
-```
-
-### Python
-
-```python
-# TODO: Add Python example
-```
+| Category | Sources | Use Case |
+|---|---|---|
+| **Network** | MQTT, WebSocket, REST, gRPC | Cloud / IoT data feeds |
+| **Serial** | Serial port, GPS NMEA | Hardware interfaces |
+| **Audio** | Audio capture, FFT | Sound analysis |
+| **System** | CPU, memory, process, Docker | System monitoring |
+| **Financial** | Market data, candle aggregation | Trading systems |
+| **Hardware** | GPIO, ADC, sensors | Embedded / IoT |
+| **Automotive** | OBD-II, CAN bus | Vehicle telemetry |
+| **Science** | SDR (Software Defined Radio) | RF analysis |
+| **Simulation** | Flight sim, racing sim, game engine | Simulator data |
 
 ---
 
-## Concepts
+## Architecture
 
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
+`mermaid
+graph LR
+    A[External Source] --> B[DataSource]
+    B --> C[DataSourceBridge]
+    C --> D[Chart Series]
+    B --> E[DataRecorder]
+    E --> F[CSV / Binary file]
+`
 
----
-
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
-
----
-
-## Configuration
-
-<!-- AI: Describe available options, properties, and settings -->
-
----
-
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
-
----
-
-## When to Use
-
-<!-- AI: Describe scenarios where this feature is the right choice -->
+All data sources extend `DataSource` and emit data through `DataSourceChannel` objects. The `DataSourceManager` handles lifecycle and connects sources to chart series via `DataSourceBridge`.
 
 ---
 
 ## Related
 
-- *None yet*
+- [MQTT](network/mqtt.md)
+- [WebSocket](network/websocket.md)
+- [Serial Port](hardware/serial.md)
+- [Market Data](financial/market-data.md)
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

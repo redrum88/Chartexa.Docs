@@ -1,117 +1,47 @@
----
+﻿---
 title: "Absolute Layout"
 section: "layout"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
 # Absolute Layout
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-LayoutType.Absolute -- position widgets using exact pixel coordinates.
-
----
-
-## Installation
-
-### .NET (NuGet)
-
-```bash
-dotnet add package Chartexa.Core
-```
-
-### Python (PyPI)
-
-```bash
-pip install chartexa
-```
+Absolute layout positions charts at specific pixel coordinates using the `Dashboard` class. Use this for custom dashboard arrangements where grid layout is too restrictive.
 
 ---
 
 ## Quick Start
 
-### C#
+`python
+from chartexa import Dashboard, Chart
 
-```csharp
-// TODO: Add C# example
-```
+dash = Dashboard(width=1920, height=1080)
 
-### Python
+# Main chart (left 2/3)
+main = Chart(width=1280, height=1080).line(x, y, label="Main")
+dash.add(main, x=0, y=0, width=1280, height=1080)
 
-```python
-# TODO: Add Python example
-```
+# Sidebar chart (right 1/3, top half)
+sidebar1 = Chart(width=640, height=540).pie([30, 70])
+dash.add(sidebar1, x=1280, y=0, width=640, height=540)
 
----
+# Sidebar chart (right 1/3, bottom half)
+sidebar2 = Chart(width=640, height=540).column([0, 1, 2], [40, 60, 50])
+dash.add(sidebar2, x=1280, y=540, width=640, height=540)
 
-## Concepts
-
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
-
----
-
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
-
----
-
-## Configuration
-
-<!-- AI: Describe available options, properties, and settings -->
-
----
-
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
-
----
-
-## When to Use
-
-<!-- AI: Describe scenarios where this feature is the right choice -->
+dash.save("dashboard.png")
+`
 
 ---
 
 ## Related
 
-- *None yet*
+- [Layout Overview](overview.md)
+- [Grid Layout](grid-layout.md)
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

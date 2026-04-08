@@ -1,117 +1,68 @@
----
-title: "Stacked Mountain Series"
+﻿---
+title: "Stacked Mountain"
 section: "chart-types/2d"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
-# Stacked Mountain Series
+# Stacked Mountain
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-StackedMountainRenderableSeries -- stacked area chart.
-
----
-
-## Installation
-
-### .NET (NuGet)
-
-```bash
-dotnet add package Chartexa.Core
-```
-
-### Python (PyPI)
-
-```bash
-pip install chartexa
-```
+The stacked mountain series renders multiple area layers stacked vertically. Each layer's fill extends from the previous layer's top edge. Supports 100% normalised stacking.
 
 ---
 
 ## Quick Start
 
-### C#
+=== "Python"
 
-```csharp
-// TODO: Add C# example
-```
+    `python
+    import chartexa as cx
 
-### Python
+    x = list(range(10))
+    layers = [
+        [5, 8, 6, 9, 7, 10, 8, 11, 9, 12],
+        [3, 4, 5, 3, 4, 5, 6, 4, 5, 6],
+        [2, 3, 2, 4, 3, 2, 3, 4, 3, 2],
+    ]
 
-```python
-# TODO: Add Python example
-```
-
----
-
-## Concepts
-
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
-
----
-
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
+    chart = cx.Chart().stacked_mountain(
+        x, layers,
+        colors=["#F38BA8", "#89B4FA", "#A6E3A1"],
+        labels=["CPU", "Memory", "Disk"],
+    )
+    chart.save("stacked_mountain.png")
+    `
 
 ---
 
 ## Configuration
 
-<!-- AI: Describe available options, properties, and settings -->
-
----
-
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
+| Property | Type | Default | Description |
+|---|---|---|---|
+| `layers` | seq of seq | *required* | Y-values per layer |
+| `colors` | sequence | `None` | Per-layer fill colours |
+| `strokes` | sequence | `None` | Per-layer stroke colours |
+| `labels` | sequence | `None` | Per-layer legend labels |
+| `thickness` | float | `1.5` | Top-edge stroke width |
+| `stacked_100` | bool | `False` | Normalise to 100% |
 
 ---
 
 ## When to Use
 
-<!-- AI: Describe scenarios where this feature is the right choice -->
+- Resource utilisation over time (CPU + memory + disk)
+- Traffic composition (HTTP methods, user segments)
+- Cumulative time series
 
 ---
 
 ## Related
 
-- *None yet*
+- [Mountain Series](mountain-series.md) -- single area series
+- [Stacked Column](stacked-column.md) -- discrete stacked bars
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

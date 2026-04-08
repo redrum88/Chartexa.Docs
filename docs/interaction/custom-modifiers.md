@@ -1,117 +1,60 @@
----
+﻿---
 title: "Custom Modifiers"
 section: "interaction"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
 # Custom Modifiers
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-Extend ChartModifierBase to create your own interaction behaviors.
+Build custom interaction behaviours by creating modifier instances and adding them to the chart via `chart.modifier()`.
 
 ---
 
-## Installation
+## Using Modifier Classes Directly
 
-### .NET (NuGet)
+`python
+from chartexa import (
+    ZoomPanModifier,
+    RubberBandZoomModifier,
+    CursorModifier,
+    TooltipModifier,
+    DataPointSelectionModifier,
+    SeriesSelectionModifier,
+)
 
-```bash
-dotnet add package Chartexa.Core
-```
+# Create a customised zoom modifier
+zoom = ZoomPanModifier(
+    zoom_in_factor=0.9,
+    zoom_out_factor=1.1,
+    x_axis_only=True,
+    enabled=True,
+)
 
-### Python (PyPI)
+# Create a customised selection modifier
+select = DataPointSelectionModifier(
+    multi_select=True,
+    selection_color=(255, 102, 0, 255),
+    selection_size=12.0,
+)
 
-```bash
-pip install chartexa
-```
-
----
-
-## Quick Start
-
-### C#
-
-```csharp
-// TODO: Add C# example
-```
-
-### Python
-
-```python
-# TODO: Add Python example
-```
-
----
-
-## Concepts
-
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
-
----
-
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
-
----
-
-## Configuration
-
-<!-- AI: Describe available options, properties, and settings -->
-
----
-
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
-
----
-
-## When to Use
-
-<!-- AI: Describe scenarios where this feature is the right choice -->
+chart = (
+    cx.Chart()
+    .line(x, y)
+    .modifier(zoom)
+    .modifier(select)
+)
+`
 
 ---
 
 ## Related
 
-- *None yet*
+- [Modifier Group](modifier-group.md)
+- [Interaction Overview](overview.md)
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

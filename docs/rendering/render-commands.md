@@ -1,117 +1,36 @@
----
+﻿---
 title: "Render Commands"
 section: "rendering"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
 # Render Commands
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-RenderCommand, RenderCommandType, RenderCommandList, and RenderCommandPool -- the renderer-neutral drawing instruction system.
+Render commands are the internal drawing primitives that the chart surface emits and the renderer consumes. They abstract the drawing operations across all backends.
 
 ---
 
-## Installation
+## Command Types
 
-### .NET (NuGet)
-
-```bash
-dotnet add package Chartexa.Core
-```
-
-### Python (PyPI)
-
-```bash
-pip install chartexa
-```
-
----
-
-## Quick Start
-
-### C#
-
-```csharp
-// TODO: Add C# example
-```
-
-### Python
-
-```python
-# TODO: Add Python example
-```
-
----
-
-## Concepts
-
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
-
----
-
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
-
----
-
-## Configuration
-
-<!-- AI: Describe available options, properties, and settings -->
-
----
-
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
-
----
-
-## When to Use
-
-<!-- AI: Describe scenarios where this feature is the right choice -->
+| Command | Description |
+|---|---|
+| DrawLine | Draw a line between two points |
+| DrawPolyline | Draw a connected sequence of points |
+| FillRectangle | Fill a rectangular region |
+| DrawText | Render text at a position |
+| DrawMarker | Draw a marker shape |
+| SetClip | Set the clipping region |
 
 ---
 
 ## Related
 
-- *None yet*
+- [Rendering Overview](overview.md)
+- [Rendering Pipeline](../architecture/rendering-pipeline.md)
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

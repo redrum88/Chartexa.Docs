@@ -1,117 +1,76 @@
----
-title: "Donut / Pie Series"
+﻿---
+title: "Pie & Donut Series"
 section: "chart-types/2d"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
-# Donut / Pie Series
+# Pie & Donut Series
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-DonutSeries -- pie and donut chart with configurable inner radius.
-
----
-
-## Installation
-
-### .NET (NuGet)
-
-```bash
-dotnet add package Chartexa.Core
-```
-
-### Python (PyPI)
-
-```bash
-pip install chartexa
-```
+The pie and donut series render proportional data as circular segments. The donut variant adds a configurable inner hole. Both support labels, percentage display, segment explosion, and custom colours.
 
 ---
 
 ## Quick Start
 
-### C#
+=== "Python"
 
-```csharp
-// TODO: Add C# example
-```
+    `python
+    import chartexa as cx
 
-### Python
+    # Pie chart
+    chart = cx.Chart().pie(
+        [35, 25, 20, 15, 5],
+        labels=["Chrome", "Safari", "Firefox", "Edge", "Other"],
+        colors=["#F38BA8", "#89B4FA", "#A6E3A1", "#F9E2AF", "#CBA6F7"],
+    )
+    chart.save("pie.png")
 
-```python
-# TODO: Add Python example
-```
-
----
-
-## Concepts
-
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
-
----
-
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
+    # Donut chart
+    chart = cx.Chart().donut(
+        [35, 25, 20, 15, 5],
+        labels=["Chrome", "Safari", "Firefox", "Edge", "Other"],
+        hole_radius=0.6,
+    )
+    chart.save("donut.png")
+    `
 
 ---
 
 ## Configuration
 
-<!-- AI: Describe available options, properties, and settings -->
-
----
-
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
+| Property | Type | Default | Description |
+|---|---|---|---|
+| `values` | seq of float | *required* | Segment values |
+| `labels` | seq of str | `None` | Segment labels |
+| `colors` | sequence | `None` | Per-segment colours |
+| `explode` | seq of int | `None` | Indices to pull out |
+| `start_angle` | float | `0.0` | Starting angle (degrees) |
+| `show_percentage` | bool | `True` | Display percentage labels |
+| `hole_radius` | float | `0.55` | Inner hole size (donut only, 0 -- 1) |
+| `gap` | float | `1.5` | Gap between segments |
+| `font_size` | float | `12.0` | Label font size |
 
 ---
 
 ## When to Use
 
-<!-- AI: Describe scenarios where this feature is the right choice -->
+- Market share / composition
+- Budget allocation
+- Survey response distribution
+
+!!! warning "Limit Segments"
+    Pie/donut charts become hard to read with more than 7 segments. Consider a bar chart for larger datasets.
 
 ---
 
 ## Related
 
-- *None yet*
+- [Column Series](column-series.md) -- better for many categories
+- [Stacked Column](stacked-column.md) -- comparative proportions
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

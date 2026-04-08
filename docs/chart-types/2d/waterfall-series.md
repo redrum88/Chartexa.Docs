@@ -1,117 +1,49 @@
----
+﻿---
 title: "Waterfall Series"
 section: "chart-types/2d"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
 # Waterfall Series
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-WaterfallSeries -- time-frequency waterfall display.
-
----
-
-## Installation
-
-### .NET (NuGet)
-
-```bash
-dotnet add package Chartexa.Core
-```
-
-### Python (PyPI)
-
-```bash
-pip install chartexa
-```
+The waterfall series shows how an initial value is affected by a series of positive and negative changes. Commonly used in financial reporting to show revenue bridges and variance analysis.
 
 ---
 
 ## Quick Start
 
-### C#
+=== "Python"
 
-```csharp
-// TODO: Add C# example
-```
+    `python
+    import chartexa as cx
 
-### Python
-
-```python
-# TODO: Add Python example
-```
-
----
-
-## Concepts
-
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
-
----
-
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
-
----
-
-## Configuration
-
-<!-- AI: Describe available options, properties, and settings -->
-
----
-
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
+    chart = cx.Chart().column(
+        [0, 1, 2, 3, 4, 5],
+        [100, 20, -15, 30, -10, 125],
+        fill="#89B4FA",
+        label="P&L Waterfall",
+    )
+    chart.save("waterfall.png")
+    `
 
 ---
 
 ## When to Use
 
-<!-- AI: Describe scenarios where this feature is the right choice -->
+- Financial bridge charts (revenue waterfall)
+- Variance analysis
+- Step-by-step value accumulation
 
 ---
 
 ## Related
 
-- *None yet*
+- [Column Series](column-series.md) -- basic vertical bars
+- [Stacked Column](stacked-column.md) -- layered bars
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

@@ -1,117 +1,77 @@
----
+﻿---
 title: "Instrument Dashboard"
 section: "examples"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
 # Instrument Dashboard
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-Multi-widget dashboard with oscilloscope, spectrum analyzer, and gauges.
+A dashboard combining gauges, meters, and status indicators for industrial monitoring.
 
 ---
 
-## Installation
+## Python
 
-### .NET (NuGet)
+`python
+import chartexa as cx
+from chartexa import Dashboard
 
-```bash
-dotnet add package Chartexa.Core
-```
+dash = Dashboard(width=1920, height=1080)
 
-### Python (PyPI)
+# Temperature gauge
+temp = (
+    cx.Chart(width=400, height=400)
+    .pie([72, 28], colors=["#F38BA8", "#313244"])
+    .title("Temperature: 72C")
+    .theme("catppuccin_mocha")
+)
+dash.add(temp, x=0, y=0, width=480, height=540)
 
-```bash
-pip install chartexa
-```
+# Pressure gauge
+pressure = (
+    cx.Chart(width=400, height=400)
+    .pie([85, 15], colors=["#89B4FA", "#313244"])
+    .title("Pressure: 85%")
+    .theme("catppuccin_mocha")
+)
+dash.add(pressure, x=480, y=0, width=480, height=540)
 
----
+# Signal chart
+import math
+x = list(range(500))
+y = [math.sin(i * 0.05) * (1 + 0.3 * math.sin(i * 0.01)) for i in x]
 
-## Quick Start
+signal = (
+    cx.Chart(width=960, height=540)
+    .line(x, y, stroke="#A6E3A1", thickness=1.5)
+    .title("Live Signal")
+    .theme("catppuccin_mocha")
+)
+dash.add(signal, x=960, y=0, width=960, height=540)
 
-### C#
+# Bottom strip: volume bars
+volumes = [50 + 30 * abs(math.sin(i * 0.1)) for i in range(20)]
+vol_chart = (
+    cx.Chart(width=1920, height=400)
+    .column(list(range(20)), volumes, fill="#CBA6F7")
+    .title("Throughput")
+    .theme("catppuccin_mocha")
+)
+dash.add(vol_chart, x=0, y=540, width=1920, height=540)
 
-```csharp
-// TODO: Add C# example
-```
-
-### Python
-
-```python
-# TODO: Add Python example
-```
-
----
-
-## Concepts
-
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
-
----
-
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
-
----
-
-## Configuration
-
-<!-- AI: Describe available options, properties, and settings -->
-
----
-
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
-
----
-
-## When to Use
-
-<!-- AI: Describe scenarios where this feature is the right choice -->
+dash.save("instrument_dashboard.png")
+`
 
 ---
 
 ## Related
 
-- *None yet*
+- [Gauges & Widgets](../chart-types/gauges-and-widgets/angular-gauge.md)
+- [Layout Overview](../layout/overview.md)
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

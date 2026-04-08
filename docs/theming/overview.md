@@ -1,117 +1,83 @@
----
+﻿---
 title: "Theming Overview"
 section: "theming"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
 # Theming Overview
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-Chartexa's token-based theme system -- ChartTheme, ThemeEngine, JSON serialization, and per-widget overrides.
-
----
-
-## Installation
-
-### .NET (NuGet)
-
-```bash
-dotnet add package Chartexa.Core
-```
-
-### Python (PyPI)
-
-```bash
-pip install chartexa
-```
+Chartexa includes 15 built-in theme presets and supports fully custom themes. Themes control background colour, axis styles, grid lines, series colour palette, and text appearance.
 
 ---
 
 ## Quick Start
 
-### C#
+`python
+import chartexa as cx
 
-```csharp
-// TODO: Add C# example
-```
-
-### Python
-
-```python
-# TODO: Add Python example
-```
+chart = cx.Chart().line([1, 2, 3], [10, 20, 15]).theme("catppuccin_mocha")
+chart.save("themed.png")
+`
 
 ---
 
-## Concepts
+## Available Presets
 
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
-
----
-
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
+| Preset | Description |
+|---|---|
+| `dark` | Default dark theme |
+| `light` | Light theme with dark text |
+| `catppuccin_mocha` | Catppuccin Mocha (dark, warm) |
+| `catppuccin_latte` | Catppuccin Latte (light) |
+| `catppuccin_frappe` | Catppuccin Frappe (mid-dark) |
+| `catppuccin_macchiato` | Catppuccin Macchiato (dark) |
+| `github_dark` | GitHub Dark theme |
+| `github_light` | GitHub Light theme |
+| `dracula` | Dracula theme |
+| `nord` | Nord theme |
+| `solarized_dark` | Solarized Dark |
+| `solarized_light` | Solarized Light |
+| `minimal` | Minimal, clean design |
+| `scientific` | Publication-ready, serif fonts |
 
 ---
 
-## Configuration
+## Applying Themes
 
-<!-- AI: Describe available options, properties, and settings -->
+=== "Python"
 
----
+    `python
+    # By name
+    chart.theme("dracula")
 
-## Examples
+    # By ChartTheme object
+    from chartexa import ChartTheme
+    theme = ChartTheme(
+        background="#1E1E2E",
+        surface="#313244",
+        text="#CDD6F4",
+        grid="#45475A",
+    )
+    chart.theme(theme)
+    `
 
-<!-- AI: Add 2-3 real-world examples per scenario below -->
+=== "C#"
 
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
-
----
-
-## When to Use
-
-<!-- AI: Describe scenarios where this feature is the right choice -->
+    `csharp
+    var theme = ThemeManager.GetTheme("dracula");
+    surface.ApplyTheme(theme);
+    `
 
 ---
 
 ## Related
 
-- *None yet*
+- [Custom Themes](custom-themes.md) -- create your own theme
+- [Theme Engine](theme-engine.md) -- how the theme system works
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

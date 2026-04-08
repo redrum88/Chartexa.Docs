@@ -1,117 +1,78 @@
----
+﻿---
 title: "Band Series"
 section: "chart-types/2d"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
 # Band Series
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-BandRenderableSeries -- upper/lower bound ribbon chart.
-
----
-
-## Installation
-
-### .NET (NuGet)
-
-```bash
-dotnet add package Chartexa.Core
-```
-
-### Python (PyPI)
-
-```bash
-pip install chartexa
-```
+The band series fills the area between two Y boundaries sharing the same X values. Ideal for confidence intervals, tolerance bands, and min/max ranges. Uses `BandRenderableSeries` in the .NET engine.
 
 ---
 
 ## Quick Start
 
-### C#
+=== "Python"
 
-```csharp
-// TODO: Add C# example
-```
+    `python
+    import chartexa as cx
 
-### Python
+    x = [0, 1, 2, 3, 4, 5]
+    upper = [30, 35, 28, 40, 32, 38]
+    lower = [10, 15, 8, 20, 12, 18]
 
-```python
-# TODO: Add Python example
-```
+    chart = cx.Chart().band(x, upper, lower, stroke="#A6E3A1", fill="#A6E3A1")
+    chart.save("band.png")
+    `
 
----
+=== "C#"
 
-## Concepts
+    `csharp
+    var upperDs = new XyDataSeries();
+    upperDs.Append(x, upper);
 
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
+    var lowerDs = new XyDataSeries();
+    lowerDs.Append(x, lower);
 
----
-
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
+    var rs = new BandRenderableSeries
+    {
+        DataSeries = upperDs,
+        LowerSeries = lowerDs,
+        Stroke = new ChartColor(166, 227, 161),
+        Fill = new ChartColor(80, 166, 227, 161)
+    };
+    `
 
 ---
 
 ## Configuration
 
-<!-- AI: Describe available options, properties, and settings -->
-
----
-
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
+| Property | Type | Default | Description |
+|---|---|---|---|
+| `stroke` | str / tuple | auto | Boundary line colour |
+| `fill` | str / tuple | auto | Fill colour |
+| `thickness` | float | `1.0` | Boundary line width |
 
 ---
 
 ## When to Use
 
-<!-- AI: Describe scenarios where this feature is the right choice -->
+- Confidence intervals (mean +/- std)
+- Temperature high/low ranges
+- Bollinger bands in finance
+- Tolerance zones in engineering
 
 ---
 
 ## Related
 
-- *None yet*
+- [Mountain Series](mountain-series.md) -- fill from line to baseline
+- [Fan Series](../chart-types/2d/error-bar-series.md) -- multiple confidence bands
+- [Error Bar Series](error-bar-series.md) -- discrete error indicators
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

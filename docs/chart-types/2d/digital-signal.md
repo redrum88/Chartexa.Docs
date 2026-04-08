@@ -1,117 +1,76 @@
----
-title: "Digital Signal Series"
+﻿---
+title: "Digital Signal"
 section: "chart-types/2d"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
 # Digital Signal Series
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-DigitalSignalSeries -- step / digital signal plot.
-
----
-
-## Installation
-
-### .NET (NuGet)
-
-```bash
-dotnet add package Chartexa.Core
-```
-
-### Python (PyPI)
-
-```bash
-pip install chartexa
-```
+The digital signal series renders data as step functions with no interpolation between points. Ideal for digital logic signals, state machines, and discrete event data. Three variants: digital line, digital mountain, and digital band.
 
 ---
 
 ## Quick Start
 
-### C#
+=== "Python"
 
-```csharp
-// TODO: Add C# example
-```
+    `python
+    import chartexa as cx
 
-### Python
+    x = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    y = [0, 1, 1, 0, 1, 0, 0, 1, 1, 0]
 
-```python
-# TODO: Add Python example
-```
-
----
-
-## Concepts
-
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
+    chart = cx.Chart().digital_line(x, y, stroke="#A6E3A1", thickness=2)
+    chart.save("digital.png")
+    `
 
 ---
 
-## Basic Usage
+## Variants
 
-### C#
+### Digital Line
 
-```csharp
-// TODO: Detailed usage example
-```
+`python
+chart.digital_line(x, y, stroke="#A6E3A1")
+`
 
-### Python
+Renders horizontal/vertical steps between data points.
 
-```python
-# TODO: Detailed usage example
-```
+### Digital Mountain
 
----
+`python
+chart.digital_mountain(x, y, stroke="#89B4FA", fill="#89B4FA")
+`
 
-## Configuration
+Step function with filled area below.
 
-<!-- AI: Describe available options, properties, and settings -->
+### Digital Band
 
----
+`python
+chart.digital_band(x, y_upper, y_lower, fill="#CBA6F7")
+`
 
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
+Step function with filled area between two boundaries.
 
 ---
 
 ## When to Use
 
-<!-- AI: Describe scenarios where this feature is the right choice -->
+- Logic analyser traces
+- GPIO pin state visualisation
+- Protocol decoding (SPI, I2C, UART)
+- State machine transitions
 
 ---
 
 ## Related
 
-- *None yet*
+- [Line Series](line-series.md) -- interpolated lines
+- [Oscilloscope](../instruments/oscilloscope.md) -- real-time waveform display
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

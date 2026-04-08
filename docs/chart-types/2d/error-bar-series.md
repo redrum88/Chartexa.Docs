@@ -1,117 +1,76 @@
----
+﻿---
 title: "Error Bar Series"
 section: "chart-types/2d"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
 # Error Bar Series
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-ErrorBarRenderableSeries -- error bar visualization for scientific data.
-
----
-
-## Installation
-
-### .NET (NuGet)
-
-```bash
-dotnet add package Chartexa.Core
-```
-
-### Python (PyPI)
-
-```bash
-pip install chartexa
-```
+The error bar series renders uncertainty indicators around data points. Supports symmetric, asymmetric, and bidirectional error bars with configurable cap width.
 
 ---
 
 ## Quick Start
 
-### C#
+=== "Python"
 
-```csharp
-// TODO: Add C# example
-```
+    `python
+    import chartexa as cx
 
-### Python
+    chart = cx.Chart().error_bar(
+        x=[1, 2, 3, 4, 5],
+        y=[20, 35, 28, 42, 31],
+        error_y=[3, 5, 2, 4, 3],
+        stroke="#F9E2AF",
+        thickness=1.5,
+        cap_width=8,
+    )
+    chart.save("error_bars.png")
+    `
 
-```python
-# TODO: Add Python example
-```
+=== "C#"
 
----
-
-## Concepts
-
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
-
----
-
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
+    `csharp
+    var s = new ErrorBarSeries(x, y)
+    {
+        ErrorY = errorValues,
+        Stroke = new ChartColor(249, 226, 175),
+        CapWidth = 8
+    };
+    `
 
 ---
 
 ## Configuration
 
-<!-- AI: Describe available options, properties, and settings -->
-
----
-
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
+| Property | Type | Default | Description |
+|---|---|---|---|
+| `error_y` | sequence | `None` | Symmetric Y error (+/-) |
+| `error_high` | sequence | `None` | Upper error bound |
+| `error_low` | sequence | `None` | Lower error bound |
+| `error_x` | sequence | `None` | X error |
+| `stroke` | str / tuple | auto | Bar colour |
+| `thickness` | float | `1.5` | Bar stroke width |
+| `cap_width` | float | `6.0` | Cap width in pixels |
 
 ---
 
 ## When to Use
 
-<!-- AI: Describe scenarios where this feature is the right choice -->
+- Scientific measurements with uncertainty
+- Survey results with confidence intervals
+- Experimental data with error margins
 
 ---
 
 ## Related
 
-- *None yet*
+- [Band Series](band-series.md) -- continuous confidence band
+- [Box Plot](../chart-types/2d/stacked-column.md) -- statistical distribution summary
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

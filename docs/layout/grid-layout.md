@@ -1,117 +1,42 @@
----
+﻿---
 title: "Grid Layout"
 section: "layout"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
 # Grid Layout
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-LayoutType.Grid -- arrange widgets in rows and columns with span support.
-
----
-
-## Installation
-
-### .NET (NuGet)
-
-```bash
-dotnet add package Chartexa.Core
-```
-
-### Python (PyPI)
-
-```bash
-pip install chartexa
-```
+Grid layout arranges charts in a rows-by-columns grid with automatic sizing. Use `subplots()` for the simplest API.
 
 ---
 
 ## Quick Start
 
-### C#
+`python
+from chartexa import subplots
 
-```csharp
-// TODO: Add C# example
-```
+fig = subplots(rows=2, cols=3, width=1800, height=1200)
 
-### Python
+fig[0, 0].line([1, 2, 3], [10, 20, 15])
+fig[0, 1].scatter([1, 2, 3], [5, 15, 10])
+fig[0, 2].column([0, 1, 2], [30, 50, 40])
+fig[1, 0].mountain([1, 2, 3], [20, 10, 25])
+fig[1, 1].candlestick([0, 1, 2], [100, 105, 102], [110, 108, 107], [98, 101, 99], [105, 102, 106])
+fig[1, 2].pie([35, 25, 20, 15, 5])
 
-```python
-# TODO: Add Python example
-```
-
----
-
-## Concepts
-
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
-
----
-
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
-
----
-
-## Configuration
-
-<!-- AI: Describe available options, properties, and settings -->
-
----
-
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
-
----
-
-## When to Use
-
-<!-- AI: Describe scenarios where this feature is the right choice -->
+fig.save("grid.png")
+`
 
 ---
 
 ## Related
 
-- *None yet*
+- [Layout Overview](overview.md)
+- [Absolute Layout](absolute-layout.md)
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

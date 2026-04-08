@@ -1,117 +1,90 @@
----
-title: "Stacked Column Series"
+﻿---
+title: "Stacked Column"
 section: "chart-types/2d"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
-# Stacked Column Series
+# Stacked Column
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-StackedColumnRenderableSeries -- multi-layer stacked column/bar chart.
-
----
-
-## Installation
-
-### .NET (NuGet)
-
-```bash
-dotnet add package Chartexa.Core
-```
-
-### Python (PyPI)
-
-```bash
-pip install chartexa
-```
+The stacked column series renders multiple data layers stacked vertically at each X position. Supports absolute stacking and 100% normalised stacking. The stacked bar variant renders horizontally.
 
 ---
 
 ## Quick Start
 
-### C#
+=== "Python"
 
-```csharp
-// TODO: Add C# example
-```
+    `python
+    import chartexa as cx
 
-### Python
+    x = [0, 1, 2, 3]
+    layers = [
+        [20, 30, 25, 35],  # Layer 1
+        [15, 20, 30, 25],  # Layer 2
+        [10, 15, 10, 20],  # Layer 3
+    ]
 
-```python
-# TODO: Add Python example
-```
+    chart = cx.Chart().stacked_column(
+        x, layers,
+        colors=["#F38BA8", "#89B4FA", "#A6E3A1"],
+        labels=["Product A", "Product B", "Product C"],
+    )
+    chart.save("stacked.png")
+    `
 
----
+=== "C#"
 
-## Concepts
-
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
-
----
-
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
+    `csharp
+    var s = new StackedColumnSeries(x, layers)
+    {
+        Colors = new[] { ChartColor.FromHex("#F38BA8"), ... },
+        Labels = new[] { "Product A", "Product B", "Product C" }
+    };
+    `
 
 ---
 
 ## Configuration
 
-<!-- AI: Describe available options, properties, and settings -->
+| Property | Type | Default | Description |
+|---|---|---|---|
+| `layers` | seq of seq | *required* | Y-values per layer |
+| `colors` | sequence | `None` | Per-layer fill colours |
+| `labels` | sequence | `None` | Per-layer labels |
+| `stroke` | str / tuple | `None` | Outline colour |
+| `bar_width` | float | `0.7` | Bar width fraction |
+| `stacked_100` | bool | `False` | Normalise to 100% |
 
 ---
 
-## Examples
+## Stacked Bar Variant
 
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
+`python
+chart = cx.Chart().stacked_bar(
+    x, layers,
+    colors=["#F38BA8", "#89B4FA", "#A6E3A1"],
+    stacked_100=True,
+)
+`
 
 ---
 
 ## When to Use
 
-<!-- AI: Describe scenarios where this feature is the right choice -->
+- Part-to-whole comparisons across categories
+- Revenue breakdown by product line
+- Survey response distributions
 
 ---
 
 ## Related
 
-- *None yet*
+- [Column Series](column-series.md) -- single-layer columns
+- [Stacked Mountain](stacked-mountain.md) -- continuous stacked areas
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

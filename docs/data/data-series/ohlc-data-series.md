@@ -1,117 +1,48 @@
----
+﻿---
 title: "OHLC Data Series"
 section: "data/data-series"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
 # OHLC Data Series
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-OhlcDataSeries -- Open/High/Low/Close data for financial candlestick and OHLC charts.
+`OhlcDataSeries` stores Open, High, Low, Close financial data. Used by the candlestick series for OHLC chart rendering.
 
 ---
 
-## Installation
+## Usage
 
-### .NET (NuGet)
+=== "Python"
 
-```bash
-dotnet add package Chartexa.Core
-```
+    `python
+    import chartexa as cx
 
-### Python (PyPI)
+    chart = cx.Chart().candlestick(
+        x=[0, 1, 2],
+        open=[100, 105, 102],
+        high=[110, 108, 107],
+        low=[98, 101, 99],
+        close=[105, 102, 106],
+    )
+    # OhlcDataSeries is created internally via DataSeriesFactory
+    `
 
-```bash
-pip install chartexa
-```
+=== "C#"
 
----
-
-## Quick Start
-
-### C#
-
-```csharp
-// TODO: Add C# example
-```
-
-### Python
-
-```python
-# TODO: Add Python example
-```
-
----
-
-## Concepts
-
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
-
----
-
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
-
----
-
-## Configuration
-
-<!-- AI: Describe available options, properties, and settings -->
-
----
-
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
-
----
-
-## When to Use
-
-<!-- AI: Describe scenarios where this feature is the right choice -->
+    `csharp
+    var ds = DataSeriesFactory.CreateOhlcSeries(x, open, high, low, close);
+    `
 
 ---
 
 ## Related
 
-- *None yet*
+- [XY Data Series](xy-data-series.md)
+- [Candlestick Series](../../chart-types/2d/candlestick-series.md)
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

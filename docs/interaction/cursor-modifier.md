@@ -1,117 +1,46 @@
----
-title: "Cursor Modifier"
+﻿---
+title: "Crosshair / Cursor Modifier"
 section: "interaction"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
-# Cursor Modifier
+# Crosshair / Cursor Modifier
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-CursorModifier -- crosshair cursor with real-time coordinate display.
-
----
-
-## Installation
-
-### .NET (NuGet)
-
-```bash
-dotnet add package Chartexa.Core
-```
-
-### Python (PyPI)
-
-```bash
-pip install chartexa
-```
+The crosshair modifier draws horizontal and vertical lines that follow the mouse pointer. Can optionally snap to the nearest data point. Uses `CursorModifier` / `CrosshairModifier` in the .NET engine.
 
 ---
 
 ## Quick Start
 
-### C#
-
-```csharp
-// TODO: Add C# example
-```
-
-### Python
-
-```python
-# TODO: Add Python example
-```
-
----
-
-## Concepts
-
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
-
----
-
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
+`python
+chart = cx.Chart().line(x, y).crosshair()
+chart.save_html("crosshair.html")
+`
 
 ---
 
 ## Configuration
 
-<!-- AI: Describe available options, properties, and settings -->
-
----
-
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
-
----
-
-## When to Use
-
-<!-- AI: Describe scenarios where this feature is the right choice -->
+| Property | Type | Default | Description |
+|---|---|---|---|
+| `snap_to_data` | bool | `False` | Snap crosshair to nearest data point |
+| `show_x_line` | bool | `True` | Show vertical crosshair line |
+| `show_y_line` | bool | `True` | Show horizontal crosshair line |
+| `color` | str / tuple | `None` | Crosshair line colour |
+| `thickness` | float | `1.0` | Line width |
+| `dash_style` | str | `"dash"` | Line dash style |
+| `enabled` | bool | `True` | Enable/disable |
 
 ---
 
 ## Related
 
-- *None yet*
+- [Tooltips](tooltip-modifier.md)
+- [Interaction Overview](overview.md)
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

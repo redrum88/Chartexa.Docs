@@ -1,117 +1,46 @@
----
+﻿---
 title: "Angular Gauge"
 section: "chart-types/gauges-and-widgets"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
 # Angular Gauge
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-AngularGaugeSeries -- circular gauge indicator.
-
----
-
-## Installation
-
-### .NET (NuGet)
-
-```bash
-dotnet add package Chartexa.Core
-```
-
-### Python (PyPI)
-
-```bash
-pip install chartexa
-```
+The angular gauge renders a circular dial with a needle indicator. Suitable for speedometers, pressure gauges, and any single-value display with min/max context. Uses `AngularGaugeSeries` in the .NET engine.
 
 ---
 
 ## Quick Start
 
-### C#
+=== "Python"
 
-```csharp
-// TODO: Add C# example
-```
+    `python
+    from chartexa import Chart, AngularGaugeSeries
+    # Angular gauge configuration via the series class API
+    `
 
-### Python
+=== "C#"
 
-```python
-# TODO: Add Python example
-```
-
----
-
-## Concepts
-
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
-
----
-
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
-
----
-
-## Configuration
-
-<!-- AI: Describe available options, properties, and settings -->
-
----
-
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
-
----
-
-## When to Use
-
-<!-- AI: Describe scenarios where this feature is the right choice -->
+    `csharp
+    var gauge = new AngularGaugeSeries
+    {
+        Value = 72,
+        MinValue = 0,
+        MaxValue = 100
+    };
+    surface.RenderableSeries.Add(gauge);
+    `
 
 ---
 
 ## Related
 
-- *None yet*
+- [Linear Gauge](linear-gauge.md)
+- [Radial Gauge](radial-gauge.md)
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

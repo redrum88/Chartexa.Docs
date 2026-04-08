@@ -1,117 +1,99 @@
----
+﻿---
 title: "Performance Optimization"
 section: "performance"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
 # Performance Optimization
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-General strategies for maximizing Chartexa rendering performance.
+Chartexa is designed for high-performance charting. The .NET engine handles rendering with GPU acceleration (DirectX 12) and optimised data structures. The Python wrapper provides utilities for efficient data transfer and downsampling.
 
 ---
 
-## Installation
+## Key Strategies
 
-### .NET (NuGet)
+### 1. Downsampling
 
-```bash
-dotnet add package Chartexa.Core
-```
+Reduce the number of rendered points while preserving visual shape:
 
-### Python (PyPI)
+`python
+from chartexa import lttb_downsample, minmax_downsample, auto_downsample
 
-```bash
-pip install chartexa
-```
+# LTTB (Largest Triangle Three Buckets) -- best for line charts
+x_ds, y_ds = lttb_downsample(x, y, target_points=5000)
 
----
+# MinMax -- preserves peaks and valleys
+x_ds, y_ds = minmax_downsample(x, y, target_points=5000)
 
-## Quick Start
+# Auto -- selects the best algorithm based on chart type
+x_ds, y_ds = auto_downsample(x, y)
+`
 
-### C#
+### 2. Batch Updates
 
-```csharp
-// TODO: Add C# example
-```
+Defer rendering until all series are added:
 
-### Python
+`python
+with chart.begin_update():
+    for i in range(100):
+        chart.line(x[i], y[i])
+    # Single render at exit
+`
 
-```python
-# TODO: Add Python example
-```
+### 3. Fast Append
 
----
+Use `fast_append_xy()` for efficient data transfer to .NET arrays:
 
-## Concepts
+`python
+from chartexa import fast_append_xy
 
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
+fast_append_xy(data_series, x_numpy_array, y_numpy_array)
+`
 
----
+### 4. FIFO Buffer
 
-## Basic Usage
+For real-time scrolling charts with fixed-size windows:
 
-### C#
+`python
+from chartexa import FifoBuffer
 
-```csharp
-// TODO: Detailed usage example
-```
+buffer = FifoBuffer(capacity=10000)
+buffer.append(x_value, y_value)
+`
 
-### Python
+### 5. NumPy Interop
 
-```python
-# TODO: Detailed usage example
-```
+Use numpy arrays for zero-copy data transfer:
 
----
+`python
+from chartexa import numpy_to_net_array, net_array_to_numpy
 
-## Configuration
-
-<!-- AI: Describe available options, properties, and settings -->
-
----
-
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
+net_arr = numpy_to_net_array(numpy_array)
+numpy_arr = net_array_to_numpy(net_array)
+`
 
 ---
 
-## Performance Notes
+## Performance Guidelines
 
-<!-- AI: Document performance characteristics specific to this feature -->
-
----
-
-## When to Use
-
-<!-- AI: Describe scenarios where this feature is the right choice -->
+| Data Size | Strategy |
+|---|---|
+| < 10,000 points | No optimisation needed |
+| 10,000 -- 100,000 | Consider downsampling |
+| 100,000 -- 1,000,000 | Use LTTB downsampling + batch updates |
+| > 1,000,000 | Use DirectX 12 renderer + LTTB + FIFO buffer |
 
 ---
 
 ## Related
 
-- *None yet*
+- [GPU Acceleration](gpu-acceleration.md)
+- [Large Datasets](large-datasets.md)
+- [Benchmarks](benchmarks.md)
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

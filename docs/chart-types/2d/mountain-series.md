@@ -1,117 +1,78 @@
----
-title: "Mountain (Area) Series"
+﻿---
+title: "Mountain Series"
 section: "chart-types/2d"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
-# Mountain (Area) Series
+# Mountain Series
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-MountainRenderableSeries -- filled area chart with stroke and gradient fill.
-
----
-
-## Installation
-
-### .NET (NuGet)
-
-```bash
-dotnet add package Chartexa.Core
-```
-
-### Python (PyPI)
-
-```bash
-pip install chartexa
-```
+The mountain (area) series renders a filled area between a line and a baseline. Combines a line stroke on top with a solid or gradient fill below. Uses `MountainRenderableSeries` in the .NET engine.
 
 ---
 
 ## Quick Start
 
-### C#
+=== "Python"
 
-```csharp
-// TODO: Add C# example
-```
+    `python
+    import chartexa as cx
 
-### Python
+    chart = cx.Chart().mountain(
+        [0, 1, 2, 3, 4, 5],
+        [10, 25, 18, 30, 22, 28],
+        stroke="#89B4FA",
+        fill="#89B4FA",
+    )
+    chart.save("mountain.png")
+    `
 
-```python
-# TODO: Add Python example
-```
+=== "C#"
 
----
+    `csharp
+    var ds = new XyDataSeries();
+    ds.Append(new double[] { 0, 1, 2, 3, 4, 5 },
+              new double[] { 10, 25, 18, 30, 22, 28 });
 
-## Concepts
-
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
-
----
-
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
+    var rs = new MountainRenderableSeries
+    {
+        DataSeries = ds,
+        Stroke = new ChartColor(137, 180, 250),
+        Fill = new ChartColor(80, 137, 180, 250),  // Semi-transparent
+        StrokeThickness = 1.5
+    };
+    surface.RenderableSeries.Add(rs);
+    `
 
 ---
 
 ## Configuration
 
-<!-- AI: Describe available options, properties, and settings -->
-
----
-
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
+| Property | Type | Default | Description |
+|---|---|---|---|
+| `stroke` | str / tuple | auto | Top-edge line colour |
+| `fill` | str / tuple | auto | Area fill colour |
+| `thickness` | float | `1.5` | Stroke width |
+| `baseline` | float | `0.0` | Y-value where the fill meets the axis |
 
 ---
 
 ## When to Use
 
-<!-- AI: Describe scenarios where this feature is the right choice -->
+- Emphasise the magnitude of values (volume, cumulative totals)
+- Show trends where the area under the curve is meaningful
+- Layered area charts (use stacked mountain for multiple series)
 
 ---
 
 ## Related
 
-- *None yet*
+- [Line Series](line-series.md) -- line without fill
+- [Band Series](band-series.md) -- fill between two boundaries
+- [Stacked Mountain](stacked-mountain.md) -- layered area chart
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

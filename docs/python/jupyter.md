@@ -1,117 +1,168 @@
----
-title: "Jupyter Notebook Support"
+﻿---
+title: "Jupyter Integration"
 section: "python"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
-# Jupyter Notebook Support
+# Jupyter Integration
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-Render Chartexa charts inline in Jupyter notebooks.
-
----
-
-## Installation
-
-### .NET (NuGet)
-
-```bash
-dotnet add package Chartexa.Core
-```
-
-### Python (PyPI)
-
-```bash
-pip install chartexa
-```
+Chartexa integrates with Jupyter Notebook, JupyterLab, VS Code notebooks, and Google Colab. Charts render inline automatically when returned from a cell.
 
 ---
 
 ## Quick Start
 
-### C#
+`python
+import chartexa as cx
 
-```csharp
-// TODO: Add C# example
-```
+# Return a Chart from the last expression -- it renders inline
+cx.Chart().line([1, 2, 3, 4, 5], [10, 30, 20, 40, 25])
+`
 
-### Python
-
-```python
-# TODO: Add Python example
-```
+No `.show()` call needed. Chartexa registers `_repr_html_` and `_repr_png_` methods that IPython uses automatically.
 
 ---
 
-## Concepts
+## How It Works
 
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
+On import, `chartexa` calls `auto_configure()` which:
 
----
+1. Detects the notebook environment (Jupyter, VS Code, Colab, terminal)
+2. Registers MIME type renderers for `text/html` and `image/png`
+3. Loads notebook-specific CSS for dark theme compatibility
 
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
+The detection is transparent -- no manual configuration needed.
 
 ---
 
-## Configuration
+## Environment Detection
 
-<!-- AI: Describe available options, properties, and settings -->
+`python
+from chartexa import detect_environment, is_notebook, is_ipython
 
----
+env = detect_environment()
+# Returns: NotebookEnvironment.JUPYTER | VS_CODE | COLAB | TERMINAL
 
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
+if is_notebook():
+    print("Running in a notebook")
+`
 
 ---
 
-## Performance Notes
+## Explicit Display
 
-<!-- AI: Document performance characteristics specific to this feature -->
+`python
+from chartexa import display_chart
+
+chart = cx.Chart().line([1, 2, 3], [10, 20, 15])
+display_chart(chart)  # Force display mid-cell
+`
 
 ---
 
-## When to Use
+## Interactive Charts in Notebooks
 
-<!-- AI: Describe scenarios where this feature is the right choice -->
+Add interactivity modifiers for zoom, pan, and tooltips in the inline HTML:
+
+`python
+chart = (
+    cx.Chart(width=900, height=400)
+    .line([1, 2, 3, 4, 5], [10, 30, 20, 40, 25], label="Sensor A")
+    .line([1, 2, 3, 4, 5], [15, 25, 35, 20, 30], label="Sensor B")
+    .zoom_pan()
+    .crosshair()
+    .tooltips()
+    .legend()
+)
+
+chart  # Interactive HTML renders inline
+`
+
+---
+
+## Google Colab
+
+Colab requires a one-time setup call:
+
+`python
+import chartexa as cx
+
+cx.setup_colab()  # Installs .NET runtime, configures paths
+
+chart = cx.Chart().line([1, 2, 3], [10, 20, 15])
+chart
+`
+
+### Colab Runtime Info
+
+`python
+from chartexa import detect_colab_runtime, colab_runtime_info
+
+runtime = detect_colab_runtime()  # ColabRuntime.STANDARD | TPU | GPU
+info = colab_runtime_info()       # dict with hardware details
+`
+
+---
+
+## Live Charts (ChartWidget)
+
+For real-time updating charts in notebooks:
+
+`python
+from chartexa import ChartWidget
+
+widget = ChartWidget(width=800, height=400)
+widget.display()
+
+# Update data dynamically
+import time
+for i in range(100):
+    widget.update_line([i], [math.sin(i * 0.1)])
+    time.sleep(0.05)
+`
+
+---
+
+## NotebookLiveChart
+
+For streaming data sources:
+
+`python
+from chartexa import NotebookLiveChart
+
+live = NotebookLiveChart(
+    width=1000, height=400,
+    max_points=500,
+    update_interval_ms=50,
+)
+live.start()
+
+# Push data from another thread or callback
+live.append(x_value, y_value)
+`
+
+---
+
+## Troubleshooting
+
+| Symptom | Fix |
+|---|---|
+| Chart not rendering | Restart kernel after `pip install chartexa` |
+| Blank output in VS Code | Update the Jupyter extension to latest version |
+| Colab import error | Run `cx.setup_colab()` first |
+| Low resolution | Set `width` and `height` on the `Chart` constructor |
 
 ---
 
 ## Related
 
-- *None yet*
+- [Image Export](image-export.md) -- save charts to files
+- [Chart Builder API](chart-builder.md) -- full API reference
+- [Getting Started](getting-started.md) -- Python quickstart
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

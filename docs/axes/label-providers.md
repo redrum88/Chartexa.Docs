@@ -1,117 +1,47 @@
----
+﻿---
 title: "Label Providers"
 section: "axes"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
 # Label Providers
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-Custom label formatting with ILabelProvider and NumericLabelProvider.
+Label providers control how tick values are formatted as text. By default, numeric axes use standard number formatting and date axes use date/time formatting.
 
 ---
 
-## Installation
+## Built-in Formatting
 
-### .NET (NuGet)
+=== "Python"
 
-```bash
-dotnet add package Chartexa.Core
-```
+    `python
+    # Numeric format
+    chart.x_axis(label_format="0.00")       # 2 decimal places
+    chart.x_axis(label_format="#,##0")       # Thousands separator
+    chart.x_axis(label_format="0.0%")       # Percentage
 
-### Python (PyPI)
+    # Date format
+    chart.x_axis(type="datetime", date_format="yyyy-MM-dd")
+    chart.x_axis(type="datetime", date_format="HH:mm:ss")
+    `
 
-```bash
-pip install chartexa
-```
+=== "C#"
 
----
-
-## Quick Start
-
-### C#
-
-```csharp
-// TODO: Add C# example
-```
-
-### Python
-
-```python
-# TODO: Add Python example
-```
-
----
-
-## Concepts
-
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
-
----
-
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
-
----
-
-## Configuration
-
-<!-- AI: Describe available options, properties, and settings -->
-
----
-
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
-
----
-
-## When to Use
-
-<!-- AI: Describe scenarios where this feature is the right choice -->
+    `csharp
+    var axis = new NumericAxis { LabelFormat = "#,##0.00" };
+    var dateAxis = new DateTimeAxis { DateFormat = "dd MMM yyyy" };
+    `
 
 ---
 
 ## Related
 
-- *None yet*
+- [Tick Providers](tick-providers.md)
+- [Axes Overview](overview.md)
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published

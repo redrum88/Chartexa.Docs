@@ -1,117 +1,64 @@
----
+﻿---
 title: "DateTime Axis"
 section: "axes"
-last_updated: "2026-04-08 16:27 UTC"
-status: placeholder
+last_updated: "2026-06-10 14:00 UTC"
+status: published
 ---
 
 # DateTime Axis
 
 ## Summary
 
-**Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
-
-DateTimeAxis -- temporal axis with automatic date/time tick generation.
-
----
-
-## Installation
-
-### .NET (NuGet)
-
-```bash
-dotnet add package Chartexa.Core
-```
-
-### Python (PyPI)
-
-```bash
-pip install chartexa
-```
+The DateTime axis formats tick labels as dates and times. Accepts Unix timestamps, Python `datetime` objects, or numeric epoch values as X data.
 
 ---
 
 ## Quick Start
 
-### C#
+=== "Python"
 
-```csharp
-// TODO: Add C# example
-```
+    `python
+    import chartexa as cx
+    from datetime import datetime, timedelta
 
-### Python
+    base = datetime(2026, 1, 1)
+    x = [(base + timedelta(days=i)).timestamp() for i in range(30)]
+    y = [20 + i * 0.5 for i in range(30)]
 
-```python
-# TODO: Add Python example
-```
+    chart = (
+        cx.Chart()
+        .line(x, y, stroke="#89B4FA")
+        .x_axis(type="datetime", title="Date", date_format="MMM dd")
+        .y_axis(title="Temperature (C)")
+    )
+    chart.save("datetime_axis.png")
+    `
 
----
+=== "C#"
 
-## Concepts
-
-<!-- AI: Explain the key idea behind this feature -->
-<!-- - What it does -->
-<!-- - When to use it -->
-<!-- - Why it exists -->
-
----
-
-## Basic Usage
-
-### C#
-
-```csharp
-// TODO: Detailed usage example
-```
-
-### Python
-
-```python
-# TODO: Detailed usage example
-```
+    `csharp
+    var xAxis = new DateTimeAxis
+    {
+        AxisTitle = "Date",
+        DateFormat = "MMM dd"
+    };
+    `
 
 ---
 
 ## Configuration
 
-<!-- AI: Describe available options, properties, and settings -->
-
----
-
-## Examples
-
-<!-- AI: Add 2-3 real-world examples per scenario below -->
-
-### Example 1
-
-```csharp
-// TODO
-```
-
-### Example 2
-
-```python
-# TODO
-```
-
----
-
-## Performance Notes
-
-<!-- AI: Document performance characteristics specific to this feature -->
-
----
-
-## When to Use
-
-<!-- AI: Describe scenarios where this feature is the right choice -->
+| Property | Type | Default | Description |
+|---|---|---|---|
+| `date_format` | str | `None` | .NET date format string (e.g. `"yyyy-MM-dd"`, `"HH:mm:ss"`) |
 
 ---
 
 ## Related
 
-- *None yet*
+- [Axes Overview](overview.md)
+- [Numeric Axis](numeric-axis.md)
 
 ---
 
-> **Last updated:** 2026-04-08 16:27 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-06-10 14:00 UTC | **Status:** published
