@@ -19,7 +19,8 @@
     "chart-types/2d/scatter-series.md",
     "chart-types/2d/stacked-column.md",
     "chart-types/2d/stacked-mountain.md",
-    "chart-types/2d/waterfall-series.md"
+    "chart-types/2d/waterfall-series.md",
+    "axes/axis-ranging.md"
   ],
   "failed": [],
   "skipped": []
