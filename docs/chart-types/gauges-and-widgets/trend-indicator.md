@@ -1,7 +1,7 @@
 ---
 title: "Trend Indicator"
 section: "chart-types/gauges-and-widgets"
-last_updated: "2026-04-08 12:09 UTC"
+last_updated: "2026-04-08 12:10 UTC"
 status: placeholder
 ---
 
@@ -114,4 +114,4 @@ pip install chartexa
 
 ---
 
-> **Last updated:** 2026-04-08 12:09 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-04-08 12:10 UTC | **Status:** Placeholder -- awaiting AI expansion
