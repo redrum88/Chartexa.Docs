@@ -384,7 +384,7 @@ FastLineRenderableSeries is optimized for GPU rendering and can handle millions 
 - Python integration uses .NET runtime; ensure .NET 10 is installed for best performance.
 
 !!! note
-    Python requires the .NET 10 Runtime to be installed. See [Python Integration](../../python/python-integration.md) for setup instructions.
+    Python requires the .NET 10 Runtime to be installed. 
 
 ---
 
