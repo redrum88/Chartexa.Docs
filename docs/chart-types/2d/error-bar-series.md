@@ -1,7 +1,7 @@
 ---
 title: "Error Bar Series"
 section: "chart-types/2d"
-last_updated: "2026-04-08 09:22 UTC"
+last_updated: "2026-04-08 09:33 UTC"
 status: placeholder
 ---
 
@@ -109,11 +109,9 @@ pip install chartexa
 ---
 
 ## Related
-- [Fast Line Series](./fast-line-series.md)
-- [Scatter Series](./scatter-series.md)
-- [Axis Ranging](../../axes/axis-ranging.md)
-- [XyDataSeries](../../data/xy-data-series.md)
+
+- *None yet*
 
 ---
 
-> **Last updated:** 2026-04-08 09:22 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-04-08 09:33 UTC | **Status:** Placeholder -- awaiting AI expansion

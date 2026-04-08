@@ -1,7 +1,7 @@
 ---
 title: "Digital Signal Series"
 section: "chart-types/2d"
-last_updated: "2026-04-08 09:22 UTC"
+last_updated: "2026-04-08 09:33 UTC"
 status: placeholder
 ---
 
@@ -114,4 +114,4 @@ pip install chartexa
 
 ---
 
-> **Last updated:** 2026-04-08 09:22 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-04-08 09:33 UTC | **Status:** Placeholder -- awaiting AI expansion
