@@ -15,7 +15,8 @@
     "chart-types/2d/heatmap-series.md",
     "chart-types/2d/fast-line-series.md",
     "chart-types/2d/line-series.md",
-    "chart-types/2d/mountain-series.md"
+    "chart-types/2d/mountain-series.md",
+    "chart-types/2d/scatter-series.md"
   ],
   "failed": [],
   "skipped": []
