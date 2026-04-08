@@ -1,7 +1,7 @@
 ---
 title: "GPU Acceleration"
 section: "rendering/directx12"
-last_updated: "2026-04-08 01:32 UTC"
+last_updated: "2026-04-08 01:45 UTC"
 status: placeholder
 ---
 
@@ -114,4 +114,4 @@ pip install chartexa
 
 ---
 
-> **Last updated:** 2026-04-08 01:32 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-04-08 01:45 UTC | **Status:** Placeholder -- awaiting AI expansion
