@@ -6,7 +6,8 @@
     "getting-started/first-chart-python.md",
     "getting-started/installation.md",
     "chart-types/2d/band-series.md",
-    "chart-types/2d/bubble-series.md"
+    "chart-types/2d/bubble-series.md",
+    "chart-types/2d/candlestick-series.md"
   ],
   "failed": [],
   "skipped": []
