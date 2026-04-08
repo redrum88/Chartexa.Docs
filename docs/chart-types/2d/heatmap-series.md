@@ -1,8 +1,8 @@
 ---
 title: "Heatmap Series"
 section: "chart-types/2d"
-last_updated: "2024-06-12 16:22 UTC"
-status: draft
+last_updated: "2026-04-08 09:22 UTC"
+status: placeholder
 ---
 
 # Heatmap Series
@@ -410,4 +410,4 @@ Chartexa's DirectX 12 renderer efficiently handles large heatmaps (up to 10 mill
 
 ---
 
-> **Last updated:** 2024-06-12 16:22 UTC | **Status:** draft
+> **Last updated:** 2026-04-08 09:22 UTC | **Status:** Placeholder -- awaiting AI expansion

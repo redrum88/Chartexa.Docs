@@ -1,17 +1,17 @@
 ---
-title: "Line Series"
+title: "Fast Line Series"
 section: "chart-types/2d"
-last_updated: "2026-04-08 09:22 UTC"
+last_updated: "2026-04-08 09:08 UTC"
 status: placeholder
 ---
 
-# Line Series
+# Fast Line Series
 
 ## Summary
 
 **Chartexa** is a high-performance charting engine built in C# with a DirectX 12 renderer, designed for real-time and large-scale data visualization, with seamless Python integration.
 
-FastLineRenderableSeries -- high-performance line chart with optional Catmull-Rom spline interpolation.
+FastLineRenderableSeries -- multi-layer stacked column/bar chart.
 
 ---
 
@@ -114,4 +114,4 @@ pip install chartexa
 
 ---
 
-> **Last updated:** 2026-04-08 09:22 UTC | **Status:** Placeholder -- awaiting AI expansion
+> **Last updated:** 2026-04-08 09:08 UTC | **Status:** Placeholder -- awaiting AI expansion
