@@ -382,7 +382,7 @@ chart = (
 
 - [Scatter Series](scatter-series.md)
 - [Column Series](column-series.md)
-- [Axis Ranging](../axes/axis-ranging.md)
+- [Axis Ranging](../../axes/axis-ranging.md)
 - [ThemeEngine](../../theming/theme-engine.md)
 
 ---
