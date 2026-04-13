@@ -78,12 +78,29 @@ Full architecture documentation: [System Overview](architecture/system-overview.
 | `Chartexa.Theming` | Token-based theme engine, DPI scaling, palette resolution | Cross-platform |
 | `Chartexa.Layout` | Dashboard layout engine â€” grid/absolute positioning, nested containers | Cross-platform |
 | `Chartexa.Python` | Python interop bridge (pythonnet) | Cross-platform |
+| `Chartexa.Domains.GeoSpatial` | Domain pack for terrain/raster/point-cloud geospatial workflows | Cross-platform |
+| `Chartexa.Domains.Industrial` | Domain pack for industrial telemetry and automation workflows | Cross-platform |
+| `Chartexa.Domains.Finance` | Domain pack for market/tick/OHLCV workflows | Cross-platform |
+| `Chartexa.Domains.Science` | Domain pack for lab/scientific data workflows | Cross-platform |
+| `Chartexa.Domains.Medical` | Domain pack for biosignal/clinical signal workflows | Cross-platform |
+| `Chartexa.Domains.Robotics` | Domain pack for robotic mission and ROS bag workflows | Cross-platform |
+| `Chartexa.Domains.Power` | Domain pack for grid/power quality workflows | Cross-platform |
+| `Chartexa.Domains.Imaging` | Domain pack for thermal and multispectral imaging workflows | Cross-platform |
+| `Chartexa.Domains.Aec` | Domain pack for architecture/engineering/construction scene workflows | Cross-platform |
+| `Chartexa.Domains.Simulation` | Domain pack for digital twin and simulator timeline workflows | Cross-platform |
 
 ### Python (PyPI)
 
 | Package | Description |
 |---|---|
 | `chartexa` | Full Python wrapper â€” chart builder, series, axes, modifiers, theming, image export, Jupyter support |
+
+### Domain Documentation
+
+Use the domains section for up-to-date package naming, architecture, and usage examples:
+
+- [Domain Packages Overview](domains/overview.md)
+- [Domain Usage Patterns](domains/usage-patterns.md)
 
 ---
 

@@ -197,6 +197,10 @@ nav:
         - data/data-sources/automotive/can-bus.md
         - data/data-sources/automotive/obd2.md
 
+  - Domains:
+    - domains/overview.md
+    - domains/usage-patterns.md
+
   - Interaction:
     - interaction/overview.md
     - interaction/zoom-pan-modifier.md

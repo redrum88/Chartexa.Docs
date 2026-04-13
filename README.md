@@ -63,6 +63,7 @@ Chartexa.Docs/
 │   ├── chart-types/           ← 2D, 3D, gauges, instruments
 │   ├── axes/                  ← Axis types and configuration
 │   ├── data/                  ← Data series and data sources
+│   ├── domains/               ← Domain packages and integration patterns
 │   ├── interaction/           ← Zoom, pan, tooltips, hit testing
 │   ├── rendering/             ← DirectX 12, Skia, WPF, Web
 │   ├── theming/               ← Theme system
